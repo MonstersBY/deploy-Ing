@@ -187,6 +187,18 @@ $('.form_validation').on('submit', function (evt) {
     }
   });
 });
+$('.product_validation').on('submit', function (evt) {
+  evt.preventDefault();
+  var $this = $(this);
+  var $inputs = $this.find('.required');
+  $inputs.each(function (index, elem) {
+    if ($(elem).val()) {
+      $(elem).removeClass('invalid');
+    } else {
+      $(elem).addClass('invalid');
+    }
+  });
+});
 
 /***/ }),
 
@@ -306,6 +318,514 @@ $('.search_open-mobile, .search_close-mobile').on('click', function (evt) {
   var $search_wrap = $header.find('.search_wrap-mobile');
   $search_wrap.slideToggle();
 });
+
+/***/ }),
+
+/***/ "./src/js/components/jquery.multi-select.js":
+/*!**************************************************!*\
+  !*** ./src/js/components/jquery.multi-select.js ***!
+  \**************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+
+/*
+* MultiSelect v0.9.12
+* Copyright (c) 2012 Louis Cuny
+*
+* This program is free software. It comes without any warranty, to
+* the extent permitted by applicable law. You can redistribute it
+* and/or modify it under the terms of the Do What The Fuck You Want
+* To Public License, Version 2, as published by Sam Hocevar. See
+* http://sam.zoy.org/wtfpl/COPYING for more details.
+*/
+
+!function ($) {
+  "use strict";
+
+  /* MULTISELECT CLASS DEFINITION
+   * ====================== */
+  var MultiSelect = function MultiSelect(element, options) {
+    this.options = options;
+    this.$element = $(element);
+    this.$container = $('<div/>', {
+      'class': "ms-container"
+    });
+    this.$selectableContainer = $('<div/>', {
+      'class': 'ms-selectable'
+    });
+    this.$selectionContainer = $('<div/>', {
+      'class': 'ms-selection'
+    });
+    this.$selectableUl = $('<ul/>', {
+      'class': "ms-list",
+      'tabindex': '-1'
+    });
+    this.$selectionUl = $('<ul/>', {
+      'class': "ms-list",
+      'tabindex': '-1'
+    });
+    this.scrollTo = 0;
+    this.elemsSelector = 'li:visible:not(.ms-optgroup-label,.ms-optgroup-container,.' + options.disabledClass + ')';
+  };
+  MultiSelect.prototype = {
+    constructor: MultiSelect,
+    init: function init() {
+      var that = this,
+        ms = this.$element;
+      if (ms.next('.ms-container').length === 0) {
+        ms.css({
+          position: 'absolute',
+          left: '-9999px'
+        });
+        ms.attr('id', ms.attr('id') ? ms.attr('id') : Math.ceil(Math.random() * 1000) + 'multiselect');
+        this.$container.attr('id', 'ms-' + ms.attr('id'));
+        this.$container.addClass(that.options.cssClass);
+        ms.find('option').each(function () {
+          that.generateLisFromOption(this);
+        });
+        this.$selectionUl.find('.ms-optgroup-label').hide();
+        if (that.options.selectableHeader) {
+          that.$selectableContainer.append(that.options.selectableHeader);
+        }
+        that.$selectableContainer.append(that.$selectableUl);
+        if (that.options.selectableFooter) {
+          that.$selectableContainer.append(that.options.selectableFooter);
+        }
+        if (that.options.selectionHeader) {
+          that.$selectionContainer.append(that.options.selectionHeader);
+        }
+        that.$selectionContainer.append(that.$selectionUl);
+        if (that.options.selectionFooter) {
+          that.$selectionContainer.append(that.options.selectionFooter);
+        }
+        that.$container.append(that.$selectableContainer);
+        that.$container.append(that.$selectionContainer);
+        ms.after(that.$container);
+        that.activeMouse(that.$selectableUl);
+        that.activeKeyboard(that.$selectableUl);
+        var action = that.options.dblClick ? 'dblclick' : 'click';
+        that.$selectableUl.on(action, '.ms-elem-selectable', function () {
+          that.select($(this).data('ms-value'));
+        });
+        that.$selectionUl.on(action, '.ms-elem-selection', function () {
+          that.deselect($(this).data('ms-value'));
+        });
+        that.activeMouse(that.$selectionUl);
+        that.activeKeyboard(that.$selectionUl);
+        ms.on('focus', function () {
+          that.$selectableUl.focus();
+        });
+      }
+      var selectedValues = ms.find('option:selected').map(function () {
+        return $(this).val();
+      }).get();
+      that.select(selectedValues, 'init');
+      if (typeof that.options.afterInit === 'function') {
+        that.options.afterInit.call(this, this.$container);
+      }
+    },
+    'generateLisFromOption': function generateLisFromOption(option, index, $container) {
+      var that = this,
+        ms = that.$element,
+        attributes = "",
+        $option = $(option);
+      for (var cpt = 0; cpt < option.attributes.length; cpt++) {
+        var attr = option.attributes[cpt];
+        if (attr.name !== 'value' && attr.name !== 'disabled') {
+          attributes += attr.name + '="' + attr.value + '" ';
+        }
+      }
+      var selectableLi = $('<li ' + attributes + '><span>' + that.escapeHTML($option.text()) + '</span></li>'),
+        selectedLi = selectableLi.clone(),
+        value = $option.val(),
+        elementId = that.sanitize(value);
+      selectableLi.data('ms-value', value).addClass('ms-elem-selectable').attr('id', elementId + '-selectable');
+      selectedLi.data('ms-value', value).addClass('ms-elem-selection').attr('id', elementId + '-selection').hide();
+      if ($option.attr('disabled') || ms.attr('disabled')) {
+        selectedLi.addClass(that.options.disabledClass);
+        selectableLi.addClass(that.options.disabledClass);
+      }
+      var $optgroup = $option.parent('optgroup');
+      if ($optgroup.length > 0) {
+        var optgroupLabel = $optgroup.attr('label'),
+          optgroupId = that.sanitize(optgroupLabel),
+          $selectableOptgroup = that.$selectableUl.find('#optgroup-selectable-' + optgroupId),
+          $selectionOptgroup = that.$selectionUl.find('#optgroup-selection-' + optgroupId);
+        if ($selectableOptgroup.length === 0) {
+          var optgroupContainerTpl = '<li class="ms-optgroup-container"></li>',
+            optgroupTpl = '<ul class="ms-optgroup"><li class="ms-optgroup-label"><span>' + optgroupLabel + '</span></li></ul>';
+          $selectableOptgroup = $(optgroupContainerTpl);
+          $selectionOptgroup = $(optgroupContainerTpl);
+          $selectableOptgroup.attr('id', 'optgroup-selectable-' + optgroupId);
+          $selectionOptgroup.attr('id', 'optgroup-selection-' + optgroupId);
+          $selectableOptgroup.append($(optgroupTpl));
+          $selectionOptgroup.append($(optgroupTpl));
+          if (that.options.selectableOptgroup) {
+            $selectableOptgroup.find('.ms-optgroup-label').on('click', function () {
+              var values = $optgroup.children(':not(:selected, :disabled)').map(function () {
+                return $(this).val();
+              }).get();
+              that.select(values);
+            });
+            $selectionOptgroup.find('.ms-optgroup-label').on('click', function () {
+              var values = $optgroup.children(':selected:not(:disabled)').map(function () {
+                return $(this).val();
+              }).get();
+              that.deselect(values);
+            });
+          }
+          that.$selectableUl.append($selectableOptgroup);
+          that.$selectionUl.append($selectionOptgroup);
+        }
+        index = index === undefined ? $selectableOptgroup.find('ul').children().length : index + 1;
+        selectableLi.insertAt(index, $selectableOptgroup.children());
+        selectedLi.insertAt(index, $selectionOptgroup.children());
+      } else {
+        index = index === undefined ? that.$selectableUl.children().length : index;
+        selectableLi.insertAt(index, that.$selectableUl);
+        selectedLi.insertAt(index, that.$selectionUl);
+      }
+    },
+    'addOption': function addOption(options) {
+      var that = this;
+      if (options.value !== undefined && options.value !== null) {
+        options = [options];
+      }
+      $.each(options, function (index, option) {
+        if (option.value !== undefined && option.value !== null && that.$element.find("option[value='" + option.value + "']").length === 0) {
+          var $option = $('<option value="' + option.value + '">' + option.text + '</option>'),
+            $container = option.nested === undefined ? that.$element : $("optgroup[label='" + option.nested + "']"),
+            index = parseInt(typeof option.index === 'undefined' ? $container.children().length : option.index);
+          if (option.optionClass) {
+            $option.addClass(option.optionClass);
+          }
+          if (option.disabled) {
+            $option.prop('disabled', true);
+          }
+          $option.insertAt(index, $container);
+          that.generateLisFromOption($option.get(0), index, option.nested);
+        }
+      });
+    },
+    'escapeHTML': function escapeHTML(text) {
+      return $("<div>").text(text).html();
+    },
+    'activeKeyboard': function activeKeyboard($list) {
+      var that = this;
+      $list.on('focus', function () {
+        $(this).addClass('ms-focus');
+      }).on('blur', function () {
+        $(this).removeClass('ms-focus');
+      }).on('keydown', function (e) {
+        switch (e.which) {
+          case 40:
+          case 38:
+            e.preventDefault();
+            e.stopPropagation();
+            that.moveHighlight($(this), e.which === 38 ? -1 : 1);
+            return;
+          case 37:
+          case 39:
+            e.preventDefault();
+            e.stopPropagation();
+            that.switchList($list);
+            return;
+          case 9:
+            if (that.$element.is('[tabindex]')) {
+              e.preventDefault();
+              var tabindex = parseInt(that.$element.attr('tabindex'), 10);
+              tabindex = e.shiftKey ? tabindex - 1 : tabindex + 1;
+              $('[tabindex="' + tabindex + '"]').focus();
+              return;
+            } else {
+              if (e.shiftKey) {
+                that.$element.trigger('focus');
+              }
+            }
+        }
+        if ($.inArray(e.which, that.options.keySelect) > -1) {
+          e.preventDefault();
+          e.stopPropagation();
+          that.selectHighlighted($list);
+          return;
+        }
+      });
+    },
+    'moveHighlight': function moveHighlight($list, direction) {
+      var $elems = $list.find(this.elemsSelector),
+        $currElem = $elems.filter('.ms-hover'),
+        $nextElem = null,
+        elemHeight = $elems.first().outerHeight(),
+        containerHeight = $list.height(),
+        containerSelector = '#' + this.$container.prop('id');
+      $elems.removeClass('ms-hover');
+      if (direction === 1) {
+        // DOWN
+
+        $nextElem = $currElem.nextAll(this.elemsSelector).first();
+        if ($nextElem.length === 0) {
+          var $optgroupUl = $currElem.parent();
+          if ($optgroupUl.hasClass('ms-optgroup')) {
+            var $optgroupLi = $optgroupUl.parent(),
+              $nextOptgroupLi = $optgroupLi.next(':visible');
+            if ($nextOptgroupLi.length > 0) {
+              $nextElem = $nextOptgroupLi.find(this.elemsSelector).first();
+            } else {
+              $nextElem = $elems.first();
+            }
+          } else {
+            $nextElem = $elems.first();
+          }
+        }
+      } else if (direction === -1) {
+        // UP
+
+        $nextElem = $currElem.prevAll(this.elemsSelector).first();
+        if ($nextElem.length === 0) {
+          var $optgroupUl = $currElem.parent();
+          if ($optgroupUl.hasClass('ms-optgroup')) {
+            var $optgroupLi = $optgroupUl.parent(),
+              $prevOptgroupLi = $optgroupLi.prev(':visible');
+            if ($prevOptgroupLi.length > 0) {
+              $nextElem = $prevOptgroupLi.find(this.elemsSelector).last();
+            } else {
+              $nextElem = $elems.last();
+            }
+          } else {
+            $nextElem = $elems.last();
+          }
+        }
+      }
+      if ($nextElem.length > 0) {
+        $nextElem.addClass('ms-hover');
+        var scrollTo = $list.scrollTop() + $nextElem.position().top - containerHeight / 2 + elemHeight / 2;
+        $list.scrollTop(scrollTo);
+      }
+    },
+    'selectHighlighted': function selectHighlighted($list) {
+      var $elems = $list.find(this.elemsSelector),
+        $highlightedElem = $elems.filter('.ms-hover').first();
+      if ($highlightedElem.length > 0) {
+        if ($list.parent().hasClass('ms-selectable')) {
+          this.select($highlightedElem.data('ms-value'));
+        } else {
+          this.deselect($highlightedElem.data('ms-value'));
+        }
+        $elems.removeClass('ms-hover');
+      }
+    },
+    'switchList': function switchList($list) {
+      $list.blur();
+      this.$container.find(this.elemsSelector).removeClass('ms-hover');
+      if ($list.parent().hasClass('ms-selectable')) {
+        this.$selectionUl.focus();
+      } else {
+        this.$selectableUl.focus();
+      }
+    },
+    'activeMouse': function activeMouse($list) {
+      var that = this;
+      this.$container.on('mouseenter', that.elemsSelector, function () {
+        $(this).parents('.ms-container').find(that.elemsSelector).removeClass('ms-hover');
+        $(this).addClass('ms-hover');
+      });
+      this.$container.on('mouseleave', that.elemsSelector, function () {
+        $(this).parents('.ms-container').find(that.elemsSelector).removeClass('ms-hover');
+      });
+    },
+    'refresh': function refresh() {
+      this.destroy();
+      this.$element.multiSelect(this.options);
+    },
+    'destroy': function destroy() {
+      $("#ms-" + this.$element.attr("id")).remove();
+      this.$element.off('focus');
+      this.$element.css('position', '').css('left', '');
+      this.$element.removeData('multiselect');
+    },
+    'select': function select(value, method) {
+      if (typeof value === 'string') {
+        value = [value];
+      }
+      var that = this,
+        ms = this.$element,
+        msIds = $.map(value, function (val) {
+          return that.sanitize(val);
+        }),
+        selectables = this.$selectableUl.find('#' + msIds.join('-selectable, #') + '-selectable').filter(':not(.' + that.options.disabledClass + ')'),
+        selections = this.$selectionUl.find('#' + msIds.join('-selection, #') + '-selection').filter(':not(.' + that.options.disabledClass + ')'),
+        options = ms.find('option:not(:disabled)').filter(function () {
+          return $.inArray(this.value, value) > -1;
+        });
+      if (method === 'init') {
+        selectables = this.$selectableUl.find('#' + msIds.join('-selectable, #') + '-selectable'), selections = this.$selectionUl.find('#' + msIds.join('-selection, #') + '-selection');
+      }
+      if (selectables.length > 0) {
+        selectables.addClass('ms-selected').hide();
+        selections.addClass('ms-selected').show();
+        options.attr('selected', 'selected');
+        that.$container.find(that.elemsSelector).removeClass('ms-hover');
+        var selectableOptgroups = that.$selectableUl.children('.ms-optgroup-container');
+        if (selectableOptgroups.length > 0) {
+          selectableOptgroups.each(function () {
+            var selectablesLi = $(this).find('.ms-elem-selectable');
+            if (selectablesLi.length === selectablesLi.filter('.ms-selected').length) {
+              $(this).find('.ms-optgroup-label').hide();
+            }
+          });
+          var selectionOptgroups = that.$selectionUl.children('.ms-optgroup-container');
+          selectionOptgroups.each(function () {
+            var selectionsLi = $(this).find('.ms-elem-selection');
+            if (selectionsLi.filter('.ms-selected').length > 0) {
+              $(this).find('.ms-optgroup-label').show();
+            }
+          });
+        } else {
+          if (that.options.keepOrder && method !== 'init') {
+            var selectionLiLast = that.$selectionUl.find('.ms-selected');
+            if (selectionLiLast.length > 1 && selectionLiLast.last().get(0) != selections.get(0)) {
+              selections.insertAfter(selectionLiLast.last());
+            }
+          }
+        }
+        if (method !== 'init') {
+          ms.trigger('change');
+          if (typeof that.options.afterSelect === 'function') {
+            that.options.afterSelect.call(this, value);
+          }
+        }
+      }
+    },
+    'deselect': function deselect(value) {
+      if (typeof value === 'string') {
+        value = [value];
+      }
+      var that = this,
+        ms = this.$element,
+        msIds = $.map(value, function (val) {
+          return that.sanitize(val);
+        }),
+        selectables = this.$selectableUl.find('#' + msIds.join('-selectable, #') + '-selectable'),
+        selections = this.$selectionUl.find('#' + msIds.join('-selection, #') + '-selection').filter('.ms-selected').filter(':not(.' + that.options.disabledClass + ')'),
+        options = ms.find('option').filter(function () {
+          return $.inArray(this.value, value) > -1;
+        });
+      if (selections.length > 0) {
+        selectables.removeClass('ms-selected').show();
+        selections.removeClass('ms-selected').hide();
+        options.removeAttr('selected');
+        that.$container.find(that.elemsSelector).removeClass('ms-hover');
+        var selectableOptgroups = that.$selectableUl.children('.ms-optgroup-container');
+        if (selectableOptgroups.length > 0) {
+          selectableOptgroups.each(function () {
+            var selectablesLi = $(this).find('.ms-elem-selectable');
+            if (selectablesLi.filter(':not(.ms-selected)').length > 0) {
+              $(this).find('.ms-optgroup-label').show();
+            }
+          });
+          var selectionOptgroups = that.$selectionUl.children('.ms-optgroup-container');
+          selectionOptgroups.each(function () {
+            var selectionsLi = $(this).find('.ms-elem-selection');
+            if (selectionsLi.filter('.ms-selected').length === 0) {
+              $(this).find('.ms-optgroup-label').hide();
+            }
+          });
+        }
+        ms.trigger('change');
+        if (typeof that.options.afterDeselect === 'function') {
+          that.options.afterDeselect.call(this, value);
+        }
+      }
+    },
+    'select_all': function select_all() {
+      var ms = this.$element,
+        values = ms.val();
+      ms.find('option:not(":disabled")').attr('selected', 'selected');
+      this.$selectableUl.find('.ms-elem-selectable').filter(':not(.' + this.options.disabledClass + ')').addClass('ms-selected').hide();
+      this.$selectionUl.find('.ms-optgroup-label').show();
+      this.$selectableUl.find('.ms-optgroup-label').hide();
+      this.$selectionUl.find('.ms-elem-selection').filter(':not(.' + this.options.disabledClass + ')').addClass('ms-selected').show();
+      this.$selectionUl.focus();
+      ms.trigger('change');
+      if (typeof this.options.afterSelect === 'function') {
+        var selectedValues = $.grep(ms.val(), function (item) {
+          return $.inArray(item, values) < 0;
+        });
+        this.options.afterSelect.call(this, selectedValues);
+      }
+    },
+    'deselect_all': function deselect_all() {
+      var ms = this.$element,
+        values = ms.val();
+      ms.find('option').removeAttr('selected');
+      this.$selectableUl.find('.ms-elem-selectable').removeClass('ms-selected').show();
+      this.$selectionUl.find('.ms-optgroup-label').hide();
+      this.$selectableUl.find('.ms-optgroup-label').show();
+      this.$selectionUl.find('.ms-elem-selection').removeClass('ms-selected').hide();
+      this.$selectableUl.focus();
+      ms.trigger('change');
+      if (typeof this.options.afterDeselect === 'function') {
+        this.options.afterDeselect.call(this, values);
+      }
+    },
+    sanitize: function sanitize(value) {
+      var hash = 0,
+        i,
+        character;
+      if (value.length == 0) return hash;
+      var ls = 0;
+      for (i = 0, ls = value.length; i < ls; i++) {
+        character = value.charCodeAt(i);
+        hash = (hash << 5) - hash + character;
+        hash |= 0; // Convert to 32bit integer
+      }
+
+      return hash;
+    }
+  };
+
+  /* MULTISELECT PLUGIN DEFINITION
+   * ======================= */
+
+  $.fn.multiSelect = function () {
+    var option = arguments[0],
+      args = arguments;
+    return this.each(function () {
+      var $this = $(this),
+        data = $this.data('multiselect'),
+        options = $.extend({}, $.fn.multiSelect.defaults, $this.data(), (0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__["default"])(option) === 'object' && option);
+      if (!data) {
+        $this.data('multiselect', data = new MultiSelect(this, options));
+      }
+      if (typeof option === 'string') {
+        data[option](args[1]);
+      } else {
+        data.init();
+      }
+    });
+  };
+  $.fn.multiSelect.defaults = {
+    keySelect: [32],
+    selectableOptgroup: false,
+    disabledClass: 'disabled',
+    dblClick: false,
+    keepOrder: false,
+    cssClass: ''
+  };
+  $.fn.multiSelect.Constructor = MultiSelect;
+  $.fn.insertAt = function (index, $parent) {
+    return this.each(function () {
+      if (index === 0) {
+        $parent.prepend(this);
+      } else {
+        $parent.children().eq(index - 1).after(this);
+      }
+    });
+  };
+}(window.jQuery);
 
 /***/ }),
 
@@ -544,6 +1064,261 @@ $('.search_open-mobile, .search_close-mobile').on('click', function (evt) {
 
 /***/ }),
 
+/***/ "./src/js/components/jquery.quicksearch.js":
+/*!*************************************************!*\
+  !*** ./src/js/components/jquery.quicksearch.js ***!
+  \*************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/typeof */ "./node_modules/@babel/runtime/helpers/esm/typeof.js");
+
+(function ($, window, document, undefined) {
+  $.fn.quicksearch = function (target, opt) {
+    var timeout,
+      cache,
+      rowcache,
+      jq_results,
+      val = '',
+      e = this,
+      options = $.extend({
+        delay: 100,
+        selector: null,
+        stripeRows: null,
+        loader: null,
+        noResults: '',
+        matchedResultsCount: 0,
+        bind: 'keyup',
+        onBefore: function onBefore() {
+          return;
+        },
+        onAfter: function onAfter() {
+          return;
+        },
+        show: function show() {
+          this.style.display = "";
+        },
+        hide: function hide() {
+          this.style.display = "none";
+        },
+        prepareQuery: function prepareQuery(val) {
+          return val.toLowerCase().split(' ');
+        },
+        testQuery: function testQuery(query, txt, _row) {
+          for (var i = 0; i < query.length; i += 1) {
+            if (txt.indexOf(query[i]) === -1) {
+              return false;
+            }
+          }
+          return true;
+        }
+      }, opt);
+    this.go = function () {
+      var i = 0,
+        numMatchedRows = 0,
+        noresults = true,
+        query = options.prepareQuery(val),
+        val_empty = val.replace(' ', '').length === 0;
+      for (var i = 0, len = rowcache.length; i < len; i++) {
+        if (val_empty || options.testQuery(query, cache[i], rowcache[i])) {
+          options.show.apply(rowcache[i]);
+          noresults = false;
+          numMatchedRows++;
+        } else {
+          options.hide.apply(rowcache[i]);
+        }
+      }
+      if (noresults) {
+        this.results(false);
+      } else {
+        this.results(true);
+        this.stripe();
+      }
+      this.matchedResultsCount = numMatchedRows;
+      this.loader(false);
+      options.onAfter();
+      return this;
+    };
+
+    /*
+     * External API so that users can perform search programatically.
+     * */
+    this.search = function (submittedVal) {
+      val = submittedVal;
+      e.trigger();
+    };
+
+    /*
+     * External API to get the number of matched results as seen in
+     * https://github.com/ruiz107/quicksearch/commit/f78dc440b42d95ce9caed1d087174dd4359982d6
+     * */
+    this.currentMatchedResults = function () {
+      return this.matchedResultsCount;
+    };
+    this.stripe = function () {
+      if ((0,_babel_runtime_helpers_typeof__WEBPACK_IMPORTED_MODULE_0__["default"])(options.stripeRows) === "object" && options.stripeRows !== null) {
+        var joined = options.stripeRows.join(' ');
+        var stripeRows_length = options.stripeRows.length;
+        jq_results.not(':hidden').each(function (i) {
+          $(this).removeClass(joined).addClass(options.stripeRows[i % stripeRows_length]);
+        });
+      }
+      return this;
+    };
+    this.strip_html = function (input) {
+      var output = input.replace(new RegExp('<[^<]+\>', 'g'), "");
+      output = $.trim(output.toLowerCase());
+      return output;
+    };
+    this.results = function (bool) {
+      if (typeof options.noResults === "string" && options.noResults !== "") {
+        if (bool) {
+          $(options.noResults).hide();
+        } else {
+          $(options.noResults).show();
+        }
+      }
+      return this;
+    };
+    this.loader = function (bool) {
+      if (typeof options.loader === "string" && options.loader !== "") {
+        bool ? $(options.loader).show() : $(options.loader).hide();
+      }
+      return this;
+    };
+    this.cache = function () {
+      jq_results = $(target);
+      if (typeof options.noResults === "string" && options.noResults !== "") {
+        jq_results = jq_results.not(options.noResults);
+      }
+      var t = typeof options.selector === "string" ? jq_results.find(options.selector) : $(target).not(options.noResults);
+      cache = t.map(function () {
+        return e.strip_html(this.innerHTML);
+      });
+      rowcache = jq_results.map(function () {
+        return this;
+      });
+
+      /*
+       * Modified fix for sync-ing "val".
+       * Original fix https://github.com/michaellwest/quicksearch/commit/4ace4008d079298a01f97f885ba8fa956a9703d1
+       * */
+      val = val || this.val() || "";
+      return this.go();
+    };
+    this.trigger = function () {
+      this.loader(true);
+      options.onBefore();
+      window.clearTimeout(timeout);
+      timeout = window.setTimeout(function () {
+        e.go();
+      }, options.delay);
+      return this;
+    };
+    this.cache();
+    this.results(true);
+    this.stripe();
+    this.loader(false);
+    return this.each(function () {
+      /*
+       * Changed from .bind to .on.
+       * */
+      $(this).on(options.bind, function () {
+        val = $(this).val();
+        e.trigger();
+      });
+    });
+  };
+})(jQuery, undefined, document);
+
+/***/ }),
+
+/***/ "./src/js/components/modal_brand.js":
+/*!******************************************!*\
+  !*** ./src/js/components/modal_brand.js ***!
+  \******************************************/
+/***/ (function() {
+
+$('.brand__change, .brand__change-close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.brand__modal');
+  var $container = $modal_box.children('.brand__change-box');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+$('.brand__add, .brand__add-close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.brand__modal');
+  var $container = $modal_box.children('.brand__add-box');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+$('.brand__confirm-close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.brand__modal');
+  var $container = $modal_box.children('.brand__confirm');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+$('.brand__consideration-close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.brand__modal');
+  var $container = $modal_box.children('.brand__consideration');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+function confirm(check) {
+  var $modal_box = $('.brand__modal');
+  var $container = check ? $modal_box.children('.brand__change-box') : $modal_box.children('.brand__add-box');
+  $container.slideToggle();
+  var $confirm = $modal_box.children('.brand__confirm');
+  $confirm.slideToggle();
+}
+function consideration() {
+  var $modal_box = $('.brand__modal');
+  var $confirm = $modal_box.children('.brand__confirm');
+  $confirm.slideToggle();
+  var $consideration = $modal_box.children('.brand__consideration');
+  $consideration.slideToggle();
+}
+$('.form_next').on('submit', function (evt) {
+  var $this = $(this);
+  var $inputs = $this.find('.required');
+  evt.preventDefault();
+  $inputs.each(function (index, elem) {
+    if ($(elem).val()) {
+      $(elem).removeClass('invalid');
+      confirm($this.parent('.brand__change-box').length);
+    } else {
+      $(elem).addClass('invalid');
+    }
+  });
+});
+$('.form_confirm').on('submit', function (evt) {
+  evt.preventDefault();
+  var $this = $(this);
+  var $inputs = $this.find('.required');
+  $inputs.each(function (index, elem) {
+    if ($(elem).val()) {
+      $(elem).removeClass('invalid');
+      consideration();
+    } else {
+      $(elem).addClass('invalid');
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./src/js/components/modal_experts.js":
 /*!********************************************!*\
   !*** ./src/js/components/modal_experts.js ***!
@@ -554,9 +1329,55 @@ $('.company-experts__add, .company-experts__close').on('click', function (evt) {
   evt.preventDefault();
   $('main').toggleClass('modal');
   $('html').toggleClass('modal');
-  $('.company-experts__modal').toggleClass('active');
-  $('.company-experts__modal-container').slideToggle();
+  var $modal_box = $('.company-experts__modal');
+  var $container = $modal_box.children('.modal-box__container');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
 });
+
+/***/ }),
+
+/***/ "./src/js/components/multi-select.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/multi-select.js ***!
+  \*******************************************/
+/***/ (function() {
+
+// $('.multi-select').multiSelect({
+// 	selectableHeader: "<input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",
+// 	selectionHeader: "<input type='text' class='form-control search-input' autocomplete='off' placeholder='search...'>",
+// 	afterInit: function (ms) {
+// 		var that = this,
+// 			$selectableSearch = that.$selectableUl.prev(),
+// 			$selectionSearch = that.$selectionUl.prev(),
+// 			selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+// 			selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+// 		that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+// 			.on('keydown', function (e) {
+// 				if (e.which === 40) {
+// 					that.$selectableUl.focus();
+// 					return false;
+// 				}
+// 			});
+
+// 		that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+// 			.on('keydown', function (e) {
+// 				if (e.which == 40) {
+// 					that.$selectionUl.focus();
+// 					return false;
+// 				}
+// 			});
+// 	},
+// 	afterSelect: function () {
+// 		this.qs1.cache();
+// 		this.qs2.cache();
+// 	},
+// 	afterDeselect: function () {
+// 		this.qs1.cache();
+// 		this.qs2.cache();
+// 	}
+// });
 
 /***/ }),
 
@@ -673,6 +1494,44 @@ if (document.querySelector('[data-social]')) {
     });
   });
 }
+
+/***/ }),
+
+/***/ "./src/js/components/swiper_brand.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/swiper_brand.js ***!
+  \*******************************************/
+/***/ (function() {
+
+var swiper_brand = new Swiper('.swiper_brand', {
+  modules: [Navigation, Pagination, Grid],
+  slidesPerView: 2,
+  slidesPerGroup: 2,
+  speed: 1000,
+  grid: {
+    rows: 3,
+    fill: 'row'
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction"
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
+      grid: {
+        rows: 2,
+        fill: 'row'
+      },
+      speed: 1500
+    }
+  }
+});
 
 /***/ }),
 
@@ -918,6 +1777,32 @@ var swiper_grid = new Swiper('.swiper_products-category', {
 
 /***/ }),
 
+/***/ "./src/js/components/swiper_provider_orders.js":
+/*!*****************************************************!*\
+  !*** ./src/js/components/swiper_provider_orders.js ***!
+  \*****************************************************/
+/***/ (function() {
+
+var swiper_provider_orders = new Swiper('.swiper_provider_orders', {
+  modules: [Navigation, Pagination, Grid],
+  speed: 1000,
+  grid: {
+    rows: 3,
+    fill: 'column'
+  },
+  spaceBetween: 20,
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction"
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  }
+});
+
+/***/ }),
+
 /***/ "./src/js/components/swiper_sample_request.js":
 /*!****************************************************!*\
   !*** ./src/js/components/swiper_sample_request.js ***!
@@ -1063,8 +1948,6 @@ var $switcher_btns = $('.switcher__btn');
 var $switcher__containers = $('.switcher__container');
 window.switcherContainerHeight = function () {
   $('.switcher__container').each(function (index, elem) {
-    console.log($(elem).find('.switcher__content.active').outerHeight());
-    console.log($(elem).find('.switcher__content.active').innerHeight());
     var number = 1920 / window.outerWidth;
     if (window.outerWidth <= 768) number = 375 / window.outerWidth;
     var switcher_content_height = $(elem).find('.switcher__content.active').outerHeight() * number;
@@ -1130,7 +2013,31 @@ document.querySelectorAll('.drop-zone__input').forEach(function (inputElement) {
     dropZoneElement.classList.remove('drop-zone--over');
   });
 });
-function updateProgress(dropZoneElement, files) {
+document.querySelectorAll('.photo__zone-input').forEach(function (inputElement) {
+  var dropZoneElement = inputElement.closest('.photo__zone');
+  dropZoneElement.addEventListener('click', function (e) {
+    inputElement.click();
+  });
+  var validImageTypes = ['image/jpeg', 'image/png'];
+  inputElement.addEventListener('change', function (e) {
+    var fileType = inputElement.files[0]["type"];
+    if (inputElement.files.length && validImageTypes.includes(fileType)) {
+      addPhoto(dropZoneElement, inputElement.files);
+    }
+  });
+  dropZoneElement.addEventListener('dragover', function (e) {
+    e.preventDefault();
+  });
+  dropZoneElement.addEventListener('drop', function (e) {
+    e.preventDefault();
+    var fileType = e.dataTransfer.files[0]["type"];
+    if (e.dataTransfer.files.length && validImageTypes.includes(fileType)) {
+      inputElement.files = e.dataTransfer.files;
+      addPhoto(dropZoneElement, inputElement.files);
+    }
+  });
+});
+function addPhoto(dropZoneElement, files) {
   var progressElements = dropZoneElement.nextElementSibling;
 
   // First time - remove the prompt
@@ -1141,38 +2048,44 @@ function updateProgress(dropZoneElement, files) {
   progressElements.classList.add('progress_elements');
   dropZoneElement.after(progressElements);
   var progressElement = document.createElement('div');
-  progressElement.classList.add('file__progress');
-  var fileNameElement = document.createElement('div');
-  fileNameElement.classList.add('file__name');
-  fileNameElement.innerHTML = files[0].name;
-  var fileWeightElement = document.createElement('div');
-  fileWeightElement.classList.add('file__weight');
-  fileWeightElement.innerHTML = Math.trunc(files[0].size / 1024) + ' kb';
-  var fileIconElement = document.createElement('div');
-  fileIconElement.classList.add('file__icon');
-  progressElement.append(fileNameElement, fileWeightElement, fileIconElement);
+  progressElement.classList.add('photo__show');
+  var deleteElement = document.createElement('div');
+  deleteElement.classList.add('photo__delete');
+  var mainElement = document.createElement('div');
+  mainElement.classList.add('photo__main');
+  mainElement.innerText = 'главная';
+  var fileImgElement = document.createElement('img');
+  fileImgElement.src = URL.createObjectURL(files[0]);
+  progressElement.append(fileImgElement, mainElement, deleteElement);
   progressElements.appendChild(progressElement);
+  deleteElement.addEventListener('click', function () {
+    progressElements.remove();
+  });
+}
+function updateProgress(dropZoneElement, files) {
+  var progressElements = dropZoneElement.nextElementSibling;
 
-  // files.forEach((elem) => {
-  // 	let progressElement = document.createElement('div');
-  // 	progressElement.classList.add('file__progress');
-
-  // 	let fileNameElement = document.createElement('div');
-  // 	fileNameElement.classList.add('file__name');
-  // 	fileNameElement.innerHTML = elem.name;
-
-  // 	let fileWeightElement = document.createElement('div');
-  // 	fileWeightElement.classList.add('file__weight');
-  // 	fileWeightElement.innerHTML = Math.trunc(elem.size / 1024) + ' kb';
-
-  // 	let fileIconElement = document.createElement('div');
-  // 	fileIconElement.classList.add('file__icon');
-
-  // 	progressElement.append(fileNameElement, fileWeightElement, fileIconElement);
-  // 	progressElements.appendChild(progressElement);
-
-  // });
-
+  // First time - remove the prompt
+  if (progressElements) {
+    progressElements.remove();
+  }
+  progressElements = document.createElement('div');
+  progressElements.classList.add('progress_elements');
+  dropZoneElement.after(progressElements);
+  Array.from(files).forEach(function (elem) {
+    var progressElement = document.createElement('div');
+    progressElement.classList.add('file__progress');
+    var fileNameElement = document.createElement('div');
+    fileNameElement.classList.add('file__name');
+    fileNameElement.innerHTML = elem.name;
+    var fileWeightElement = document.createElement('div');
+    fileWeightElement.classList.add('file__weight');
+    fileWeightElement.innerHTML = Math.trunc(elem.size / 1024) + ' kb';
+    var fileIconElement = document.createElement('div');
+    fileIconElement.classList.add('file__icon');
+    progressElement.append(fileNameElement, fileWeightElement, fileIconElement);
+    progressElements.appendChild(progressElement);
+  });
   switcherContainerHeight();
 }
 $('.section_messages .switcher__btn').on('click', function (evt) {
@@ -1436,50 +2349,66 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_scrollToAnchor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/scrollToAnchor */ "./src/js/modules/scrollToAnchor.js");
 /* harmony import */ var _components_jquery_nice_select__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/jquery.nice-select */ "./src/js/components/jquery.nice-select.js");
 /* harmony import */ var _components_jquery_nice_select__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_components_jquery_nice_select__WEBPACK_IMPORTED_MODULE_9__);
-/* harmony import */ var _components_search_header__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/search-header */ "./src/js/components/search-header.js");
-/* harmony import */ var _components_search_header__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_components_search_header__WEBPACK_IMPORTED_MODULE_10__);
-/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/footer */ "./src/js/components/footer.js");
-/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_components_footer__WEBPACK_IMPORTED_MODULE_11__);
-/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/swiper_materials */ "./src/js/components/swiper_materials.js");
-/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_materials__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/swiper_solutions */ "./src/js/components/swiper_solutions.js");
-/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_solutions__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/swiper_vendors */ "./src/js/components/swiper_vendors.js");
-/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_vendors__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/swiper_news */ "./src/js/components/swiper_news.js");
-/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_news__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/swiper_my_orders */ "./src/js/components/swiper_my_orders.js");
-/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/swiper_products_category */ "./src/js/components/swiper_products_category.js");
-/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_products_category__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/swiper_grid */ "./src/js/components/swiper_grid.js");
-/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_grid__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/navigation */ "./src/js/components/navigation.js");
-/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_components_navigation__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/switcher */ "./src/js/components/switcher.js");
-/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_components_switcher__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/displaying */ "./src/js/components/displaying.js");
-/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_components_displaying__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/components/dropdown.js");
-/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_components_dropdown__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/forms */ "./src/js/components/forms.js");
-/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_components_forms__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/cabinet */ "./src/js/components/cabinet.js");
-/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_components_cabinet__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/tags */ "./src/js/components/tags.js");
-/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_components_tags__WEBPACK_IMPORTED_MODULE_25__);
-/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/search */ "./src/js/components/search.js");
-/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_components_search__WEBPACK_IMPORTED_MODULE_26__);
-/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/filter_modal */ "./src/js/components/filter_modal.js");
-/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_components_filter_modal__WEBPACK_IMPORTED_MODULE_27__);
-/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/swiper_experts */ "./src/js/components/swiper_experts.js");
-/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_experts__WEBPACK_IMPORTED_MODULE_28__);
-/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/header_mobile */ "./src/js/components/header_mobile.js");
-/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_components_header_mobile__WEBPACK_IMPORTED_MODULE_29__);
-/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/modal_experts */ "./src/js/components/modal_experts.js");
-/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(_components_modal_experts__WEBPACK_IMPORTED_MODULE_30__);
-/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/swiper_sample_request */ "./src/js/components/swiper_sample_request.js");
-/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var _components_jquery_quicksearch__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./components/jquery.quicksearch */ "./src/js/components/jquery.quicksearch.js");
+/* harmony import */ var _components_jquery_multi_select__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/jquery.multi-select */ "./src/js/components/jquery.multi-select.js");
+/* harmony import */ var _components_search_header__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/search-header */ "./src/js/components/search-header.js");
+/* harmony import */ var _components_search_header__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_components_search_header__WEBPACK_IMPORTED_MODULE_12__);
+/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/footer */ "./src/js/components/footer.js");
+/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_components_footer__WEBPACK_IMPORTED_MODULE_13__);
+/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/swiper_materials */ "./src/js/components/swiper_materials.js");
+/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_materials__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/swiper_solutions */ "./src/js/components/swiper_solutions.js");
+/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_solutions__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/swiper_vendors */ "./src/js/components/swiper_vendors.js");
+/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_vendors__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/swiper_news */ "./src/js/components/swiper_news.js");
+/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_news__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/swiper_my_orders */ "./src/js/components/swiper_my_orders.js");
+/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/swiper_products_category */ "./src/js/components/swiper_products_category.js");
+/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_products_category__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/swiper_grid */ "./src/js/components/swiper_grid.js");
+/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_grid__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/navigation */ "./src/js/components/navigation.js");
+/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_components_navigation__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/switcher */ "./src/js/components/switcher.js");
+/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_components_switcher__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/displaying */ "./src/js/components/displaying.js");
+/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_components_displaying__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/components/dropdown.js");
+/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_components_dropdown__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/forms */ "./src/js/components/forms.js");
+/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_components_forms__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/cabinet */ "./src/js/components/cabinet.js");
+/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_components_cabinet__WEBPACK_IMPORTED_MODULE_26__);
+/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/tags */ "./src/js/components/tags.js");
+/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_components_tags__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/search */ "./src/js/components/search.js");
+/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_components_search__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/filter_modal */ "./src/js/components/filter_modal.js");
+/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_components_filter_modal__WEBPACK_IMPORTED_MODULE_29__);
+/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/swiper_experts */ "./src/js/components/swiper_experts.js");
+/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_experts__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/header_mobile */ "./src/js/components/header_mobile.js");
+/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_components_header_mobile__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/modal_experts */ "./src/js/components/modal_experts.js");
+/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(_components_modal_experts__WEBPACK_IMPORTED_MODULE_32__);
+/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/swiper_sample_request */ "./src/js/components/swiper_sample_request.js");
+/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_33__);
+/* harmony import */ var _components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/swiper_provider_orders */ "./src/js/components/swiper_provider_orders.js");
+/* harmony import */ var _components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_34__);
+/* harmony import */ var _components_swiper_brand__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/swiper_brand */ "./src/js/components/swiper_brand.js");
+/* harmony import */ var _components_swiper_brand__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_brand__WEBPACK_IMPORTED_MODULE_35__);
+/* harmony import */ var _components_modal_brand__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/modal_brand */ "./src/js/components/modal_brand.js");
+/* harmony import */ var _components_modal_brand__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(_components_modal_brand__WEBPACK_IMPORTED_MODULE_36__);
+/* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/multi-select */ "./src/js/components/multi-select.js");
+/* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(_components_multi_select__WEBPACK_IMPORTED_MODULE_37__);
+
+
+
+
+
+
 
 
 
