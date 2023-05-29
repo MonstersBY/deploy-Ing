@@ -1412,6 +1412,48 @@ $('.company-experts__add, .company-experts__close').on('click', function (evt) {
 
 /***/ }),
 
+/***/ "./src/js/components/modal_product_reviews.js":
+/*!****************************************************!*\
+  !*** ./src/js/components/modal_product_reviews.js ***!
+  \****************************************************/
+/***/ (function() {
+
+$('.product_reviews__answer, .product_reviews__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.product_reviews__modal');
+  var $container = $modal_box.children('.modal-box__container');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+  if ($modal_box.hasClass('active')) {
+    var $this = $(this);
+    var $newBox = $('.product_reviews__modal-item');
+    $newBox.empty();
+    var $column = $this.parent('.product_reviews__column');
+    var _$container = $column.parent('.product_reviews__container');
+    var $item = _$container.parent('.product_reviews__item');
+    firstElem = document.createElement('div');
+    firstElem.classList.add('first_elements');
+    _$container.children('.product_reviews__title').clone().appendTo(firstElem);
+    _$container.children('.product_reviews__vendor-code').clone().appendTo(firstElem);
+    $column.children('.product_reviews__info').clone().appendTo(firstElem);
+    secondElem = document.createElement('div');
+    span = document.createElement('span');
+    span.innerText = 'Отзыв:';
+    secondElem.classList.add('second_elements');
+    secondElem.append(span);
+    _$container.children('.product_reviews__text').clone().appendTo(secondElem);
+    _$container.children('.product_reviews__vendor-code').clone().appendTo(secondElem);
+    $column.children('.product_reviews__info').clone().appendTo(secondElem);
+    $item.children('.product_reviews__img').clone().appendTo($newBox);
+    $newBox.append(firstElem, secondElem);
+    console.log(123);
+  }
+});
+
+/***/ }),
+
 /***/ "./src/js/components/multi-select.js":
 /*!*******************************************!*\
   !*** ./src/js/components/multi-select.js ***!
@@ -1809,6 +1851,32 @@ var swiper_news = new Swiper('.swiper_news', {
       spaceBetween: SLIDES_GAP / CONTAINER_WIDTH * 100 + '%',
       speed: 1000
     }
+  }
+});
+
+/***/ }),
+
+/***/ "./src/js/components/swiper_product_cards.js":
+/*!***************************************************!*\
+  !*** ./src/js/components/swiper_product_cards.js ***!
+  \***************************************************/
+/***/ (function() {
+
+var swiper_product_cards = new Swiper('.swiper_product_cards', {
+  modules: [Navigation, Pagination, Grid],
+  speed: 1000,
+  grid: {
+    rows: 4,
+    fill: 'column'
+  },
+  spaceBetween: 20,
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction"
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
   }
 });
 
@@ -2480,6 +2548,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(_components_multi_select__WEBPACK_IMPORTED_MODULE_37__);
 /* harmony import */ var _components_choose_tag__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/choose-tag */ "./src/js/components/choose-tag.js");
 /* harmony import */ var _components_choose_tag__WEBPACK_IMPORTED_MODULE_38___default = /*#__PURE__*/__webpack_require__.n(_components_choose_tag__WEBPACK_IMPORTED_MODULE_38__);
+/* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/swiper_product_cards */ "./src/js/components/swiper_product_cards.js");
+/* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_39___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_39__);
+/* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/modal_product_reviews */ "./src/js/components/modal_product_reviews.js");
+/* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_40___default = /*#__PURE__*/__webpack_require__.n(_components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_40__);
+
+
 
 
 

@@ -6,11 +6,11 @@
 		<meta name="viewport" content="width=device-width">
 		<meta property="og:type" content="website">
 		<meta property="og:locale" content="ru_RU">
-		<meta property="og:title" content="Ingredients | Мои сообщения">
+		<meta property="og:title" content="Ingredients | Отзывы по товару">
 		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Ingredients | Мои сообщения">
-		<title>Ingredients | Мои сообщения</title>
-		<link rel="stylesheet" href="./css/main.css?v=1685374681528">
+		<meta name="twitter:title" content="Ingredients | Отзывы по товару">
+		<title>Ingredients | Отзывы по товару</title>
+		<link rel="stylesheet" href="./css/main.css?v=1685374682815">
 	</head>
 	<body>
 		<div class="header-blur"></div>
@@ -401,7 +401,8 @@
 			</div>
 		</header>
 		<main>
-			<section class="section cabinet section_messages">
+			<section class="section cabinet product_reviews switcher">
+				<div class="lines right"><img src="images/lines.svg" alt="lines.svg"></div>
 				<div class="container">
 					<div class="sidebar gradient_border">
 						<div class="sidebar__top">
@@ -412,83 +413,196 @@
 						<div class="sidebar__items">
 							<div class="item"><a class="item__btn item__drop_btn" href="#">
 									<div class="item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill="none" d="M12.1596 10.87C12.0596 10.86 11.9396 10.86 11.8296 10.87C9.44957 10.79 7.55957 8.84 7.55957 6.44C7.55957 3.99 9.53957 2 11.9996 2C14.4496 2 16.4396 3.99 16.4396 6.44C16.4296 8.84 14.5396 10.79 12.1596 10.87Z" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill="none" d="M7.15973 14.56C4.73973 16.18 4.73973 18.82 7.15973 20.43C9.90973 22.27 14.4197 22.27 17.1697 20.43C19.5897 18.81 19.5897 16.17 17.1697 14.56C14.4297 12.73 9.91973 12.73 7.15973 14.56Z" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-									</div>
-									<div class="item__name">Профиль</div></a>
-								<div class="item__drop">
-									<div class="item__list"><a href="#">Личные данные</a><a href="#">Мои заказы</a><a href="#">Профиль 3</a><a href="#">Профиль 4</a></div>
-								</div>
-							</div>
-							<div class="item"><a class="item__btn active" href="#">
-									<div class="item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill="none" d="M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z" stroke="#7C9DA8" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill="none" d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9" stroke="#7C9DA8" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-									</div>
-									<div class="item__name">Сообщения</div></a></div>
-							<div class="item"><a class="item__btn" href="#">
-									<div class="item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill="none" d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill="none" d="M22 22L20 20" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-
-									</div>
-									<div class="item__name">Сохраненный поиск</div></a></div>
-							<div class="item"><a class="item__btn item__drop_btn" href="#">
-									<div class="item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill="none" d="M3.16992 7.43994L11.9999 12.5499L20.7699 7.46994" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path fill="none" d="M12 21.61V12.54" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path fill="none" d="M9.92965 2.47979L4.58965 5.43979C3.37965 6.10979 2.38965 7.78979 2.38965 9.16979V14.8198C2.38965 16.1998 3.37965 17.8798 4.58965 18.5498L9.92965 21.5198C11.0696 22.1498 12.9396 22.1498 14.0796 21.5198L19.4196 18.5498C20.6296 17.8798 21.6196 16.1998 21.6196 14.8198V9.16979C21.6196 7.78979 20.6296 6.10979 19.4196 5.43979L14.0796 2.46979C12.9296 1.83979 11.0696 1.83979 9.92965 2.47979Z" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
 									</div>
-									<div class="item__name">Закупки</div></a>
+									<div class="item__name">Товары</div></a>
 								<div class="item__drop">
-									<div class="item__list"><a href="#">Закупки 1</a><a href="#">Закупки 2</a><a href="#">Закупки 3</a><a href="#">Закупки 4</a></div>
+									<div class="item__list"><a href="#">Товары</a><a href="#">Заказы</a><a href="#">Отзывы и вопросы</a><a href="#">Бренды</a></div>
+								</div>
+							</div>
+							<div class="item"><a class="item__btn item__drop_btn active" href="#">
+									<div class="item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M9.15957 10.87C9.05957 10.86 8.93957 10.86 8.82957 10.87C6.44957 10.79 4.55957 8.84 4.55957 6.44C4.55957 3.99 6.53957 2 8.99957 2C11.4496 2 13.4396 3.99 13.4396 6.44C13.4296 8.84 11.5396 10.79 9.15957 10.87Z" fill="none" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M16.4103 4C18.3503 4 19.9103 5.57 19.9103 7.5C19.9103 9.39 18.4103 10.93 16.5403 11C16.4603 10.99 16.3703 10.99 16.2803 11" fill="none" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.15973 14.56C1.73973 16.18 1.73973 18.82 4.15973 20.43C6.90973 22.27 11.4197 22.27 14.1697 20.43C16.5897 18.81 16.5897 16.17 14.1697 14.56C11.4297 12.73 6.91973 12.73 4.15973 14.56Z" fill="none" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M18.3398 20C19.0598 19.85 19.7398 19.56 20.2998 19.13C21.8598 17.96 21.8598 16.03 20.2998 14.86C19.7498 14.44 19.0798 14.16 18.3698 14" fill="none" stroke="#7C9DA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+									</div>
+									<div class="item__name">Личный кабинет</div></a>
+								<div class="item__drop" style="display: block">
+									<div class="item__list"><a class="active" href="#">Личные данные</a><a href="#">Личный кабинет 1</a><a href="#">Личный кабинет 1</a><a href="#">Личный кабинет 1</a></div>
+								</div>
+							</div>
+							<div class="item"><a class="item__btn item__drop_btn" href="#">
+									<div class="item__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill="none" d="M17 20.5H7C4 20.5 2 19 2 15.5V8.5C2 5 4 3.5 7 3.5H17C20 3.5 22 5 22 8.5V15.5C22 19 20 20.5 17 20.5Z" stroke="#7C9DA8" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path fill="none" d="M17 9L13.87 11.5C12.84 12.32 11.15 12.32 10.12 11.5L7 9" stroke="#7C9DA8" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+									</div>
+									<div class="item__name">Запросы</div></a>
+								<div class="item__drop">
+									<div class="item__list"><a href="#">Запросы 1</a><a href="#">Запросы 2</a><a href="#">Запросы 3</a><a href="#">Запросы 4</a></div>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="cabinet__content">
-						<div class="section__title">Сообщения</div>
-						<form class="search cabinet__search">
-							<label><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-	<path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#BBCBD0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-	<path d="M22 22L20 20" stroke="#BBCBD0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-								<input type="text" placeholder="Поиск сообщения">
-							</label>
-							<button type="submit"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-	<path d="M15 1L1 15M15 1V14M15 1H2" stroke="white" stroke-width="2"/>
-</svg>
-							</button>
-						</form>
+						<div class="section__title">Отзывы по товару</div>
 						<div class="switcher__control">
-							<button class="btn switcher__btn all_messages active" type="button">Все</button>
-							<button class="btn switcher__btn" type="button">Непрочитанные</button>
+							<button class="btn switcher__btn active" type="button">Отзывы без ответов <span>(5)</span></button>
+							<button class="btn switcher__btn" type="button">Архив <span>(10)</span></button>
 						</div>
-						<div class="messages"><a class="message gradient_border" href="#">
-								<div class="message__img"><img src="images/cabinet/message_img.jpg" alt="message_img"></div>
-								<div class="message__inner">
-									<div class="message__top"><span class="message__author">Викторов Александр</span><span class="message__text">Здравствуйте! Разнообразный и богатый опыт начало повседневной работы по формированию позиции влечет за собой...</span></div>
-									<div class="message__bottom"><span>Милорада</span><span>Логист</span><span class="desktop">13 февраля, 2023 в 12:30</span><span class="mobile">13.02.23 в 12:30</span></div>
-								</div></a><a class="message gradient_border unread" href="#">
-								<div class="message__img"><img src="images/cabinet/message_img.jpg" alt="message_img"></div>
-								<div class="message__inner">
-									<div class="message__top"><span class="message__author">Викторов Александр</span><span class="message__text">Здравствуйте! Разнообразный и богатый опыт начало повседневной работы по формированию позиции влечет за собой...</span></div>
-									<div class="message__bottom"><span>Милорада</span><span>Логист</span><span class="desktop">13 февраля, 2023 в 12:30</span><span class="mobile">13.02.23 в 12:30</span>
-										<div class="message__passed">5 м</div>
+						<div class="switcher__container">
+							<div class="switcher__content active">
+								<div class="product_reviews__item gradient_border">
+									<div class="product_reviews__img"><img src="images/product_creation/card01.jpg" alt="profile_img"></div>
+									<div class="product_reviews__container">
+										<div class="product_reviews__title">Аскорбил пальмитат</div>
+										<div class="product_reviews__text">Пришло быстро, описание соответствует действительности Пришло быстро, описание соответствует действительности..Пришло быстро, описание соответствует действительности Пришло быстро, описание</div>
+										<div class="product_reviews__vendor-code"><span>Артикул:</span> 12343465</div>
+										<div class="product_reviews__column">
+											<div class="product_reviews__info">
+												<div class="product_reviews__rating">
+													<div class="product_reviews__stars">
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star"></label>
+													</div>
+												</div>
+												<div class="product_reviews__date">09.01.23</div>
+											</div>
+											<div class="product_reviews__answer underline">Ответить</div>
+										</div>
 									</div>
-								</div></a><a class="message gradient_border" href="#">
-								<div class="message__img"><img src="images/cabinet/message_img.jpg" alt="message_img"></div>
-								<div class="message__inner">
-									<div class="message__top"><span class="message__author">Викторов Александр</span><span class="message__text">Здравствуйте! Разнообразный и богатый опыт начало повседневной работы по формированию позиции влечет за собой...</span></div>
-									<div class="message__bottom"><span>Милорада</span><span>Логист</span><span class="desktop">13 февраля, 2023 в 12:30</span><span class="mobile">13.02.23 в 12:30</span></div>
-								</div></a></div>
+								</div>
+								<div class="product_reviews__item gradient_border">
+									<div class="product_reviews__img"><img src="images/product_creation/card01.jpg" alt="profile_img"></div>
+									<div class="product_reviews__container">
+										<div class="product_reviews__title">Аскорбил пальмитат</div>
+										<div class="product_reviews__text">Пришло быстро, описание соответствует действительности Пришло быстро, описание соответствует действительности..Пришло быстро, описание соответствует действительности Пришло быстро, описание</div>
+										<div class="product_reviews__vendor-code"><span>Артикул:</span> 12343465</div>
+										<div class="product_reviews__column">
+											<div class="product_reviews__info">
+												<div class="product_reviews__rating">
+													<div class="product_reviews__stars">
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star"></label>
+													</div>
+												</div>
+												<div class="product_reviews__date">09.01.23</div>
+											</div>
+											<div class="product_reviews__answer underline">Ответить</div>
+										</div>
+									</div>
+								</div>
+								<div class="product_reviews__item gradient_border">
+									<div class="product_reviews__img"><img src="images/product_creation/card01.jpg" alt="profile_img"></div>
+									<div class="product_reviews__container">
+										<div class="product_reviews__title">Аскорбил пальмитат</div>
+										<div class="product_reviews__text">Пришло быстро, описание соответствует действительности Пришло быстро, описание соответствует действительности..Пришло быстро, описание соответствует действительности Пришло быстро, описание</div>
+										<div class="product_reviews__vendor-code"><span>Артикул:</span> 12343465</div>
+										<div class="product_reviews__column">
+											<div class="product_reviews__info">
+												<div class="product_reviews__rating">
+													<div class="product_reviews__stars">
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star"></label>
+													</div>
+												</div>
+												<div class="product_reviews__date">09.01.23</div>
+											</div>
+											<div class="product_reviews__answer underline">Ответить</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="switcher__content">
+								<div class="product_reviews__item archive gradient_border">
+									<div class="product_reviews__img"><img src="images/product_creation/card01.jpg" alt="profile_img"></div>
+									<div class="product_reviews__container">
+										<div class="product_reviews__title">Аскорбил пальмитат</div>
+										<div class="product_reviews__text">Пришло быстро, описание соответствует действительности Пришло быстро, описание соответствует действительности..Пришло быстро, описание соответствует действительности Пришло быстро, описание</div>
+										<div class="product_reviews__vendor-code"><span>Артикул:</span> 12343465</div>
+										<div class="product_reviews__column">
+											<div class="product_reviews__info">
+												<div class="product_reviews__rating">
+													<div class="product_reviews__stars">
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star"></label>
+													</div>
+												</div>
+												<div class="product_reviews__date">09.01.23</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="product_reviews__item answer">
+									<div class="product_reviews__answer">Ответ:</div>
+									<div class="product_reviews__text">Спасибо что выбрали наш товар! Спасибо что выбрали наш товар!Спасибо что выбрали наш товар!Спасибо что выбрали наш товар!Спасибо что выбрали наш товар!Спасибо что выбрали наш товар!Спасибо что выбрали наш товар!</div>
+									<div class="product_reviews__info"><span>Милорада</span><span>Логист</span><span>13 февраля, 2023 в 12:30</span></div>
+								</div>
+								<div class="product_reviews__item archive gradient_border">
+									<div class="product_reviews__img"><img src="images/product_creation/card01.jpg" alt="profile_img"></div>
+									<div class="product_reviews__container">
+										<div class="product_reviews__title">Аскорбил пальмитат</div>
+										<div class="product_reviews__text">Пришло быстро, описание соответствует действительности Пришло быстро, описание соответствует действительности..Пришло быстро, описание соответствует действительности Пришло быстро, описание</div>
+										<div class="product_reviews__vendor-code"><span>Артикул:</span> 12343465</div>
+										<div class="product_reviews__column">
+											<div class="product_reviews__info">
+												<div class="product_reviews__rating">
+													<div class="product_reviews__stars">
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star checked"></label>
+														<label class="star"></label>
+													</div>
+												</div>
+												<div class="product_reviews__date">09.01.23</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="product_reviews__item answer">
+									<div class="product_reviews__answer">Ответ:</div>
+									<div class="product_reviews__text">Спасибо что выбрали наш товар! Спасибо что выбрали наш товар!Спасибо что выбрали наш товар!Спасибо что выбрали наш товар!Спасибо что выбрали наш товар!Спасибо что выбрали наш товар!Спасибо что выбрали наш товар!</div>
+									<div class="product_reviews__info"><span>Милорада</span><span>Логист</span><span>13 февраля, 2023 в 12:30</span></div>
+								</div>
+							</div>
+							<div class="modal-box product_reviews__modal">
+								<div class="modal-box__container">
+									<button class="modal-box__exit product_reviews__close" type="button"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1L16 16M1 16L16 1" stroke="#BBCBD0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+									</button>
+									<div class="section__title">Ответ на отзыв</div>
+									<div class="product_reviews__modal-item gradient_border"></div>
+									<form class="form form_validation">
+										<label class="form__item">
+											<textarea class="textarea" maxlength="5000"></textarea><span class="placeholder">Ответ на отзыв</span><span class="count-text"><span>0</span> /5000</span>
+										</label>
+										<button class="btn" type="submit">Ответить</button>
+									</form>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -553,7 +667,7 @@
 				document.getElementsByTagName('head')[0].appendChild(script);
 			}
 		</script>
-		<script src="./js/vendor.js?v=1685374681528"></script>
-		<script src="./js/main.js?v=1685374681528"></script>
+		<script src="./js/vendor.js?v=1685374682815"></script>
+		<script src="./js/main.js?v=1685374682815"></script>
 	</body>
 </html>
