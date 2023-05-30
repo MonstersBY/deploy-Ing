@@ -1335,7 +1335,8 @@ button {
   background: rgba(255, 255, 255, 0.4);
   -webkit-box-shadow: 5rem 5rem 25rem rgba(153, 173, 187, 0.1);
           box-shadow: 5rem 5rem 25rem rgba(153, 173, 187, 0.1);
-  border-radius: 5rem; }
+  border-radius: 5rem;
+  position: relative; }
   .icon svg {
     display: block;
     width: 24rem;
@@ -3647,6 +3648,15 @@ button {
             align-items: center; }
     .header__setup .icon:not(:last-child) {
       margin-right: 16rem; }
+    .header__setup .icon.notification::after {
+      position: absolute;
+      content: '';
+      background: url(../images/icons/notif-circle.svg) no-repeat;
+      background-size: 6rem 6rem;
+      width: 6rem;
+      height: 6rem;
+      left: 55%;
+      top: 38%; }
   .header .feedback {
     margin: 0 40rem; }
   .header__bottom {
@@ -9850,5 +9860,69 @@ button {
     -ms-flex-negative: 0;
     flex-shrink: 0;
     width: 145rem; } }
+
+.notifications__container {
+  width: 423rem;
+  position: fixed;
+  z-index: 10;
+  top: 125rem;
+  right: 255rem; }
+
+.notifications__item {
+  position: relative;
+  background: #E3EAEE;
+  border: 1rem solid #7C9DA8;
+  border-radius: 5rem;
+  padding: 18rem 16rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 120%;
+  margin-bottom: 8rem;
+  gap: 16rem;
+  cursor: pointer; }
+  .notifications__item-exit {
+    margin-left: auto;
+    width: 20rem;
+    height: 20rem; }
+    .notifications__item-exit svg path {
+      stroke: #999999; }
+  .notifications__item-text {
+    margin-top: 3rem; }
+  .notifications__item-icon {
+    width: 24rem;
+    height: 24rem; }
+  .notifications__item.add {
+    background: #FFFDEB;
+    border: 1rem solid #FFE500; }
+  .notifications__item.warning {
+    background: #F9E7E9;
+    border: 1rem solid #E33046; }
+  .notifications__item:first-child::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 16rem solid #E3EAEE;
+    border-left: 16rem solid transparent;
+    border-right: 16rem solid transparent;
+    top: -5.5rem;
+    right: 0rem; }
+  .notifications__item:first-child::before {
+    content: '';
+    position: absolute;
+    border-bottom: 17rem solid #7C9DA8;
+    border-left: 12rem solid transparent;
+    border-right: 12rem solid transparent;
+    top: -8rem;
+    right: 4.5rem; }
+  .notifications__item:first-child.add::after {
+    border-bottom: 16rem solid #FFFDEB; }
+  .notifications__item:first-child.add::before {
+    border-bottom: 17rem solid #FFE500; }
+  .notifications__item:first-child.warning::after {
+    border-bottom: 16rem solid #F9E7E9; }
+  .notifications__item:first-child.warning::before {
+    border-bottom: 17rem solid #E33046; }
 
 /*# sourceMappingURL=main.css.map */

@@ -2102,8 +2102,12 @@ var $switcher__containers = $('.switcher__container');
 window.switcherContainerHeight = function () {
   $('.switcher__container').each(function (index, elem) {
     var number = 1920 / window.outerWidth;
-    if (window.outerWidth <= 768) number = 375 / window.outerWidth;
-    var switcher_content_height = $(elem).find('.switcher__content.active').outerHeight() * number;
+    var height = $(elem).find('.switcher__content.active').outerHeight() * 2;
+    if (window.outerWidth <= 768) {
+      number = 375 / window.outerWidth;
+      height = $(elem).find('.switcher__content.active').outerHeight();
+    }
+    var switcher_content_height = height * number;
     $(elem).css('height', "".concat(switcher_content_height, "rem"));
   });
 };
@@ -2117,8 +2121,12 @@ if ($switcher_btns.length > 0) {
     var $switcher_container = $switcher.find('.switcher__container');
     var $switcher_contents = $switcher_container.find('.switcher__content');
     var number = 1920 / window.outerWidth;
-    if (window.outerWidth <= 768) number = 375 / window.outerWidth;
-    var switcher_content_height = $($switcher_contents[index]).outerHeight() * number;
+    var height = $($switcher_contents[index]).outerHeight() * 2;
+    if (window.outerWidth <= 768) {
+      number = 375 / window.outerWidth;
+      height = $($switcher_contents[index]).outerHeight();
+    }
+    var switcher_content_height = height * number;
     $this.siblings('.switcher__btn').removeClass('active');
     $this.addClass('active');
     $switcher_contents.each(function (index, elem) {
