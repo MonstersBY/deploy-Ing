@@ -6,11 +6,11 @@
 		<meta name="viewport" content="width=device-width">
 		<meta property="og:type" content="website">
 		<meta property="og:locale" content="ru_RU">
-		<meta property="og:title" content="Ingredients | Мое избранное">
+		<meta property="og:title" content="Поиск">
 		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Ingredients | Мое избранное">
-		<title>Ingredients | Мое избранное</title>
-		<link rel="stylesheet" href="./css/main.css?v=1685458165148">
+		<meta name="twitter:title" content="Поиск">
+		<title>Поиск</title>
+		<link rel="stylesheet" href="./css/main.css?v=1685458168525">
 	</head>
 	<body>
 		<div class="header-blur"></div>
@@ -401,11 +401,405 @@
 			</div>
 		</header>
 		<main>
-			<section class="section">
+			<section class="section products-category">
+				<div class="search__modal">
+					<div class="container">
+						<div class="search__modal-top">
+							<div class="search__modal-title">Все фильтры</div>
+							<div class="search__modal-exit"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25 7L7 25" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M25 25L7 7" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+							</div>
+						</div>
+						<form class="search__modal-container">
+							<div class="search__modal-items">
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Категория</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Категория 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Категория 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Категория 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Категория 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Логистика</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Логистика 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Логистика 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Логистика 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Логистика 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Бренд</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Бренд 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Бренд 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Бренд 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Бренд 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Вид отрасли</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Вид отрасли 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Вид отрасли 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Вид отрасли 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Вид отрасли 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Наименование</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Наименование 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Наименование 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Наименование 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Наименование 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="search__modal-items">
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Поставщики</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Поставщики 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Поставщики 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Поставщики 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Поставщики 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Область применения</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Область применения 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Область применения 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Область применения 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Область применения 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Минимальный заказ</div>
+									</div>
+									<div class="item__drop range">
+										<div class="item__list">
+											<label>
+												<div class="incl-range"></div>
+												<input class="min" type="range" min="1" max="100" step="1" value="1">
+												<input class="max" type="range" min="1" max="100" step="1" value="100">
+											</label>
+											<div class="range-info">
+												<div class="range-number-min">от<span>1 шт</span></div>
+												<div class="range-number-max">до<span>100 шт</span></div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">География</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>География 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>География 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>География 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>География 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="search__modal-items">
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Сертификаты</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Сертификаты 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Сертификаты 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Сертификаты 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Сертификаты 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Компания</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Milorada</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Hltema</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Компания 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Компания 2</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">С документами</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>С документами 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>С документами 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>С документами 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>С документами 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="item__btn item__drop_btn">
+										<div class="item__name">Функциональные свойства</div>
+									</div>
+									<div class="item__drop">
+										<div class="item__list">
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Функциональные свойства 1</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Функциональные свойства 2</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Функциональные свойства 3</span>
+											</label>
+											<label>
+												<input type="checkbox">
+												<div class="checkmark"></div><span>Функциональные свойства 4</span>
+											</label>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+						<div class="search__modal-bottom">
+							<button class="btn search__modal-clean">Очистить</button>
+							<button class="btn search__modal-apply">Применить</button>
+						</div>
+					</div>
+				</div>
 				<div class="lines"><img src="images/lines.svg" alt="lines.svg"></div>
 				<div class="container">
-					<div class="section__title">Избранное</div>
-					<div class="section__subtitle">Представлено: 5 товаров</div>
+					<div class="section__title">Название категории</div>
+					<div class="section__subtitle">Представлено 457 категорий</div>
+					<div class="filter">
+						<div class="filter__inner">
+							<form class="search">
+								<div class="search__filter desktop">
+									<select name="search1">
+										<option value="0" selected>Категория</option>
+										<option value="1">Категория 1</option>
+										<option value="2">Категория 2</option>
+										<option value="3">Категория 3</option>
+									</select>
+								</div>
+								<div class="search__filter desktop">
+									<select name="search2">
+										<option value="0" selected>Поставщики</option>
+										<option value="1">Поставщики 1</option>
+										<option value="2">Поставщики 2</option>
+										<option value="3">Поставщики 3</option>
+									</select>
+								</div>
+								<div class="search__filter desktop">
+									<select name="search2">
+										<option value="0" selected>Сертификаты</option>
+										<option value="1">Сертификаты 1</option>
+										<option value="2">Сертификаты 2</option>
+										<option value="3">Сертификаты 3</option>
+									</select>
+								</div>
+								<div class="search__filter desktop">
+									<select name="search2">
+										<option value="0" selected>Логистика</option>
+										<option value="1">Логистика 1</option>
+										<option value="2">Логистика 2</option>
+										<option value="3">Логистика 3</option>
+									</select>
+								</div>
+								<div class="search__inner all-filter">
+									<button class="btn">Все фильтры</button>
+								</div>
+							</form>
+							<div class="filter__inner filter__control">
+								<button class="icon" type="button"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M21 7V19C21 19.55 20.8043 20.021 20.413 20.413C20.021 20.8043 19.55 21 19 21H5C4.45 21 3.979 20.8043 3.587 20.413C3.19567 20.021 3 19.55 3 19V5C3 4.45 3.19567 3.979 3.587 3.587C3.979 3.19567 4.45 3 5 3H17L21 7ZM12 18C12.8333 18 13.5417 17.7083 14.125 17.125C14.7083 16.5417 15 15.8333 15 15C15 14.1667 14.7083 13.4583 14.125 12.875C13.5417 12.2917 12.8333 12 12 12C11.1667 12 10.4583 12.2917 9.875 12.875C9.29167 13.4583 9 14.1667 9 15C9 15.8333 9.29167 16.5417 9.875 17.125C10.4583 17.7083 11.1667 18 12 18ZM6 10H15V6H6V10Z" fill="#7C9DA8"/>
+</svg>
+
+								</button>
+							</div>
+						</div>
+						<div class="filter__inner filter__tags">
+							<div class="filter__tags-wrap"></div>
+						</div>
+					</div>
 					<div class="swiper_shadow">
 						<div class="swiper_grid_container">
 							<div class="swiper swiper_products-category">
@@ -962,7 +1356,7 @@
 				document.getElementsByTagName('head')[0].appendChild(script);
 			}
 		</script>
-		<script src="./js/vendor.js?v=1685458165149"></script>
-		<script src="./js/main.js?v=1685458165149"></script>
+		<script src="./js/vendor.js?v=1685458168525"></script>
+		<script src="./js/main.js?v=1685458168525"></script>
 	</body>
 </html>

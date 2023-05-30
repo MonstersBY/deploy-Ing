@@ -1888,6 +1888,40 @@ var swiper_product_cards = new Swiper('.swiper_product_cards', {
 
 /***/ }),
 
+/***/ "./src/js/components/swiper_product_comparison.js":
+/*!********************************************************!*\
+  !*** ./src/js/components/swiper_product_comparison.js ***!
+  \********************************************************/
+/***/ (function() {
+
+var SLIDES_GAP = 28;
+var CONTAINER_WIDTH = 1520;
+var swiper_product_comparison = new Swiper('.swiper_product_comparison', {
+  modules: [Navigation, Pagination],
+  slidesPerView: 2,
+  slidesPerGroup: 1,
+  speed: 1000,
+  spaceBetween: SLIDES_GAP / CONTAINER_WIDTH * 100 + '%',
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction"
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 4,
+      slidesPerGroup: 1,
+      spaceBetween: SLIDES_GAP / CONTAINER_WIDTH * 100 + '%',
+      speed: 1500
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./src/js/components/swiper_products_category.js":
 /*!*******************************************************!*\
   !*** ./src/js/components/swiper_products_category.js ***!
@@ -2102,7 +2136,7 @@ var $switcher__containers = $('.switcher__container');
 window.switcherContainerHeight = function () {
   $('.switcher__container').each(function (index, elem) {
     var number = 1920 / window.outerWidth;
-    var height = $(elem).find('.switcher__content.active').outerHeight() * 2;
+    var height = $(elem).find('.switcher__content.active').outerHeight();
     if (window.outerWidth <= 768) {
       number = 375 / window.outerWidth;
       height = $(elem).find('.switcher__content.active').outerHeight();
@@ -2121,7 +2155,7 @@ if ($switcher_btns.length > 0) {
     var $switcher_container = $switcher.find('.switcher__container');
     var $switcher_contents = $switcher_container.find('.switcher__content');
     var number = 1920 / window.outerWidth;
-    var height = $($switcher_contents[index]).outerHeight() * 2;
+    var height = $($switcher_contents[index]).outerHeight();
     if (window.outerWidth <= 768) {
       number = 375 / window.outerWidth;
       height = $($switcher_contents[index]).outerHeight();
@@ -2516,60 +2550,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_search_header__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_components_search_header__WEBPACK_IMPORTED_MODULE_12__);
 /* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/footer */ "./src/js/components/footer.js");
 /* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(_components_footer__WEBPACK_IMPORTED_MODULE_13__);
-/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/swiper_materials */ "./src/js/components/swiper_materials.js");
-/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_materials__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/swiper_solutions */ "./src/js/components/swiper_solutions.js");
-/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_solutions__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/swiper_vendors */ "./src/js/components/swiper_vendors.js");
-/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_vendors__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/swiper_news */ "./src/js/components/swiper_news.js");
-/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_news__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/swiper_my_orders */ "./src/js/components/swiper_my_orders.js");
-/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/swiper_products_category */ "./src/js/components/swiper_products_category.js");
-/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_products_category__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/swiper_grid */ "./src/js/components/swiper_grid.js");
-/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_grid__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/navigation */ "./src/js/components/navigation.js");
-/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_components_navigation__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/switcher */ "./src/js/components/switcher.js");
-/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_components_switcher__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/displaying */ "./src/js/components/displaying.js");
-/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_components_displaying__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/components/dropdown.js");
-/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_components_dropdown__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/forms */ "./src/js/components/forms.js");
-/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_components_forms__WEBPACK_IMPORTED_MODULE_25__);
-/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/cabinet */ "./src/js/components/cabinet.js");
-/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_components_cabinet__WEBPACK_IMPORTED_MODULE_26__);
-/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/tags */ "./src/js/components/tags.js");
-/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_components_tags__WEBPACK_IMPORTED_MODULE_27__);
-/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/search */ "./src/js/components/search.js");
-/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_components_search__WEBPACK_IMPORTED_MODULE_28__);
-/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/filter_modal */ "./src/js/components/filter_modal.js");
-/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_components_filter_modal__WEBPACK_IMPORTED_MODULE_29__);
-/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/swiper_experts */ "./src/js/components/swiper_experts.js");
-/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_experts__WEBPACK_IMPORTED_MODULE_30__);
-/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/header_mobile */ "./src/js/components/header_mobile.js");
-/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_components_header_mobile__WEBPACK_IMPORTED_MODULE_31__);
-/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/modal_experts */ "./src/js/components/modal_experts.js");
-/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(_components_modal_experts__WEBPACK_IMPORTED_MODULE_32__);
-/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/swiper_sample_request */ "./src/js/components/swiper_sample_request.js");
-/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_33__);
-/* harmony import */ var _components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/swiper_provider_orders */ "./src/js/components/swiper_provider_orders.js");
-/* harmony import */ var _components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_34__);
-/* harmony import */ var _components_swiper_brand__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/swiper_brand */ "./src/js/components/swiper_brand.js");
-/* harmony import */ var _components_swiper_brand__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_brand__WEBPACK_IMPORTED_MODULE_35__);
-/* harmony import */ var _components_modal_brand__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/modal_brand */ "./src/js/components/modal_brand.js");
-/* harmony import */ var _components_modal_brand__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(_components_modal_brand__WEBPACK_IMPORTED_MODULE_36__);
-/* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/multi-select */ "./src/js/components/multi-select.js");
-/* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(_components_multi_select__WEBPACK_IMPORTED_MODULE_37__);
-/* harmony import */ var _components_choose_tag__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/choose-tag */ "./src/js/components/choose-tag.js");
-/* harmony import */ var _components_choose_tag__WEBPACK_IMPORTED_MODULE_38___default = /*#__PURE__*/__webpack_require__.n(_components_choose_tag__WEBPACK_IMPORTED_MODULE_38__);
-/* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/swiper_product_cards */ "./src/js/components/swiper_product_cards.js");
-/* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_39___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_39__);
-/* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/modal_product_reviews */ "./src/js/components/modal_product_reviews.js");
-/* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_40___default = /*#__PURE__*/__webpack_require__.n(_components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_40__);
+/* harmony import */ var _components_swiper_product_comparison__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/swiper_product_comparison */ "./src/js/components/swiper_product_comparison.js");
+/* harmony import */ var _components_swiper_product_comparison__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_product_comparison__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/swiper_materials */ "./src/js/components/swiper_materials.js");
+/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_materials__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/swiper_solutions */ "./src/js/components/swiper_solutions.js");
+/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_solutions__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/swiper_vendors */ "./src/js/components/swiper_vendors.js");
+/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_vendors__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/swiper_news */ "./src/js/components/swiper_news.js");
+/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_news__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/swiper_my_orders */ "./src/js/components/swiper_my_orders.js");
+/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/swiper_products_category */ "./src/js/components/swiper_products_category.js");
+/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_products_category__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/swiper_grid */ "./src/js/components/swiper_grid.js");
+/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_grid__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/navigation */ "./src/js/components/navigation.js");
+/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_components_navigation__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/switcher */ "./src/js/components/switcher.js");
+/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_components_switcher__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/displaying */ "./src/js/components/displaying.js");
+/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_components_displaying__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/components/dropdown.js");
+/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_components_dropdown__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/forms */ "./src/js/components/forms.js");
+/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_components_forms__WEBPACK_IMPORTED_MODULE_26__);
+/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/cabinet */ "./src/js/components/cabinet.js");
+/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_components_cabinet__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/tags */ "./src/js/components/tags.js");
+/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_components_tags__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/search */ "./src/js/components/search.js");
+/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_components_search__WEBPACK_IMPORTED_MODULE_29__);
+/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/filter_modal */ "./src/js/components/filter_modal.js");
+/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(_components_filter_modal__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/swiper_experts */ "./src/js/components/swiper_experts.js");
+/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_experts__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/header_mobile */ "./src/js/components/header_mobile.js");
+/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(_components_header_mobile__WEBPACK_IMPORTED_MODULE_32__);
+/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/modal_experts */ "./src/js/components/modal_experts.js");
+/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(_components_modal_experts__WEBPACK_IMPORTED_MODULE_33__);
+/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/swiper_sample_request */ "./src/js/components/swiper_sample_request.js");
+/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_34__);
+/* harmony import */ var _components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/swiper_provider_orders */ "./src/js/components/swiper_provider_orders.js");
+/* harmony import */ var _components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_35__);
+/* harmony import */ var _components_swiper_brand__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/swiper_brand */ "./src/js/components/swiper_brand.js");
+/* harmony import */ var _components_swiper_brand__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_brand__WEBPACK_IMPORTED_MODULE_36__);
+/* harmony import */ var _components_modal_brand__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/modal_brand */ "./src/js/components/modal_brand.js");
+/* harmony import */ var _components_modal_brand__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(_components_modal_brand__WEBPACK_IMPORTED_MODULE_37__);
+/* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/multi-select */ "./src/js/components/multi-select.js");
+/* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_38___default = /*#__PURE__*/__webpack_require__.n(_components_multi_select__WEBPACK_IMPORTED_MODULE_38__);
+/* harmony import */ var _components_choose_tag__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/choose-tag */ "./src/js/components/choose-tag.js");
+/* harmony import */ var _components_choose_tag__WEBPACK_IMPORTED_MODULE_39___default = /*#__PURE__*/__webpack_require__.n(_components_choose_tag__WEBPACK_IMPORTED_MODULE_39__);
+/* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/swiper_product_cards */ "./src/js/components/swiper_product_cards.js");
+/* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_40___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_40__);
+/* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/modal_product_reviews */ "./src/js/components/modal_product_reviews.js");
+/* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_41___default = /*#__PURE__*/__webpack_require__.n(_components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_41__);
+
 
 
 
