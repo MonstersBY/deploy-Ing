@@ -1658,6 +1658,8 @@ var swiper_brand = new Swiper('.swiper_brand', {
   \*********************************************/
 /***/ (function() {
 
+var SLIDES_GAP = 20;
+var CONTAINER_WIDTH = 1131;
 var swiper_my_orders = new Swiper('.swiper_experts', {
   modules: [Navigation, Pagination, Grid],
   speed: 1000,
@@ -1665,7 +1667,7 @@ var swiper_my_orders = new Swiper('.swiper_experts', {
     rows: 2,
     fill: 'column'
   },
-  spaceBetween: 20,
+  spaceBetween: SLIDES_GAP / CONTAINER_WIDTH * 100 + '%',
   pagination: {
     el: ".swiper-pagination",
     type: "fraction"
@@ -1804,6 +1806,8 @@ var swiper_materials_mobile_2 = new Swiper('.swiper_materials_mobile_2', {
   \***********************************************/
 /***/ (function() {
 
+var SLIDES_GAP = 20;
+var CONTAINER_WIDTH = 1131;
 var swiper_my_orders = new Swiper('.swiper_my_orders', {
   modules: [Navigation, Pagination, Grid],
   speed: 1000,
@@ -1811,7 +1815,7 @@ var swiper_my_orders = new Swiper('.swiper_my_orders', {
     rows: 4,
     fill: 'column'
   },
-  spaceBetween: 20,
+  spaceBetween: SLIDES_GAP / CONTAINER_WIDTH * 100 + '%',
   pagination: {
     el: ".swiper-pagination",
     type: "fraction"
@@ -1862,6 +1866,8 @@ var swiper_news = new Swiper('.swiper_news', {
   \***************************************************/
 /***/ (function() {
 
+var SLIDES_GAP = 20;
+var CONTAINER_WIDTH = 1131;
 var swiper_product_cards = new Swiper('.swiper_product_cards', {
   modules: [Navigation, Pagination, Grid],
   speed: 1000,
@@ -1869,7 +1875,7 @@ var swiper_product_cards = new Swiper('.swiper_product_cards', {
     rows: 4,
     fill: 'column'
   },
-  spaceBetween: 20,
+  spaceBetween: SLIDES_GAP / CONTAINER_WIDTH * 100 + '%',
   pagination: {
     el: ".swiper-pagination",
     type: "fraction"
@@ -1926,6 +1932,8 @@ var swiper_grid = new Swiper('.swiper_products-category', {
   \*****************************************************/
 /***/ (function() {
 
+var SLIDES_GAP = 20;
+var CONTAINER_WIDTH = 1131;
 var swiper_provider_orders = new Swiper('.swiper_provider_orders', {
   modules: [Navigation, Pagination, Grid],
   speed: 1000,
@@ -1933,7 +1941,7 @@ var swiper_provider_orders = new Swiper('.swiper_provider_orders', {
     rows: 3,
     fill: 'column'
   },
-  spaceBetween: 20,
+  spaceBetween: SLIDES_GAP / CONTAINER_WIDTH * 100 + '%',
   pagination: {
     el: ".swiper-pagination",
     type: "fraction"
@@ -1952,6 +1960,8 @@ var swiper_provider_orders = new Swiper('.swiper_provider_orders', {
   \****************************************************/
 /***/ (function() {
 
+var SLIDES_GAP = 20;
+var CONTAINER_WIDTH = 1131;
 var swiper_my_orders = new Swiper('.swiper_sample_request', {
   modules: [Navigation, Pagination, Grid],
   speed: 1000,
@@ -1959,7 +1969,7 @@ var swiper_my_orders = new Swiper('.swiper_sample_request', {
     rows: 4,
     fill: 'column'
   },
-  spaceBetween: 20,
+  spaceBetween: SLIDES_GAP / CONTAINER_WIDTH * 100 + '%',
   pagination: {
     el: ".swiper-pagination",
     type: "fraction"
