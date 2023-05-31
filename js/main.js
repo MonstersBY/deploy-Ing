@@ -1928,7 +1928,7 @@ var swiper_product_comparison = new Swiper('.swiper_product_comparison', {
   \*******************************************************/
 /***/ (function() {
 
-var swiper_grid = new Swiper('.swiper_products-category', {
+var products_category_big = new Swiper('.swiper_products-category-big', {
   modules: [Navigation, Pagination, Grid],
   slidesPerView: 1,
   slidesPerGroup: 1,
@@ -1949,6 +1949,35 @@ var swiper_grid = new Swiper('.swiper_products-category', {
     769: {
       slidesPerView: 4,
       slidesPerGroup: 4,
+      grid: {
+        rows: 3,
+        fill: 'row'
+      },
+      speed: 1000
+    }
+  }
+});
+var products_category_small = new Swiper('.swiper_products-category-small', {
+  modules: [Navigation, Pagination, Grid],
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  grid: {
+    rows: 6,
+    fill: 'row'
+  },
+  speed: 1000,
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction"
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 3,
+      slidesPerGroup: 3,
       grid: {
         rows: 3,
         fill: 'row'
@@ -1985,6 +2014,70 @@ var swiper_provider_orders = new Swiper('.swiper_provider_orders', {
     prevEl: ".swiper-button-prev"
   }
 });
+
+/***/ }),
+
+/***/ "./src/js/components/swiper_review.js":
+/*!********************************************!*\
+  !*** ./src/js/components/swiper_review.js ***!
+  \********************************************/
+/***/ (function() {
+
+var swiper_review = new Swiper('.swiper_review', {
+  modules: [Navigation, Pagination],
+  slidesPerView: 1,
+  speed: 1000,
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction"
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  }
+});
+// ChangeHeight()
+// function ChangeHeight() {
+// 	if ($('.swiper_review').length) {
+// 		const $wrapper = $('.swiper_review').children('.swiper-wrapper')
+// 		let count = 0
+// 		const gap = 28
+// 		for (let i = 0; i < 2; i++) {
+// 			if (i)  count += gap
+// 			count += $wrapper.children('.swiper-slide')[0].scrollHeight
+// 		}
+// 		console.log (count)
+// 		$wrapper.css("height", `${count}rem`);
+// 	}
+// }
+
+$('.swiper_review .product-review__open').on('click', function (evt) {
+  evt.preventDefault();
+  var $this = $(this);
+  var $slide = $this.closest('.slide');
+  var $wrapper = $this.closest('.swiper-wrapper');
+  var height = $wrapper[0].scrollHeight;
+  if ($wrapper.find('.active').length) {
+    $wrapper.find('.active').slideToggle();
+    $wrapper.find('.active').toggleClass('active');
+  }
+  $slide.children('.product-review__answer').toggleClass('active');
+  $slide.children('.product-review__answer').slideToggle();
+  // setTimeout(()=>{
+  // 	console.log($slide.children('.product-review__answer').height())
+  // 	$wrapper.css("height", `${height+$slide.children('.product-review__answer')[0].scrollHeight}rem`);
+  // }, 400);
+});
+
+// $('.item__drop_btn').on('click', function(evt) {
+// 	evt.preventDefault();
+// 	let $this = $(this);
+// 	let $drop = $this.siblings('.item__drop');
+
+// 	$this.toggleClass('active');
+// 	$drop.slideToggle();
+
+// });
 
 /***/ }),
 
@@ -2580,6 +2673,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_40___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_40__);
 /* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/modal_product_reviews */ "./src/js/components/modal_product_reviews.js");
 /* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_41___default = /*#__PURE__*/__webpack_require__.n(_components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_41__);
+/* harmony import */ var _components_swiper_review__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/swiper_review */ "./src/js/components/swiper_review.js");
+/* harmony import */ var _components_swiper_review__WEBPACK_IMPORTED_MODULE_42___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_review__WEBPACK_IMPORTED_MODULE_42__);
+
 
 
 
