@@ -10,7 +10,7 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:title" content="Ingredients | Запросы образцов">
 		<title>Ingredients | Запросы образцов</title>
-		<link rel="stylesheet" href="./css/main.css?v=1685458165766">
+		<link rel="stylesheet" href="./css/main.css?v=1685520766276">
 	</head>
 	<body>
 		<div class="header-blur"></div>
@@ -401,7 +401,7 @@
 			</div>
 		</header>
 		<main>
-			<section class="section cabinet orders">
+			<section class="section switcher cabinet orders">
 				<div class="container">
 					<div class="sidebar gradient_border">
 						<div class="sidebar__top">
@@ -454,12 +454,14 @@
 						</div>
 					</div>
 					<div class="cabinet__content my_sample_request">
-						<div class="section__title">Поиск заявки</div>
-						<div class="switcher__control">
-							<button class="btn switcher__btn all_btn active" type="button">Все <span>(4)</span></button>
-							<button class="btn switcher__btn new_btn" type="button">Новые <span>(1)</span></button>
-							<button class="btn switcher__btn delivered_btn" type="button">Доставлено <span>(1)</span></button>
-							<button class="btn switcher__btn denied_btn" type="button">Отказано <span>(1)</span></button>
+						<div class="section__title">Запросы образцов</div>
+						<div class="bnt_scroll">
+							<div class="switcher__control">
+								<button class="btn switcher__btn all_btn active" type="button">Все <span>(4)</span></button>
+								<button class="btn switcher__btn new_btn" type="button">Новые <span>(1)</span></button>
+								<button class="btn switcher__btn delivered_btn" type="button">Доставлено <span>(1)</span></button>
+								<button class="btn switcher__btn denied_btn" type="button">Отказано <span>(1)</span></button>
+							</div>
 						</div>
 						<form class="search cabinet__search">
 							<label><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -480,223 +482,475 @@
 							<div class="sample_request__column_sup">Поддержка</div>
 							<div class="sample_request__column_status">Статус</div>
 						</div>
-						<div class="swiper_shadow">
-							<div class="swiper swiper_sample_request">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
+						<div class="switcher__container">
+							<div class="switcher__content count_all active">
+								<div class="swiper_shadow">
+									<div class="swiper swiper_sample_request">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+												</div>
 											</div>
-											<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+											<div class="swiper-slide status_new">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_new">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_new">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_new">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_new">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
 										</div>
-									</div>
-									<div class="swiper-slide status_new">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_denied">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_denied">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
-										</div>
-									</div>
-									<div class="swiper-slide">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_new">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_denied">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_denied">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
-										</div>
-									</div>
-									<div class="swiper-slide">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_new">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_denied">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_denied">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
-										</div>
-									</div>
-									<div class="swiper-slide">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_new">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_denied">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_denied">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
-										</div>
-									</div>
-									<div class="swiper-slide">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_new">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
-										</div>
-									</div>
-									<div class="swiper-slide status_denied">
-										<div class="sample_request__item gradient_border">
-											<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
-											<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
-											<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
-											<div class="sample_request__line">
-												<div class="sample_request__sup">Написать в чат</div>
-											</div>
-											<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+										<div class="swiper_control">
+											<div class="swiper-button-prev"></div>
+											<div class="swiper-button-next"></div>
+											<div class="swiper-pagination"></div>
 										</div>
 									</div>
 								</div>
-								<div class="swiper_control">
-									<div class="swiper-button-prev"></div>
-									<div class="swiper-button-next"></div>
-									<div class="swiper-pagination"></div>
+							</div>
+							<div class="switcher__content">
+								<div class="swiper_shadow">
+									<div class="swiper swiper_sample_request">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide status_new">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_new">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_new">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_new">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_new">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status new"><span class="mobile">Статус:</span>Новый</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper_control">
+											<div class="swiper-button-prev"></div>
+											<div class="swiper-button-next"></div>
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="switcher__content">
+								<div class="swiper_shadow">
+									<div class="swiper swiper_sample_request">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status"><span class="mobile">Статус:</span>Доставлено</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper_control">
+											<div class="swiper-button-prev"></div>
+											<div class="swiper-button-next"></div>
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="switcher__content">
+								<div class="swiper_shadow">
+									<div class="swiper swiper_sample_request">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+											<div class="swiper-slide status_denied">
+												<div class="sample_request__item gradient_border">
+													<div class="sample_request__date"><span class="mobile">Статус изменен</span>01.02.23</div>
+													<div class="sample_request__product"><span class="mobile">Продукт</span>Аскорбил пальмитат</div>
+													<div class="sample_request__company"><span class="mobile">Бренд / Компания</span>Lycasin / Roquette</div>
+													<div class="sample_request__line">
+														<div class="sample_request__sup">Написать в чат</div>
+													</div>
+													<div class="sample_request__status denied"><span class="mobile">Статус:</span>Отказано</div>
+												</div>
+											</div>
+										</div>
+										<div class="swiper_control">
+											<div class="swiper-button-prev"></div>
+											<div class="swiper-button-next"></div>
+											<div class="swiper-pagination"></div>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -764,7 +1018,7 @@
 				document.getElementsByTagName('head')[0].appendChild(script);
 			}
 		</script>
-		<script src="./js/vendor.js?v=1685458165766"></script>
-		<script src="./js/main.js?v=1685458165766"></script>
+		<script src="./js/vendor.js?v=1685520766276"></script>
+		<script src="./js/main.js?v=1685520766276"></script>
 	</body>
 </html>
