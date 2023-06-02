@@ -1309,6 +1309,44 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/components/modal-request.js":
+/*!********************************************!*\
+  !*** ./src/js/components/modal-request.js ***!
+  \********************************************/
+/***/ (function() {
+
+$('.btn-price, .modal-price .modal-box__close, .btn__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-price');
+  var $container = $modal_box.children('.modal-box__container');
+  $container.children('.modal-request-first').toggleClass('active');
+  if ($(this).hasClass('modal-box__close') || $(this).hasClass('btn__close')) {
+    $container.children('.active').each(function () {
+      $(this).toggleClass('active');
+    });
+  }
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+$('.modal-request .btn-next').on('click', function (evt) {
+  evt.preventDefault();
+  var $this = $(this);
+  var $container = $this.closest('.modal-box__container');
+  $container.children('.modal-request-first').toggleClass('active');
+  $container.children('.modal-request-second').toggleClass('active');
+});
+$('.modal-request .btn-last').on('click', function (evt) {
+  evt.preventDefault();
+  var $this = $(this);
+  var $container = $this.closest('.modal-box__container');
+  $container.children('.modal-request-second').toggleClass('active');
+  $container.children('.modal-request-last').toggleClass('active');
+});
+
+/***/ }),
+
 /***/ "./src/js/components/modal_brand.js":
 /*!******************************************!*\
   !*** ./src/js/components/modal_brand.js ***!
@@ -1652,6 +1690,28 @@ var swiper_brand = new Swiper('.swiper_brand', {
 
 /***/ }),
 
+/***/ "./src/js/components/swiper_column_line.js":
+/*!*************************************************!*\
+  !*** ./src/js/components/swiper_column_line.js ***!
+  \*************************************************/
+/***/ (function() {
+
+var swiper_column_line = new Swiper('.swiper_column_line', {
+  modules: [Navigation, Pagination],
+  slidesPerView: 1,
+  speed: 1000,
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction"
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  }
+});
+
+/***/ }),
+
 /***/ "./src/js/components/swiper_experts.js":
 /*!*********************************************!*\
   !*** ./src/js/components/swiper_experts.js ***!
@@ -1986,6 +2046,18 @@ var products_category_small = new Swiper('.swiper_products-category-small', {
     }
   }
 });
+var products_category_no_grid = new Swiper('.swiper_products-category-no-grid', {
+  modules: [Navigation, Pagination],
+  speed: 1000,
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction"
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  }
+});
 
 /***/ }),
 
@@ -2057,27 +2129,18 @@ $('.swiper_review .product-review__open').on('click', function (evt) {
   var $slide = $this.closest('.slide');
   var $wrapper = $this.closest('.swiper-wrapper');
   var height = $wrapper[0].scrollHeight;
-  if ($wrapper.find('.active').length) {
+  if ($slide.children('.product-review__answer').hasClass('active')) {
     $wrapper.find('.active').slideToggle();
     $wrapper.find('.active').toggleClass('active');
+  } else {
+    if ($wrapper.find('.active').length) {
+      $wrapper.find('.active').slideToggle();
+      $wrapper.find('.active').toggleClass('active');
+    }
+    $slide.children('.product-review__answer').toggleClass('active');
+    $slide.children('.product-review__answer').slideToggle();
   }
-  $slide.children('.product-review__answer').toggleClass('active');
-  $slide.children('.product-review__answer').slideToggle();
-  // setTimeout(()=>{
-  // 	console.log($slide.children('.product-review__answer').height())
-  // 	$wrapper.css("height", `${height+$slide.children('.product-review__answer')[0].scrollHeight}rem`);
-  // }, 400);
 });
-
-// $('.item__drop_btn').on('click', function(evt) {
-// 	evt.preventDefault();
-// 	let $this = $(this);
-// 	let $drop = $this.siblings('.item__drop');
-
-// 	$this.toggleClass('active');
-// 	$drop.slideToggle();
-
-// });
 
 /***/ }),
 
@@ -2675,6 +2738,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_41___default = /*#__PURE__*/__webpack_require__.n(_components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_41__);
 /* harmony import */ var _components_swiper_review__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/swiper_review */ "./src/js/components/swiper_review.js");
 /* harmony import */ var _components_swiper_review__WEBPACK_IMPORTED_MODULE_42___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_review__WEBPACK_IMPORTED_MODULE_42__);
+/* harmony import */ var _components_swiper_column_line__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./components/swiper_column_line */ "./src/js/components/swiper_column_line.js");
+/* harmony import */ var _components_swiper_column_line__WEBPACK_IMPORTED_MODULE_43___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_column_line__WEBPACK_IMPORTED_MODULE_43__);
+/* harmony import */ var _components_modal_request__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/modal-request */ "./src/js/components/modal-request.js");
+/* harmony import */ var _components_modal_request__WEBPACK_IMPORTED_MODULE_44___default = /*#__PURE__*/__webpack_require__.n(_components_modal_request__WEBPACK_IMPORTED_MODULE_44__);
+
+
 
 
 
