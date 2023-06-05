@@ -204,6 +204,38 @@ $('input[type="range"]').on('input', function () {
 
 /***/ }),
 
+/***/ "./src/js/components/fixed_sidebar.js":
+/*!********************************************!*\
+  !*** ./src/js/components/fixed_sidebar.js ***!
+  \********************************************/
+/***/ (function() {
+
+$(document).on('scroll', function () {
+  if ($('.sidebar__container').length) {
+    if (!$('.sidebar-request').length) {
+      var stickyMob = $('.sidebar__container');
+      fixedH(stickyMob);
+    }
+  } else {
+    var stickyMob = $('.sidebar');
+    fixedH(stickyMob);
+  }
+});
+function fixedH(item) {
+  var sideHeight = item.height();
+  var containerHeight = $('.sidebar').closest('.container').height();
+  console.log('this: ' + $(this).scrollTop() + ' ; containerHeight: ' + containerHeight + ' ; sideHeight: ' + sideHeight);
+  if ($(this).scrollTop() >= containerHeight - sideHeight) {
+    item.removeClass('active');
+    item.addClass('active__bottom');
+  } else {
+    item.removeClass('active__bottom');
+    item.addClass('active');
+  }
+}
+
+/***/ }),
+
 /***/ "./src/js/components/footer.js":
 /*!*************************************!*\
   !*** ./src/js/components/footer.js ***!
@@ -239,6 +271,18 @@ $('.form__item textarea').on('input', function (evt) {
   var $placeholder = $parent.find('.placeholder');
   $this.removeClass('invalid');
   if ($this.val()) {
+    $placeholder.addClass('active');
+  } else {
+    $placeholder.removeClass('active');
+  }
+});
+$('.form__item .number-up, .form__item .number-down').on('click', function (evt) {
+  var $this = $(this);
+  var $parent = $this.parent();
+  var $input = $parent.find('.input');
+  var $placeholder = $parent.find('.placeholder');
+  $this.removeClass('invalid');
+  if ($input.val()) {
     $placeholder.addClass('active');
   } else {
     $placeholder.removeClass('active');
@@ -1315,7 +1359,7 @@ __webpack_require__.r(__webpack_exports__);
   \********************************************/
 /***/ (function() {
 
-$('.btn-price, .modal-price .modal-box__close, .btn__close').on('click', function (evt) {
+$('.btn-price, .modal-price .modal-box__close, .modal-price .btn__close').on('click', function (evt) {
   evt.preventDefault();
   $('main').toggleClass('modal');
   $('html').toggleClass('modal');
@@ -1343,6 +1387,36 @@ $('.modal-request .btn-last').on('click', function (evt) {
   var $container = $this.closest('.modal-box__container');
   $container.children('.modal-request-second').toggleClass('active');
   $container.children('.modal-request-last').toggleClass('active');
+});
+$('.btn-doc, .modal-document .modal-box__close, .modal-document .btn__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-document');
+  var $container = $modal_box.children('.modal-box__container');
+  $container.children('.modal-request-first').toggleClass('active');
+  if ($(this).hasClass('modal-box__close') || $(this).hasClass('btn__close')) {
+    $container.children('.active').each(function () {
+      $(this).toggleClass('active');
+    });
+  }
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+$('.btn-sample, .modal-sample .modal-box__close, .modal-sample .btn__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-sample');
+  var $container = $modal_box.children('.modal-box__container');
+  $container.children('.modal-request-first').toggleClass('active');
+  if ($(this).hasClass('modal-box__close') || $(this).hasClass('btn__close')) {
+    $container.children('.active').each(function () {
+      $(this).toggleClass('active');
+    });
+  }
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
 });
 
 /***/ }),
@@ -2742,6 +2816,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_swiper_column_line__WEBPACK_IMPORTED_MODULE_43___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_column_line__WEBPACK_IMPORTED_MODULE_43__);
 /* harmony import */ var _components_modal_request__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/modal-request */ "./src/js/components/modal-request.js");
 /* harmony import */ var _components_modal_request__WEBPACK_IMPORTED_MODULE_44___default = /*#__PURE__*/__webpack_require__.n(_components_modal_request__WEBPACK_IMPORTED_MODULE_44__);
+/* harmony import */ var _components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/fixed_sidebar */ "./src/js/components/fixed_sidebar.js");
+/* harmony import */ var _components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_45___default = /*#__PURE__*/__webpack_require__.n(_components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_45__);
+
 
 
 
