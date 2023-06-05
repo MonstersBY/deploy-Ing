@@ -1418,6 +1418,73 @@ $('.btn-sample, .modal-sample .modal-box__close, .modal-sample .btn__close').on(
   $modal_box.toggleClass('active');
   $container.slideToggle();
 });
+$('.btn-order, .modal-order .modal-box__close, .modal-order .btn__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-order');
+  var $container = $modal_box.children('.modal-box__container');
+  $container.children('.modal-request-first').toggleClass('active');
+  if ($(this).hasClass('modal-box__close') || $(this).hasClass('btn__close')) {
+    $container.children('.active').each(function () {
+      $(this).toggleClass('active');
+    });
+  }
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+$('.btn-price-vendor, .modal-price-vendor .modal-box__close, .modal-price-vendor .btn__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-price-vendor');
+  var $container = $modal_box.children('.modal-box__container');
+  $container.children('.modal-request-list').toggleClass('active');
+  if ($(this).hasClass('modal-box__close') || $(this).hasClass('btn__close')) {
+    $container.children('.active').each(function () {
+      $(this).toggleClass('active');
+    });
+  }
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+$('.modal-request .start-request').on('click', function (evt) {
+  evt.preventDefault();
+  var $this = $(this);
+  var $container = $this.closest('.modal-box__container');
+  $container.children('.modal-request-list').toggleClass('active');
+  $container.children('.modal-request-first').toggleClass('active');
+});
+$('.btn-doc-vendor, .modal-document-vendor .modal-box__close, .modal-document-vendor .btn__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-document-vendor');
+  var $container = $modal_box.children('.modal-box__container');
+  $container.children('.modal-request-list').toggleClass('active');
+  if ($(this).hasClass('modal-box__close') || $(this).hasClass('btn__close')) {
+    $container.children('.active').each(function () {
+      $(this).toggleClass('active');
+    });
+  }
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+$('.btn-sample-vendor, .modal-sample-vendor .modal-box__close, .modal-sample-vendor .btn__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-sample-vendor');
+  var $container = $modal_box.children('.modal-box__container');
+  $container.children('.modal-request-list').toggleClass('active');
+  if ($(this).hasClass('modal-box__close') || $(this).hasClass('btn__close')) {
+    $container.children('.active').each(function () {
+      $(this).toggleClass('active');
+    });
+  }
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
 
 /***/ }),
 
