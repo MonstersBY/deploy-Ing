@@ -224,7 +224,6 @@ $(document).on('scroll', function () {
 function fixedH(item) {
   var sideHeight = item.height();
   var containerHeight = $('.sidebar').closest('.container').height();
-  console.log('this: ' + $(this).scrollTop() + ' ; containerHeight: ' + containerHeight + ' ; sideHeight: ' + sideHeight);
   if ($(this).scrollTop() >= containerHeight - sideHeight) {
     item.removeClass('active');
     item.addClass('active__bottom');
@@ -430,12 +429,31 @@ $('.drop__back').on('click', function (evt) {
   $this_main.toggleClass('active');
   $this_drop.slideToggle();
 });
-$('.search_open-mobile, .search_close-mobile').on('click', function (evt) {
+$('.search_open-mobile, .search_close-mobile, .card_product-open-search').on('click', function (evt) {
+  evt.preventDefault();
+  var $header = $('.header');
+  var $search_wrap = $header.find('.search_wrap-mobile');
+  $search_wrap.slideToggle();
+});
+$('.icon-account, .header__account-exit').on('click', function (evt) {
   evt.preventDefault();
   var $this = $(this);
   var $header = $this.closest('.header');
-  var $search_wrap = $header.find('.search_wrap-mobile');
+  var $search_wrap = $header.find('.header__account');
   $search_wrap.slideToggle();
+});
+$('.card_product-open-review').on('click', function (evt) {
+  evt.preventDefault();
+  var $this = $(this);
+  var $footer = $this.closest('.card_product-footer');
+  var $sidebar = $footer.siblings('.sidebar');
+  $sidebar.slideToggle();
+});
+$('.sidebar__exit').on('click', function (evt) {
+  evt.preventDefault();
+  var $this = $(this);
+  var $footer = $this.closest('.sidebar');
+  $footer.slideToggle();
 });
 
 /***/ }),
@@ -1488,6 +1506,53 @@ $('.btn-sample-vendor, .modal-sample-vendor .modal-box__close, .modal-sample-ven
 
 /***/ }),
 
+/***/ "./src/js/components/modal_admin.js":
+/*!******************************************!*\
+  !*** ./src/js/components/modal_admin.js ***!
+  \******************************************/
+/***/ (function() {
+
+$('.admin .answer, .modal-admin-answer .modal-box__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-admin-answer');
+  var $container = $modal_box.children('.modal-box__container');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+$('.admin .btn-reject, .modal-admin-reject .modal-box__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-admin-reject');
+  var $container = $modal_box.children('.modal-box__container');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+$('.admin-moderation .detail').on('click', function (evt) {
+  evt.preventDefault();
+  var $this = $(this);
+  var $item = $this.closest('.details');
+  var $container = $item.children('.details__bottom');
+  $this.toggleClass('active');
+  $container.slideToggle('slow');
+  setTimeout(function () {
+    $('.switcher__container').each(function (index, elem) {
+      var number = 1920 / window.outerWidth;
+      var height = $(elem).find('.switcher__content.active').outerHeight();
+      if (window.outerWidth <= 768) {
+        number = 375 / window.outerWidth;
+        height = $(elem).find('.switcher__content.active').outerHeight();
+      }
+      var switcher_content_height = height * number;
+      $(elem).css('height', "".concat(switcher_content_height, "rem"));
+    });
+  }, 700);
+});
+
+/***/ }),
+
 /***/ "./src/js/components/modal_brand.js":
 /*!******************************************!*\
   !*** ./src/js/components/modal_brand.js ***!
@@ -2311,7 +2376,6 @@ var swiper_my_orders = new Swiper('.swiper_sample_request', {
   }
 });
 if ($('.my_sample_request').length) {
-  console.log($('.count_all .sample_request__item').length);
   $('.all_btn').children('span').text("(".concat($('.count_all .sample_request__item').length, ")"));
   $('.new_btn').children('span').text("(".concat($('.count_all .status_new').length, ")"));
   $('.denied_btn').children('span').text("(".concat($('.count_all .status_denied').length, ")"));
@@ -2885,6 +2949,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_modal_request__WEBPACK_IMPORTED_MODULE_44___default = /*#__PURE__*/__webpack_require__.n(_components_modal_request__WEBPACK_IMPORTED_MODULE_44__);
 /* harmony import */ var _components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/fixed_sidebar */ "./src/js/components/fixed_sidebar.js");
 /* harmony import */ var _components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_45___default = /*#__PURE__*/__webpack_require__.n(_components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_45__);
+/* harmony import */ var _components_modal_admin__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./components/modal_admin */ "./src/js/components/modal_admin.js");
+/* harmony import */ var _components_modal_admin__WEBPACK_IMPORTED_MODULE_46___default = /*#__PURE__*/__webpack_require__.n(_components_modal_admin__WEBPACK_IMPORTED_MODULE_46__);
+
 
 
 
