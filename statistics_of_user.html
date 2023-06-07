@@ -6,11 +6,11 @@
 		<meta name="viewport" content="width=device-width">
 		<meta property="og:type" content="website">
 		<meta property="og:locale" content="ru_RU">
-		<meta property="og:title" content="Ingredients | Поставщик сообщения">
+		<meta property="og:title" content="Ingredients | Заказы">
 		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Ingredients | Поставщик сообщения">
-		<title>Ingredients | Поставщик сообщения</title>
-		<link rel="stylesheet" href="./css/main.css?v=1686150845096">
+		<meta name="twitter:title" content="Ingredients | Заказы">
+		<title>Ingredients | Заказы</title>
+		<link rel="stylesheet" href="./css/main.css?v=1686150846272">
 	</head>
 	<body>
 		<div class="header-blur"></div>
@@ -401,7 +401,7 @@
 			</div>
 		</header>
 		<main>
-			<section class="section cabinet provider_section_messages">
+			<section class="section cabinet statistics">
 				<div class="container">
 					<div class="sidebar gradient_border">
 						<div class="sidebar__top">
@@ -452,60 +452,280 @@
 						</div>
 					</div>
 					<div class="cabinet__content">
-						<div class="section__title">Сообщения</div>
-						<div class="bnt_scroll mobile">
-							<div class="switcher__control">
-								<button class="btn switcher__btn all_messages active" type="button">Общие чаты</button>
-								<button class="btn switcher__btn price_messages" type="button">Заказ цены</button>
-								<button class="btn switcher__btn sample_messages" type="button">Заказ образца</button>
-								<button class="btn switcher__btn document_messages" type="button">Заказ документов</button>
-							</div>
-						</div>
-						<form class="search cabinet__search">
-							<label><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-	<path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#BBCBD0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-	<path d="M22 22L20 20" stroke="#BBCBD0" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
-								<input type="text" placeholder="Поиск сообщения">
-							</label>
-							<button type="submit"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-	<path d="M15 1L1 15M15 1V14M15 1H2" stroke="white" stroke-width="2"/>
-</svg>
-							</button>
-						</form>
-						<div class="twoinput">
+						<div class="section__title">Общая статистика активности пользователей</div>
+						<form class="form__one">
 							<div class="form__item">
 								<select name="">
-									<option>Имя сотрудника</option>
-									<option>Имя сотрудника 2</option>
-									<option>Имя сотрудника 3</option>
+									<option>За последние 3 месяца</option>
+									<option>За последние 3 месяца 2</option>
+									<option>За последние 3 месяца 3</option>
 								</select>
 							</div>
-							<div class="switcher__control desk">
-								<button class="btn switcher__btn all_messages active" type="button">Общие чаты</button>
-								<button class="btn switcher__btn price_messages" type="button">Заказ цены</button>
-								<button class="btn switcher__btn sample_messages" type="button">Заказ образца</button>
-								<button class="btn switcher__btn document_messages" type="button">Заказ документов</button>
+						</form>
+						<div class="statistics-container">
+							<div class="statistics-item gradient_border">
+								<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.2115 14.4937C16.0781 14.4803 15.9181 14.4803 15.7715 14.4937C12.5981 14.387 10.0781 11.787 10.0781 8.58699C10.0781 5.32033 12.7181 2.66699 15.9981 2.66699C19.2648 2.66699 21.9181 5.32033 21.9181 8.58699C21.9048 11.787 19.3848 14.387 16.2115 14.4937Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M9.545 19.413C6.31833 21.573 6.31833 25.093 9.545 27.2397C13.2117 29.693 19.225 29.693 22.8917 27.2397C26.1183 25.0797 26.1183 21.5597 22.8917 19.413C19.2383 16.973 13.225 16.973 9.545 19.413Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+								</div>
+								<div class="text-box">
+									<div class="statistics-title">89</div>
+									<div class="statistics-subtitle">посетителей</div>
+								</div>
+							</div>
+							<div class="statistics-item gradient_border">
+								<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.8711 18.4002L15.0178 20.0668C15.2978 20.3468 15.9244 20.4801 16.3378 20.4801H18.9778C19.8044 20.4801 20.7111 19.8535 20.9244 19.0268L22.5911 13.9734C22.9378 13.0001 22.3111 12.1734 21.2711 12.1734H18.4978C18.0844 12.1734 17.7378 11.8268 17.8044 11.3468L18.1511 9.1334C18.2844 8.50674 17.8711 7.81338 17.2444 7.61338C16.6844 7.40005 15.9911 7.68003 15.7244 8.09336L12.8844 12.3201" fill="none" stroke="#8CA8B2" stroke-width="2" stroke-miterlimit="10"/>
+<path d="M9.33594 18.3997V11.613C9.33594 10.6396 9.74926 10.293 10.7226 10.293H11.4159C12.3893 10.293 12.8026 10.6396 12.8026 11.613V18.3997C12.8026 19.3731 12.3893 19.7197 11.4159 19.7197H10.7226C9.74926 19.7197 9.33594 19.3731 9.33594 18.3997Z" fill="none" stroke="#8CA8B2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M24 25.1463H22.9867C21.92 25.1463 20.9067 25.5596 20.16 26.3063L17.88 28.5597C16.84 29.5864 15.1467 29.5864 14.1067 28.5597L11.8267 26.3063C11.08 25.5596 10.0533 25.1463 9 25.1463H8C5.78667 25.1463 4 23.373 4 21.1864V6.63965C4 4.45298 5.78667 2.67969 8 2.67969H24C26.2133 2.67969 28 4.45298 28 6.63965V21.1864C28 23.3597 26.2133 25.1463 24 25.1463Z" fill="none" stroke="#8CA8B2" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+								</div>
+								<div class="text-box">
+									<div class="statistics-title">10</div>
+									<div class="statistics-subtitle">отзывов о товарах</div>
+								</div>
+							</div>
+							<div class="statistics-item gradient_border">
+								<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 5.33366L14.5862 7.40258C15.004 7.73689 15.611 7.68296 15.9634 7.28022L20 2.66699" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.33203 13.333V22.7636C5.33203 23.5212 5.76004 24.2137 6.4376 24.5525L15.1043 28.8858C15.6673 29.1673 16.3301 29.1673 16.8931 28.8858L25.5598 24.5525C26.2374 24.2137 26.6654 23.5212 26.6654 22.7636V13.333" fill="none" stroke="#7C9DA8" stroke-width="2"/>
+<path d="M23.9987 6.66699L26.6654 8.00033L15.9987 13.3337L5.33203 8.00033L7.9987 6.66699" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M26.6667 8L16 13.3333L18.6667 17.3333L29.3333 12L26.6667 8Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.33333 8L16 13.3333L13.3333 17.3333L2.66667 12L5.33333 8Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+								</div>
+								<div class="text-box">
+									<div class="statistics-title">200</div>
+									<div class="statistics-subtitle">количество продаж</div>
+								</div>
 							</div>
 						</div>
-						<div class="messages"><a class="message gradient_border" href="#">
-								<div class="message__img"><img src="images/cabinet/message_img.jpg" alt="message_img"></div>
-								<div class="message__inner">
-									<div class="message__top"><span class="message__author">Викторов Александр</span><span class="message__text">Здравствуйте! Разнообразный и богатый опыт начало повседневной работы по формированию позиции влечет за собой...</span></div>
-									<div class="message__bottom"><span>Милорада</span><span>Логист</span><span class="desktop">13 февраля, 2023 в 12:30</span><span class="mobile">13.02.23 в 12:30</span></div>
-								</div></a><a class="message gradient_border unread" href="#">
-								<div class="message__img"><img src="images/cabinet/message_img.jpg" alt="message_img"></div>
-								<div class="message__inner">
-									<div class="message__top"><span class="message__author">Викторов Александр</span><span class="message__text">Здравствуйте! Разнообразный и богатый опыт начало повседневной работы по формированию позиции влечет за собой...</span></div>
-									<div class="message__bottom"><span>Милорада</span><span>Логист</span><span class="desktop">13 февраля, 2023 в 12:30</span><span class="mobile">13.02.23 в 12:30</span>
-										<div class="message__passed">5 м</div>
+						<div class="statistics-box gradient_border switcher">
+							<div class="statistics-box-switcher">
+								<div class="section__title">Действия</div>
+								<div class="switcher__control">
+									<button class="btn switcher__btn active" type="button">Все</button>
+									<button class="btn switcher__btn" type="button">Выполненные</button>
+									<button class="btn switcher__btn" type="button">Ожидающие ответа</button>
+								</div>
+							</div>
+							<div class="switcher__container">
+								<div class="switcher__content active">
+									<div class="statistics-container"><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.668 16.2666H20.0013" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.668 21.5996H16.508" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.3346 8.00033H18.668C21.3346 8.00033 21.3346 6.66699 21.3346 5.33366C21.3346 2.66699 20.0013 2.66699 18.668 2.66699H13.3346C12.0013 2.66699 10.668 2.66699 10.668 5.33366C10.668 8.00033 12.0013 8.00033 13.3346 8.00033Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3333 5.36035C25.7733 5.60035 28 7.24035 28 13.3337V21.3337C28 26.667 26.6667 29.3337 20 29.3337H12C5.33333 29.3337 4 26.667 4 21.3337V13.3337C4 7.25368 6.22667 5.60035 10.6667 5.36035" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">104</div>
+												<div class="statistics-subtitle">запросов документов</div>
+											</div></a><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.668 16.2666H20.0013" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.668 21.5996H16.508" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.3346 8.00033H18.668C21.3346 8.00033 21.3346 6.66699 21.3346 5.33366C21.3346 2.66699 20.0013 2.66699 18.668 2.66699H13.3346C12.0013 2.66699 10.668 2.66699 10.668 5.33366C10.668 8.00033 12.0013 8.00033 13.3346 8.00033Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3333 5.36035C25.7733 5.60035 28 7.24035 28 13.3337V21.3337C28 26.667 26.6667 29.3337 20 29.3337H12C5.33333 29.3337 4 26.667 4 21.3337V13.3337C4 7.25368 6.22667 5.60035 10.6667 5.36035" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">100</div>
+												<div class="statistics-subtitle">запросов образцов</div>
+											</div></a><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.668 16.2666H20.0013" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.668 21.5996H16.508" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.3346 8.00033H18.668C21.3346 8.00033 21.3346 6.66699 21.3346 5.33366C21.3346 2.66699 20.0013 2.66699 18.668 2.66699H13.3346C12.0013 2.66699 10.668 2.66699 10.668 5.33366C10.668 8.00033 12.0013 8.00033 13.3346 8.00033Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3333 5.36035C25.7733 5.60035 28 7.24035 28 13.3337V21.3337C28 26.667 26.6667 29.3337 20 29.3337H12C5.33333 29.3337 4 26.667 4 21.3337V13.3337C4 7.25368 6.22667 5.60035 10.6667 5.36035" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">52</div>
+												<div class="statistics-subtitle">запросов цен</div>
+											</div></a><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.2455 13.4414L19.0864 13.9825L18.2455 13.4414ZM12.3346 12.0003C12.3346 12.5526 12.7823 13.0003 13.3346 13.0003C13.8869 13.0003 14.3346 12.5526 14.3346 12.0003H12.3346ZM15.0013 18.0003C15.0013 18.5526 15.449 19.0003 16.0013 19.0003C16.5536 19.0003 17.0013 18.5526 17.0013 18.0003H15.0013ZM17.0013 21.3337C17.0013 20.7814 16.5536 20.3337 16.0013 20.3337C15.449 20.3337 15.0013 20.7814 15.0013 21.3337H17.0013ZM15.0013 22.667C15.0013 23.2193 15.449 23.667 16.0013 23.667C16.5536 23.667 17.0013 23.2193 17.0013 22.667H15.0013ZM28.3346 16.0003C28.3346 22.8118 22.8128 28.3337 16.0013 28.3337V30.3337C23.9174 30.3337 30.3346 23.9164 30.3346 16.0003H28.3346ZM16.0013 28.3337C9.18979 28.3337 3.66797 22.8118 3.66797 16.0003H1.66797C1.66797 23.9164 8.08522 30.3337 16.0013 30.3337V28.3337ZM3.66797 16.0003C3.66797 9.18881 9.18979 3.66699 16.0013 3.66699V1.66699C8.08522 1.66699 1.66797 8.08424 1.66797 16.0003H3.66797ZM16.0013 3.66699C22.8128 3.66699 28.3346 9.18881 28.3346 16.0003H30.3346C30.3346 8.08424 23.9174 1.66699 16.0013 1.66699V3.66699ZM17.668 12.0003C17.668 12.3336 17.5712 12.6412 17.4045 12.9003L19.0864 13.9825C19.4545 13.4104 19.668 12.7288 19.668 12.0003H17.668ZM14.3346 12.0003C14.3346 11.0799 15.0808 10.3337 16.0013 10.3337V8.33366C13.9763 8.33366 12.3346 9.97528 12.3346 12.0003H14.3346ZM16.0013 10.3337C16.9218 10.3337 17.668 11.0799 17.668 12.0003H19.668C19.668 9.97528 18.0263 8.33366 16.0013 8.33366V10.3337ZM15.0013 17.3337V18.0003H17.0013V17.3337H15.0013ZM17.4045 12.9003C17.2366 13.1612 17.0264 13.4312 16.7795 13.738C16.543 14.0319 16.2651 14.3688 16.0159 14.7113C15.5245 15.3867 15.0013 16.268 15.0013 17.3337H17.0013C17.0013 16.9266 17.2017 16.481 17.6331 15.888C17.8453 15.5964 18.0787 15.3138 18.3377 14.9918C18.5863 14.6829 18.8558 14.3408 19.0864 13.9825L17.4045 12.9003ZM15.0013 21.3337V22.667H17.0013V21.3337H15.0013Z" fill="#7C9DA8"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">30</div>
+												<div class="statistics-subtitle">вопросов</div>
+											</div></a></div>
+								</div>
+								<div class="switcher__content">
+									<div class="statistics-container"><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.668 16.2666H20.0013" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.668 21.5996H16.508" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.3346 8.00033H18.668C21.3346 8.00033 21.3346 6.66699 21.3346 5.33366C21.3346 2.66699 20.0013 2.66699 18.668 2.66699H13.3346C12.0013 2.66699 10.668 2.66699 10.668 5.33366C10.668 8.00033 12.0013 8.00033 13.3346 8.00033Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3333 5.36035C25.7733 5.60035 28 7.24035 28 13.3337V21.3337C28 26.667 26.6667 29.3337 20 29.3337H12C5.33333 29.3337 4 26.667 4 21.3337V13.3337C4 7.25368 6.22667 5.60035 10.6667 5.36035" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">104</div>
+												<div class="statistics-subtitle">запросов документов</div>
+											</div></a><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.668 16.2666H20.0013" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.668 21.5996H16.508" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.3346 8.00033H18.668C21.3346 8.00033 21.3346 6.66699 21.3346 5.33366C21.3346 2.66699 20.0013 2.66699 18.668 2.66699H13.3346C12.0013 2.66699 10.668 2.66699 10.668 5.33366C10.668 8.00033 12.0013 8.00033 13.3346 8.00033Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3333 5.36035C25.7733 5.60035 28 7.24035 28 13.3337V21.3337C28 26.667 26.6667 29.3337 20 29.3337H12C5.33333 29.3337 4 26.667 4 21.3337V13.3337C4 7.25368 6.22667 5.60035 10.6667 5.36035" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">100</div>
+												<div class="statistics-subtitle">запросов образцов</div>
+											</div></a><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.668 16.2666H20.0013" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.668 21.5996H16.508" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.3346 8.00033H18.668C21.3346 8.00033 21.3346 6.66699 21.3346 5.33366C21.3346 2.66699 20.0013 2.66699 18.668 2.66699H13.3346C12.0013 2.66699 10.668 2.66699 10.668 5.33366C10.668 8.00033 12.0013 8.00033 13.3346 8.00033Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3333 5.36035C25.7733 5.60035 28 7.24035 28 13.3337V21.3337C28 26.667 26.6667 29.3337 20 29.3337H12C5.33333 29.3337 4 26.667 4 21.3337V13.3337C4 7.25368 6.22667 5.60035 10.6667 5.36035" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">52</div>
+												<div class="statistics-subtitle">запросов цен</div>
+											</div></a><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.2455 13.4414L19.0864 13.9825L18.2455 13.4414ZM12.3346 12.0003C12.3346 12.5526 12.7823 13.0003 13.3346 13.0003C13.8869 13.0003 14.3346 12.5526 14.3346 12.0003H12.3346ZM15.0013 18.0003C15.0013 18.5526 15.449 19.0003 16.0013 19.0003C16.5536 19.0003 17.0013 18.5526 17.0013 18.0003H15.0013ZM17.0013 21.3337C17.0013 20.7814 16.5536 20.3337 16.0013 20.3337C15.449 20.3337 15.0013 20.7814 15.0013 21.3337H17.0013ZM15.0013 22.667C15.0013 23.2193 15.449 23.667 16.0013 23.667C16.5536 23.667 17.0013 23.2193 17.0013 22.667H15.0013ZM28.3346 16.0003C28.3346 22.8118 22.8128 28.3337 16.0013 28.3337V30.3337C23.9174 30.3337 30.3346 23.9164 30.3346 16.0003H28.3346ZM16.0013 28.3337C9.18979 28.3337 3.66797 22.8118 3.66797 16.0003H1.66797C1.66797 23.9164 8.08522 30.3337 16.0013 30.3337V28.3337ZM3.66797 16.0003C3.66797 9.18881 9.18979 3.66699 16.0013 3.66699V1.66699C8.08522 1.66699 1.66797 8.08424 1.66797 16.0003H3.66797ZM16.0013 3.66699C22.8128 3.66699 28.3346 9.18881 28.3346 16.0003H30.3346C30.3346 8.08424 23.9174 1.66699 16.0013 1.66699V3.66699ZM17.668 12.0003C17.668 12.3336 17.5712 12.6412 17.4045 12.9003L19.0864 13.9825C19.4545 13.4104 19.668 12.7288 19.668 12.0003H17.668ZM14.3346 12.0003C14.3346 11.0799 15.0808 10.3337 16.0013 10.3337V8.33366C13.9763 8.33366 12.3346 9.97528 12.3346 12.0003H14.3346ZM16.0013 10.3337C16.9218 10.3337 17.668 11.0799 17.668 12.0003H19.668C19.668 9.97528 18.0263 8.33366 16.0013 8.33366V10.3337ZM15.0013 17.3337V18.0003H17.0013V17.3337H15.0013ZM17.4045 12.9003C17.2366 13.1612 17.0264 13.4312 16.7795 13.738C16.543 14.0319 16.2651 14.3688 16.0159 14.7113C15.5245 15.3867 15.0013 16.268 15.0013 17.3337H17.0013C17.0013 16.9266 17.2017 16.481 17.6331 15.888C17.8453 15.5964 18.0787 15.3138 18.3377 14.9918C18.5863 14.6829 18.8558 14.3408 19.0864 13.9825L17.4045 12.9003ZM15.0013 21.3337V22.667H17.0013V21.3337H15.0013Z" fill="#7C9DA8"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">30</div>
+												<div class="statistics-subtitle">вопросов</div>
+											</div></a></div>
+								</div>
+								<div class="switcher__content">
+									<div class="statistics-container"><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.668 16.2666H20.0013" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.668 21.5996H16.508" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.3346 8.00033H18.668C21.3346 8.00033 21.3346 6.66699 21.3346 5.33366C21.3346 2.66699 20.0013 2.66699 18.668 2.66699H13.3346C12.0013 2.66699 10.668 2.66699 10.668 5.33366C10.668 8.00033 12.0013 8.00033 13.3346 8.00033Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3333 5.36035C25.7733 5.60035 28 7.24035 28 13.3337V21.3337C28 26.667 26.6667 29.3337 20 29.3337H12C5.33333 29.3337 4 26.667 4 21.3337V13.3337C4 7.25368 6.22667 5.60035 10.6667 5.36035" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">104</div>
+												<div class="statistics-subtitle">запросов документов</div>
+											</div></a><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.668 16.2666H20.0013" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.668 21.5996H16.508" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.3346 8.00033H18.668C21.3346 8.00033 21.3346 6.66699 21.3346 5.33366C21.3346 2.66699 20.0013 2.66699 18.668 2.66699H13.3346C12.0013 2.66699 10.668 2.66699 10.668 5.33366C10.668 8.00033 12.0013 8.00033 13.3346 8.00033Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3333 5.36035C25.7733 5.60035 28 7.24035 28 13.3337V21.3337C28 26.667 26.6667 29.3337 20 29.3337H12C5.33333 29.3337 4 26.667 4 21.3337V13.3337C4 7.25368 6.22667 5.60035 10.6667 5.36035" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">100</div>
+												<div class="statistics-subtitle">запросов образцов</div>
+											</div></a><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.668 16.2666H20.0013" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M10.668 21.5996H16.508" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M13.3346 8.00033H18.668C21.3346 8.00033 21.3346 6.66699 21.3346 5.33366C21.3346 2.66699 20.0013 2.66699 18.668 2.66699H13.3346C12.0013 2.66699 10.668 2.66699 10.668 5.33366C10.668 8.00033 12.0013 8.00033 13.3346 8.00033Z" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M21.3333 5.36035C25.7733 5.60035 28 7.24035 28 13.3337V21.3337C28 26.667 26.6667 29.3337 20 29.3337H12C5.33333 29.3337 4 26.667 4 21.3337V13.3337C4 7.25368 6.22667 5.60035 10.6667 5.36035" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">52</div>
+												<div class="statistics-subtitle">запросов цен</div>
+											</div></a><a class="statistics-item link gradient_border" href="#">
+											<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.2455 13.4414L19.0864 13.9825L18.2455 13.4414ZM12.3346 12.0003C12.3346 12.5526 12.7823 13.0003 13.3346 13.0003C13.8869 13.0003 14.3346 12.5526 14.3346 12.0003H12.3346ZM15.0013 18.0003C15.0013 18.5526 15.449 19.0003 16.0013 19.0003C16.5536 19.0003 17.0013 18.5526 17.0013 18.0003H15.0013ZM17.0013 21.3337C17.0013 20.7814 16.5536 20.3337 16.0013 20.3337C15.449 20.3337 15.0013 20.7814 15.0013 21.3337H17.0013ZM15.0013 22.667C15.0013 23.2193 15.449 23.667 16.0013 23.667C16.5536 23.667 17.0013 23.2193 17.0013 22.667H15.0013ZM28.3346 16.0003C28.3346 22.8118 22.8128 28.3337 16.0013 28.3337V30.3337C23.9174 30.3337 30.3346 23.9164 30.3346 16.0003H28.3346ZM16.0013 28.3337C9.18979 28.3337 3.66797 22.8118 3.66797 16.0003H1.66797C1.66797 23.9164 8.08522 30.3337 16.0013 30.3337V28.3337ZM3.66797 16.0003C3.66797 9.18881 9.18979 3.66699 16.0013 3.66699V1.66699C8.08522 1.66699 1.66797 8.08424 1.66797 16.0003H3.66797ZM16.0013 3.66699C22.8128 3.66699 28.3346 9.18881 28.3346 16.0003H30.3346C30.3346 8.08424 23.9174 1.66699 16.0013 1.66699V3.66699ZM17.668 12.0003C17.668 12.3336 17.5712 12.6412 17.4045 12.9003L19.0864 13.9825C19.4545 13.4104 19.668 12.7288 19.668 12.0003H17.668ZM14.3346 12.0003C14.3346 11.0799 15.0808 10.3337 16.0013 10.3337V8.33366C13.9763 8.33366 12.3346 9.97528 12.3346 12.0003H14.3346ZM16.0013 10.3337C16.9218 10.3337 17.668 11.0799 17.668 12.0003H19.668C19.668 9.97528 18.0263 8.33366 16.0013 8.33366V10.3337ZM15.0013 17.3337V18.0003H17.0013V17.3337H15.0013ZM17.4045 12.9003C17.2366 13.1612 17.0264 13.4312 16.7795 13.738C16.543 14.0319 16.2651 14.3688 16.0159 14.7113C15.5245 15.3867 15.0013 16.268 15.0013 17.3337H17.0013C17.0013 16.9266 17.2017 16.481 17.6331 15.888C17.8453 15.5964 18.0787 15.3138 18.3377 14.9918C18.5863 14.6829 18.8558 14.3408 19.0864 13.9825L17.4045 12.9003ZM15.0013 21.3337V22.667H17.0013V21.3337H15.0013Z" fill="#7C9DA8"/>
+</svg>
+
+											</div>
+											<div class="text-box">
+												<div class="statistics-title">30</div>
+												<div class="statistics-subtitle">вопросов</div>
+											</div></a></div>
+								</div>
+							</div>
+						</div>
+						<div class="statistics-box gradient_border">
+							<div class="section__title">Средняя скорость ответа</div>
+							<div class="statistics-container">
+								<div class="statistics-item gradient_border">
+									<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 16C18 17.1046 17.1046 18 16 18C14.8954 18 14 17.1046 14 16C14 14.8954 14.8954 14 16 14C17.1046 14 18 14.8954 18 16Z" fill="none" stroke="#7C9DA8" stroke-width="2"/>
+<path d="M16 8V14M18 18L20 20" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2.66797 16.0003C2.66797 8.63653 8.6375 2.66699 16.0013 2.66699C23.3651 2.66699 29.3346 8.63653 29.3346 16.0003C29.3346 23.3641 23.3651 29.3337 16.0013 29.3337H2.66797" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round"/>
+<path d="M10.668 24H2.66797" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.0013 20H2.66797" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
 									</div>
-								</div></a><a class="message gradient_border" href="#">
-								<div class="message__img"><img src="images/cabinet/message_img.jpg" alt="message_img"></div>
-								<div class="message__inner">
-									<div class="message__top"><span class="message__author">Викторов Александр</span><span class="message__text">Здравствуйте! Разнообразный и богатый опыт начало повседневной работы по формированию позиции влечет за собой...</span></div>
-									<div class="message__bottom"><span>Милорада</span><span>Логист</span><span class="desktop">13 февраля, 2023 в 12:30</span><span class="mobile">13.02.23 в 12:30</span></div>
-								</div></a></div>
+									<div class="text-box">
+										<div class="statistics-title">1 ч</div>
+										<div class="statistics-subtitle">запросов документов</div>
+									</div>
+								</div>
+								<div class="statistics-item gradient_border">
+									<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 16C18 17.1046 17.1046 18 16 18C14.8954 18 14 17.1046 14 16C14 14.8954 14.8954 14 16 14C17.1046 14 18 14.8954 18 16Z" fill="none" stroke="#7C9DA8" stroke-width="2"/>
+<path d="M16 8V14M18 18L20 20" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2.66797 16.0003C2.66797 8.63653 8.6375 2.66699 16.0013 2.66699C23.3651 2.66699 29.3346 8.63653 29.3346 16.0003C29.3346 23.3641 23.3651 29.3337 16.0013 29.3337H2.66797" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round"/>
+<path d="M10.668 24H2.66797" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.0013 20H2.66797" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+									</div>
+									<div class="text-box">
+										<div class="statistics-title">24 ч</div>
+										<div class="statistics-subtitle">запросов образцов</div>
+									</div>
+								</div>
+								<div class="statistics-item gradient_border">
+									<div class="statistics-icon"><svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18 16C18 17.1046 17.1046 18 16 18C14.8954 18 14 17.1046 14 16C14 14.8954 14.8954 14 16 14C17.1046 14 18 14.8954 18 16Z" fill="none" stroke="#7C9DA8" stroke-width="2"/>
+<path d="M16 8V14M18 18L20 20" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M2.66797 16.0003C2.66797 8.63653 8.6375 2.66699 16.0013 2.66699C23.3651 2.66699 29.3346 8.63653 29.3346 16.0003C29.3346 23.3641 23.3651 29.3337 16.0013 29.3337H2.66797" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round"/>
+<path d="M10.668 24H2.66797" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.0013 20H2.66797" fill="none" stroke="#7C9DA8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+									</div>
+									<div class="text-box">
+										<div class="statistics-title">30 мин</div>
+										<div class="statistics-subtitle">запросов цен</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="number-of-actions">
+							<div class="statistics-box gradient_border">
+								<div class="number-of-actions__head"></div>
+								<div class="number-of-actions__bottom">
+									<div id="number-of-actions__graph"></div>
+								</div>
+							</div>
+							<div class="number-of-actions__refresh">
+								<div class="number-of-actions__refresh-btn">
+									<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.0422 11.6754C3.0422 16.5458 6.5734 19.8642 10.5398 20.5506C10.6477 20.5693 10.7508 20.609 10.8434 20.6676C10.9359 20.7262 11.016 20.8024 11.0791 20.8919C11.1421 20.9814 11.1869 21.0825 11.211 21.1893C11.235 21.2962 11.2377 21.4067 11.219 21.5146C11.2003 21.6225 11.1605 21.7256 11.102 21.8181C11.0434 21.9107 10.9672 21.9907 10.8777 22.0538C10.7882 22.1169 10.6871 22.1617 10.5803 22.1857C10.4734 22.2097 10.3629 22.2125 10.255 22.1938C5.5974 21.3874 1.375 17.461 1.375 11.6754C1.375 9.21617 2.4934 7.28337 3.799 5.81457C4.735 4.76177 5.8054 3.90577 6.6662 3.25137H4.0486C3.83643 3.25137 3.63294 3.16708 3.48291 3.01705C3.33289 2.86702 3.2486 2.66354 3.2486 2.45137C3.2486 2.23919 3.33289 2.03571 3.48291 1.88568C3.63294 1.73565 3.83643 1.65137 4.0486 1.65137H8.8486C9.06077 1.65137 9.26426 1.73565 9.41429 1.88568C9.56431 2.03571 9.6486 2.23919 9.6486 2.45137V7.25137C9.6486 7.46354 9.56431 7.66702 9.41429 7.81705C9.26426 7.96708 9.06077 8.05137 8.8486 8.05137C8.63643 8.05137 8.43294 7.96708 8.28291 7.81705C8.13289 7.66702 8.0486 7.46354 8.0486 7.25137V4.29777L8.047 4.30097C7.1318 4.98897 6.015 5.83217 5.047 6.92177C3.903 8.20817 3.0422 9.76337 3.0422 11.6738V11.6754ZM20.815 12.325C20.815 7.50577 17.359 4.20817 13.4438 3.47217C13.3347 3.45365 13.2303 3.41359 13.1369 3.35432C13.0434 3.29505 12.9626 3.21776 12.8994 3.12696C12.8361 3.03616 12.7915 2.93366 12.7683 2.82545C12.745 2.71724 12.7435 2.60548 12.7639 2.49669C12.7843 2.3879 12.8262 2.28427 12.8871 2.19183C12.9479 2.09939 13.0266 2.02001 13.1185 1.9583C13.2104 1.89659 13.3136 1.8538 13.4222 1.83241C13.5308 1.81103 13.6426 1.81149 13.751 1.83377C18.3494 2.69777 22.4822 6.60177 22.4822 12.325C22.4822 14.7842 21.3638 16.7154 20.0582 18.1858C19.1222 19.2386 18.0518 20.0946 17.191 20.749H19.8086C20.0208 20.749 20.2243 20.8333 20.3743 20.9833C20.5243 21.1333 20.6086 21.3368 20.6086 21.549C20.6086 21.7611 20.5243 21.9646 20.3743 22.1147C20.2243 22.2647 20.0208 22.349 19.8086 22.349H15.0086C14.7964 22.349 14.5929 22.2647 14.4429 22.1147C14.2929 21.9646 14.2086 21.7611 14.2086 21.549V16.749C14.2086 16.5368 14.2929 16.3333 14.4429 16.1833C14.5929 16.0333 14.7964 15.949 15.0086 15.949C15.2208 15.949 15.4243 16.0333 15.5743 16.1833C15.7243 16.3333 15.8086 16.5368 15.8086 16.749V19.701H15.8118C16.7254 19.0098 17.8438 18.1682 18.8102 17.077C19.9542 15.7922 20.815 14.237 20.815 12.325Z" fill="#181818"/>
+</svg>
+									Обновить
+								</div><span>Последнее обновление в 12.30</span>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
@@ -571,7 +791,7 @@
 			}
 		</script>
 		<script src="https://cdn.jsdelivr.net/npm/d3-shape@3"></script>
-		<script src="./js/vendor.js?v=1686150845096"></script>
-		<script src="./js/main.js?v=1686150845096"></script>
+		<script src="./js/vendor.js?v=1686150846272"></script>
+		<script src="./js/main.js?v=1686150846272"></script>
 	</body>
 </html>
