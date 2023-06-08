@@ -24371,6 +24371,1896 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 /***/ }),
 
+/***/ "./src/js/amcharts/percent.js":
+/*!************************************!*\
+  !*** ./src/js/amcharts/percent.js ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/get */ "./node_modules/@babel/runtime/helpers/esm/get.js");
+/* harmony import */ var _babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7__);
+
+
+
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__["default"])(this, result); }; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+(self.webpackChunk_am5 = self.webpackChunk_am5 || []).push([[2076], {
+  2536: function _(e, t, i) {
+    i.r(t), i.d(t, {
+      DefaultTheme: function DefaultTheme() {
+        return o;
+      },
+      FunnelSeries: function FunnelSeries() {
+        return T;
+      },
+      FunnelSlice: function FunnelSlice() {
+        return A;
+      },
+      PercentChart: function PercentChart() {
+        return h;
+      },
+      PercentSeries: function PercentSeries() {
+        return m;
+      },
+      PictorialStackedSeries: function PictorialStackedSeries() {
+        return I;
+      },
+      PieChart: function PieChart() {
+        return f;
+      },
+      PieSeries: function PieSeries() {
+        return C;
+      },
+      PyramidSeries: function PyramidSeries() {
+        return L;
+      },
+      SlicedChart: function SlicedChart() {
+        return S;
+      }
+    });
+    var s = i(5829),
+      a = i(3409),
+      l = i(6245),
+      r = i(2754),
+      n = i(3783);
+    var o = /*#__PURE__*/function (_a$Q) {
+      (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(o, _a$Q);
+      var _super = _createSuper(o);
+      function o() {
+        (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, o);
+        return _super.apply(this, arguments);
+      }
+      (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(o, [{
+        key: "setupDefaultRules",
+        value: function setupDefaultRules() {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(o.prototype), "setupDefaultRules", this).call(this);
+          var e = this._root.interfaceColors,
+            t = this.rule.bind(this);
+          t("PercentSeries").setAll({
+            legendLabelText: "{category}",
+            legendValueText: "{valuePercentTotal.formatNumber('0.00p')}",
+            colors: r.U["new"](this._root, {}),
+            width: l.AQ,
+            height: l.AQ
+          }), t("PieChart").setAll({
+            radius: (0, l.aQ)(80),
+            startAngle: -90,
+            endAngle: 270
+          }), t("PieSeries").setAll({
+            alignLabels: !0,
+            startAngle: -90,
+            endAngle: 270
+          }), t("PieSeries").states.create("hidden", {
+            endAngle: -90,
+            opacity: 0
+          }), t("Slice", ["pie"]).setAll({
+            position: "absolute",
+            isMeasured: !1,
+            x: 0,
+            y: 0,
+            toggleKey: "active",
+            tooltipText: "{category}: {valuePercentTotal.formatNumber('0.00p')}",
+            strokeWidth: 1,
+            strokeOpacity: 1,
+            role: "figure",
+            lineJoin: "round"
+          }), t("Slice", ["pie"]).states.create("active", {
+            shiftRadius: 20,
+            scale: 1
+          }), t("Slice", ["pie"]).states.create("hoverActive", {
+            scale: 1.04
+          }), t("Slice", ["pie"]).states.create("hover", {
+            scale: 1.04
+          }), t("RadialLabel", ["pie"]).setAll({
+            textType: "aligned",
+            radius: 10,
+            text: "{category}: {valuePercentTotal.formatNumber('0.00p')}",
+            paddingTop: 5,
+            paddingBottom: 5,
+            populateText: !0
+          }), t("Tick", ["pie"]).setAll({
+            location: 1
+          }), t("SlicedChart").setAll({
+            paddingLeft: 10,
+            paddingRight: 10,
+            paddingTop: 10,
+            paddingBottom: 10
+          }), t("FunnelSeries").setAll({
+            startLocation: 0,
+            endLocation: 1,
+            orientation: "vertical",
+            alignLabels: !0,
+            sequencedInterpolation: !0
+          }), t("FunnelSlice").setAll({
+            interactive: !0,
+            expandDistance: 0
+          }), t("FunnelSlice").states.create("hover", {
+            expandDistance: .15
+          }), t("Label", ["funnel"]).setAll({
+            populateText: !0,
+            text: "{category}: {valuePercentTotal.formatNumber('0.00p')}",
+            centerY: l.CI
+          }), t("Label", ["funnel", "horizontal"]).setAll({
+            centerX: 0,
+            centerY: l.CI,
+            rotation: -90
+          }), t("Label", ["funnel", "vertical"]).setAll({
+            centerY: l.CI,
+            centerX: 0
+          }), t("Tick", ["funnel"]).setAll({
+            location: 1
+          }), t("FunnelSlice", ["funnel", "link"]).setAll({
+            fillOpacity: .5,
+            strokeOpacity: 0,
+            expandDistance: -.1
+          }), t("FunnelSlice", ["funnel", "link", "vertical"]).setAll({
+            height: 10
+          }), t("FunnelSlice", ["funnel", "link", "horizontal"]).setAll({
+            width: 10
+          }), t("PyramidSeries").setAll({
+            valueIs: "area"
+          }), t("FunnelSlice", ["pyramid", "link"]).setAll({
+            fillOpacity: .5
+          }), t("FunnelSlice", ["pyramid", "link", "vertical"]).setAll({
+            height: 0
+          }), t("FunnelSlice", ["pyramid", "link", "horizontal"]).setAll({
+            width: 0
+          }), t("FunnelSlice", ["pyramid"]).setAll({
+            interactive: !0,
+            expandDistance: 0
+          }), t("FunnelSlice", ["pyramid"]).states.create("hover", {
+            expandDistance: .15
+          }), t("Label", ["pyramid"]).setAll({
+            populateText: !0,
+            text: "{category}: {valuePercentTotal.formatNumber('0.00p')}",
+            centerY: l.CI
+          }), t("Label", ["pyramid", "horizontal"]).setAll({
+            centerX: 0,
+            centerY: l.CI,
+            rotation: -90
+          }), t("Label", ["pyramid", "vertical"]).setAll({
+            centerY: l.CI,
+            centerX: 0
+          }), t("Tick", ["pyramid"]).setAll({
+            location: 1
+          }), t("FunnelSlice", ["pictorial"]).setAll({
+            interactive: !0,
+            tooltipText: "{category}: {valuePercentTotal.formatNumber('0.00p')}"
+          }), t("Label", ["pictorial"]).setAll({
+            populateText: !0,
+            text: "{category}: {valuePercentTotal.formatNumber('0.00p')}",
+            centerY: l.CI
+          }), t("Label", ["pictorial", "horizontal"]).setAll({
+            centerX: 0,
+            centerY: l.CI,
+            rotation: -90
+          }), t("Label", ["pictorial", "vertical"]).setAll({
+            centerY: l.CI,
+            centerX: 0
+          }), t("FunnelSlice", ["pictorial", "link"]).setAll({
+            fillOpacity: .5,
+            width: 0,
+            height: 0
+          }), t("Tick", ["pictorial"]).setAll({
+            location: .5
+          });
+          {
+            var _i = t("Graphics", ["pictorial", "background"]);
+            _i.setAll({
+              fillOpacity: .2
+            }), (0, n.v)(_i, "fill", e, "alternativeBackground");
+          }
+        }
+      }]);
+      return o;
+    }(a.Q);
+    var h = /*#__PURE__*/function (_s$j) {
+      (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(h, _s$j);
+      var _super2 = _createSuper(h);
+      function h() {
+        (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, h);
+        return _super2.apply(this, arguments);
+      }
+      (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(h, [{
+        key: "_afterNew",
+        value: function _afterNew() {
+          this._defaultThemes.push(o["new"](this._root)), (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(h.prototype), "_afterNew", this).call(this), this.chartContainer.children.push(this.seriesContainer), this.seriesContainer.children.push(this.bulletsContainer);
+        }
+      }, {
+        key: "_processSeries",
+        value: function _processSeries(e) {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(h.prototype), "_processSeries", this).call(this, e), this.seriesContainer.children.moveValue(this.bulletsContainer, this.seriesContainer.children.length - 1);
+        }
+      }]);
+      return h;
+    }(s.j);
+    Object.defineProperty(h, "className", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: "PercentChart"
+    }), Object.defineProperty(h, "classNames", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: s.j.classNames.concat([h.className])
+    });
+    var c = i(5125),
+      u = i(3399),
+      d = i(8777),
+      g = i(1479),
+      b = i(5071),
+      p = i(5040);
+    var m = /*#__PURE__*/function (_u$F) {
+      (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(m, _u$F);
+      var _super3 = _createSuper(m);
+      function m() {
+        var _this;
+        (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, m);
+        _this = _super3.apply(this, arguments), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this), "slicesContainer", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: _this.children.push(d.W["new"](_this._root, {
+            position: "absolute",
+            isMeasured: !1
+          }))
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this), "labelsContainer", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: _this.children.push(d.W["new"](_this._root, {
+            position: "absolute",
+            isMeasured: !1
+          }))
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this), "ticksContainer", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: _this.children.push(d.W["new"](_this._root, {
+            position: "absolute",
+            isMeasured: !1
+          }))
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this), "_lLabels", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: []
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this), "_rLabels", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: []
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this), "_hLabels", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: []
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this), "slices", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: _this._makeSlices()
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this), "labels", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: _this._makeLabels()
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this), "ticks", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: _this._makeTicks()
+        });
+        return _this;
+      }
+      (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(m, [{
+        key: "makeSlice",
+        value: function makeSlice(e) {
+          var _this2 = this;
+          var t = this.slicesContainer.children.push(this.slices.make());
+          return t.on("fill", function () {
+            _this2.updateLegendMarker(e);
+          }), t.on("stroke", function () {
+            _this2.updateLegendMarker(e);
+          }), t._setDataItem(e), e.set("slice", t), this.slices.push(t), t;
+        }
+      }, {
+        key: "makeLabel",
+        value: function makeLabel(e) {
+          var t = this.labelsContainer.children.push(this.labels.make());
+          return t._setDataItem(e), e.set("label", t), this.labels.push(t), t;
+        }
+      }, {
+        key: "_shouldMakeBullet",
+        value: function _shouldMakeBullet(e) {
+          return null != e.get("value");
+        }
+      }, {
+        key: "makeTick",
+        value: function makeTick(e) {
+          var t = this.ticksContainer.children.push(this.ticks.make());
+          return t._setDataItem(e), e.set("tick", t), this.ticks.push(t), t;
+        }
+      }, {
+        key: "_afterNew",
+        value: function _afterNew() {
+          this.fields.push("category", "fill"), (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "_afterNew", this).call(this);
+        }
+      }, {
+        key: "_onDataClear",
+        value: function _onDataClear() {
+          var e = this.get("colors");
+          e && e.reset();
+        }
+      }, {
+        key: "_prepareChildren",
+        value: function _prepareChildren() {
+          if ((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "_prepareChildren", this).call(this), this._lLabels = [], this._rLabels = [], this._hLabels = [], this._valuesDirty) {
+            var _e = 0,
+              _t = 0,
+              _i2 = 0,
+              _s = 1 / 0,
+              _a = 0;
+            b.each(this._dataItems, function (i) {
+              var s = i.get("valueWorking", 0);
+              _e += s, _t += Math.abs(s);
+            }), b.each(this._dataItems, function (e) {
+              var l = e.get("valueWorking", 0);
+              l > _i2 && (_i2 = l), l < _s && (_s = l), _a++;
+              var r = l / _t;
+              0 == _t && (r = 0), e.setRaw("valuePercentTotal", 100 * r);
+            }), this.setPrivateRaw("valueLow", _s), this.setPrivateRaw("valueHigh", _i2), this.setPrivateRaw("valueSum", _e), this.setPrivateRaw("valueAverage", _e / _a), this.setPrivateRaw("valueAbsoluteSum", _t);
+          }
+        }
+      }, {
+        key: "show",
+        value: function show(e) {
+          var _this3 = this;
+          var t = Object.create(null, {
+            show: {
+              get: function get() {
+                return (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "show", _this3);
+              }
+            }
+          });
+          return (0, c.mG)(this, void 0, void 0, /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().mark(function _callee() {
+            var i;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().wrap(function _callee$(_context) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  i = [];
+                  i.push(t.show.call(this, e));
+                  i.push(this._sequencedShowHide(!0, e));
+                  _context.next = 5;
+                  return Promise.all(i);
+                case 5:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee, this);
+          }));
+        }
+      }, {
+        key: "hide",
+        value: function hide(e) {
+          var _this4 = this;
+          var t = Object.create(null, {
+            hide: {
+              get: function get() {
+                return (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "hide", _this4);
+              }
+            }
+          });
+          return (0, c.mG)(this, void 0, void 0, /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().mark(function _callee2() {
+            var i;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().wrap(function _callee2$(_context2) {
+              while (1) switch (_context2.prev = _context2.next) {
+                case 0:
+                  i = [];
+                  i.push(t.hide.call(this, e));
+                  i.push(this._sequencedShowHide(!1, e));
+                  _context2.next = 5;
+                  return Promise.all(i);
+                case 5:
+                case "end":
+                  return _context2.stop();
+              }
+            }, _callee2, this);
+          }));
+        }
+      }, {
+        key: "_updateChildren",
+        value: function _updateChildren() {
+          var _this5 = this;
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "_updateChildren", this).call(this), this._valuesDirty && b.each(this._dataItems, function (e) {
+            e.get("label").text.markDirtyText();
+          }), (this.isDirty("legendLabelText") || this.isDirty("legendValueText")) && b.each(this._dataItems, function (e) {
+            _this5.updateLegendValue(e);
+          }), this._arrange();
+        }
+      }, {
+        key: "_arrange",
+        value: function _arrange() {
+          var _this6 = this;
+          this._arrangeDown(this._lLabels), this._arrangeUp(this._lLabels), this._arrangeDown(this._rLabels), this._arrangeUp(this._rLabels), this._arrangeLeft(this._hLabels), this._arrangeRight(this._hLabels), b.each(this.dataItems, function (e) {
+            _this6._updateTick(e);
+          });
+        }
+      }, {
+        key: "_afterChanged",
+        value: function _afterChanged() {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "_afterChanged", this).call(this), this._arrange();
+        }
+      }, {
+        key: "processDataItem",
+        value: function processDataItem(e) {
+          if ((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "processDataItem", this).call(this, e), null == e.get("fill")) {
+            var _t2 = this.get("colors");
+            _t2 && e.setRaw("fill", _t2.next());
+          }
+        }
+      }, {
+        key: "showDataItem",
+        value: function showDataItem(e, t) {
+          var _this7 = this;
+          var i = Object.create(null, {
+            showDataItem: {
+              get: function get() {
+                return (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "showDataItem", _this7);
+              }
+            }
+          });
+          return (0, c.mG)(this, void 0, void 0, /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().mark(function _callee3() {
+            var s, a, l, r, n, o, h;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().wrap(function _callee3$(_context3) {
+              while (1) switch (_context3.prev = _context3.next) {
+                case 0:
+                  s = [i.showDataItem.call(this, e, t)];
+                  p.isNumber(t) || (t = this.get("stateAnimationDuration", 0));
+                  a = this.get("stateAnimationEasing");
+                  l = e.get("value");
+                  r = e.animate({
+                    key: "valueWorking",
+                    to: l,
+                    duration: t,
+                    easing: a
+                  });
+                  r && s.push(r.waitForStop());
+                  n = e.get("tick");
+                  n && s.push(n.show(t));
+                  o = e.get("label");
+                  o && s.push(o.show(t));
+                  h = e.get("slice");
+                  h && s.push(h.show(t));
+                  h.get("active") && h.states.applyAnimate("active");
+                  _context3.next = 15;
+                  return Promise.all(s);
+                case 15:
+                case "end":
+                  return _context3.stop();
+              }
+            }, _callee3, this);
+          }));
+        }
+      }, {
+        key: "hideDataItem",
+        value: function hideDataItem(e, t) {
+          var _this8 = this;
+          var i = Object.create(null, {
+            hideDataItem: {
+              get: function get() {
+                return (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "hideDataItem", _this8);
+              }
+            }
+          });
+          return (0, c.mG)(this, void 0, void 0, /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().mark(function _callee4() {
+            var s, a, l, r, n, o, h;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().wrap(function _callee4$(_context4) {
+              while (1) switch (_context4.prev = _context4.next) {
+                case 0:
+                  s = [i.hideDataItem.call(this, e, t)], a = this.states.create("hidden", {});
+                  p.isNumber(t) || (t = a.get("stateAnimationDuration", this.get("stateAnimationDuration", 0)));
+                  l = a.get("stateAnimationEasing", this.get("stateAnimationEasing")), r = e.animate({
+                    key: "valueWorking",
+                    to: 0,
+                    duration: t,
+                    easing: l
+                  });
+                  r && s.push(r.waitForStop());
+                  n = e.get("tick");
+                  n && s.push(n.hide(t));
+                  o = e.get("label");
+                  o && s.push(o.hide(t));
+                  h = e.get("slice");
+                  h.hideTooltip();
+                  h && s.push(h.hide(t));
+                  _context4.next = 13;
+                  return Promise.all(s);
+                case 13:
+                case "end":
+                  return _context4.stop();
+              }
+            }, _callee4, this);
+          }));
+        }
+      }, {
+        key: "disposeDataItem",
+        value: function disposeDataItem(e) {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "disposeDataItem", this).call(this, e);
+          var t = e.get("label");
+          t && (this.labels.removeValue(t), t.dispose());
+          var i = e.get("tick");
+          i && (this.ticks.removeValue(i), i.dispose());
+          var s = e.get("slice");
+          s && (this.slices.removeValue(s), s.dispose());
+        }
+      }, {
+        key: "hoverDataItem",
+        value: function hoverDataItem(e) {
+          var t = e.get("slice");
+          t && !t.isHidden() && t.hover();
+        }
+      }, {
+        key: "unhoverDataItem",
+        value: function unhoverDataItem(e) {
+          var t = e.get("slice");
+          t && t.unhover();
+        }
+      }, {
+        key: "updateLegendMarker",
+        value: function updateLegendMarker(e) {
+          if (e) {
+            var _t3 = e.get("slice");
+            if (_t3) {
+              var _i3 = e.get("legendDataItem");
+              if (_i3) {
+                var _e2 = _i3.get("markerRectangle");
+                b.each(g.u, function (i) {
+                  null != _t3.get(i) && _e2.set(i, _t3.get(i));
+                });
+              }
+            }
+          }
+        }
+      }, {
+        key: "_arrangeDown",
+        value: function _arrangeDown(e) {
+          if (e) {
+            var _t4 = this._getNextDown();
+            e.sort(function (e, t) {
+              return e.y > t.y ? 1 : e.y < t.y ? -1 : 0;
+            }), b.each(e, function (e) {
+              var i = e.label.adjustedLocalBounds();
+              var s = i.top;
+              e.y + s < _t4 && (e.y = _t4 - s), e.label.set("y", e.y), _t4 = e.y + i.bottom;
+            });
+          }
+        }
+      }, {
+        key: "_getNextUp",
+        value: function _getNextUp() {
+          return this.labelsContainer.maxHeight();
+        }
+      }, {
+        key: "_getNextDown",
+        value: function _getNextDown() {
+          return 0;
+        }
+      }, {
+        key: "_arrangeUp",
+        value: function _arrangeUp(e) {
+          if (e) {
+            var _t5 = this._getNextUp();
+            e.sort(function (e, t) {
+              return e.y < t.y ? 1 : e.y > t.y ? -1 : 0;
+            }), b.each(e, function (e) {
+              var i = e.label.adjustedLocalBounds();
+              var s = i.bottom;
+              e.y + s > _t5 && (e.y = _t5 - s), e.label.set("y", e.y), _t5 = e.y + i.top;
+            });
+          }
+        }
+      }, {
+        key: "_arrangeRight",
+        value: function _arrangeRight(e) {
+          if (e) {
+            var _t6 = 0;
+            e.sort(function (e, t) {
+              return e.y > t.y ? 1 : e.y < t.y ? -1 : 0;
+            }), b.each(e, function (e) {
+              var i = e.label.adjustedLocalBounds();
+              var s = i.left;
+              e.y + s < _t6 && (e.y = _t6 - s), e.label.set("x", e.y), _t6 = e.y + i.right;
+            });
+          }
+        }
+      }, {
+        key: "_arrangeLeft",
+        value: function _arrangeLeft(e) {
+          if (e) {
+            var _t7 = this.labelsContainer.maxWidth();
+            e.sort(function (e, t) {
+              return e.y < t.y ? 1 : e.y > t.y ? -1 : 0;
+            }), b.each(e, function (e) {
+              var i = e.label.adjustedLocalBounds();
+              var s = i.right;
+              e.y + s > _t7 && (e.y = _t7 - s), e.label.set("x", e.y), _t7 = e.y + i.left;
+            });
+          }
+        }
+      }, {
+        key: "_updateSize",
+        value: function _updateSize() {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "_updateSize", this).call(this), this.markDirty();
+        }
+      }, {
+        key: "_updateTick",
+        value: function _updateTick(e) {}
+      }, {
+        key: "_dispose",
+        value: function _dispose() {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(m.prototype), "_dispose", this).call(this);
+          var e = this.chart;
+          e && e.series.removeValue(this);
+        }
+      }]);
+      return m;
+    }(u.F);
+    Object.defineProperty(m, "className", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: "PercentSeries"
+    }), Object.defineProperty(m, "classNames", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: u.F.classNames.concat([m.className])
+    });
+    var _ = i(7652),
+      y = i(751);
+    var f = /*#__PURE__*/function (_h) {
+      (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(f, _h);
+      var _super4 = _createSuper(f);
+      function f() {
+        var _this9;
+        (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, f);
+        _this9 = _super4.apply(this, arguments), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this9), "_maxRadius", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 1
+        });
+        return _this9;
+      }
+      (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(f, [{
+        key: "_afterNew",
+        value: function _afterNew() {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(f.prototype), "_afterNew", this).call(this), this.seriesContainer.setAll({
+            x: l.CI,
+            y: l.CI
+          });
+        }
+      }, {
+        key: "_prepareChildren",
+        value: function _prepareChildren() {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(f.prototype), "_prepareChildren", this).call(this);
+          var e = this.chartContainer,
+            t = e.innerWidth(),
+            i = e.innerHeight(),
+            s = this.get("startAngle", 0),
+            a = this.get("endAngle", 0),
+            r = this.get("innerRadius");
+          var n = y.getArcBounds(0, 0, s, a, 1);
+          var o = t / (n.right - n.left),
+            h = i / (n.bottom - n.top);
+          var c = {
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0
+          };
+          if (r instanceof l.gG) {
+            var _e3 = r.value,
+              _l = Math.min(o, h);
+            _e3 = Math.max(_l * _e3, _l - Math.min(i, t)) / _l, c = y.getArcBounds(0, 0, s, a, _e3), this.setPrivateRaw("irModifyer", _e3 / r.value);
+          }
+          n = y.mergeBounds([n, c]);
+          var u = this._maxRadius;
+          this._maxRadius = Math.min(o, h);
+          var d = _.relativeToValue(this.get("radius", 0), this._maxRadius);
+          this.seriesContainer.setAll({
+            dy: -d * (n.bottom + n.top) / 2,
+            dx: -d * (n.right + n.left) / 2
+          }), (this.isDirty("startAngle") || this.isDirty("endAngle") || u != this._maxRadius) && this.series.each(function (e) {
+            e._markDirtyKey("startAngle");
+          }), (this.isDirty("innerRadius") || this.isDirty("radius")) && this.series.each(function (e) {
+            e._markDirtyKey("innerRadius");
+          });
+        }
+      }, {
+        key: "radius",
+        value: function radius(e) {
+          var t = _.relativeToValue(this.get("radius", 0), this._maxRadius),
+            i = _.relativeToValue(this.get("innerRadius", 0), t);
+          if (e) {
+            var _s2 = this.series.indexOf(e),
+              _a2 = this.series.length,
+              _l2 = e.get("radius");
+            return null != _l2 ? i + _.relativeToValue(_l2, t - i) : i + (t - i) / _a2 * (_s2 + 1);
+          }
+          return t;
+        }
+      }, {
+        key: "innerRadius",
+        value: function innerRadius(e) {
+          var t = this.radius();
+          var i = _.relativeToValue(this.get("innerRadius", 0), t);
+          if (i < 0 && (i = t + i), e) {
+            var _s3 = this.series.indexOf(e),
+              _a3 = this.series.length,
+              _l3 = e.get("innerRadius");
+            return null != _l3 ? i + _.relativeToValue(_l3, t - i) : i + (t - i) / _a3 * _s3;
+          }
+          return i;
+        }
+      }]);
+      return f;
+    }(h);
+    Object.defineProperty(f, "className", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: "PieChart"
+    }), Object.defineProperty(f, "classNames", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: h.classNames.concat([f.className])
+    });
+    var v = i(5769),
+      x = i(5863),
+      w = i(2438),
+      k = i(815),
+      P = i(7144);
+    var C = /*#__PURE__*/function (_m) {
+      (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(C, _m);
+      var _super5 = _createSuper(C);
+      function C() {
+        (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, C);
+        return _super5.apply(this, arguments);
+      }
+      (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(C, [{
+        key: "_makeSlices",
+        value: function _makeSlices() {
+          var _this10 = this;
+          return new P.o(v.YS["new"]({}), function () {
+            return x.p._new(_this10._root, {
+              themeTags: _.mergeTags(_this10.slices.template.get("themeTags", []), ["pie", "series"])
+            }, [_this10.slices.template]);
+          });
+        }
+      }, {
+        key: "_makeLabels",
+        value: function _makeLabels() {
+          var _this11 = this;
+          return new P.o(v.YS["new"]({}), function () {
+            return k.x._new(_this11._root, {
+              themeTags: _.mergeTags(_this11.labels.template.get("themeTags", []), ["pie", "series"])
+            }, [_this11.labels.template]);
+          });
+        }
+      }, {
+        key: "_makeTicks",
+        value: function _makeTicks() {
+          var _this12 = this;
+          return new P.o(v.YS["new"]({}), function () {
+            return w.d._new(_this12._root, {
+              themeTags: _.mergeTags(_this12.ticks.template.get("themeTags", []), ["pie", "series"])
+            }, [_this12.ticks.template]);
+          });
+        }
+      }, {
+        key: "processDataItem",
+        value: function processDataItem(e) {
+          var _this13 = this;
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(C.prototype), "processDataItem", this).call(this, e);
+          var t = this.makeSlice(e);
+          t.on("scale", function () {
+            _this13._updateTick(e);
+          }), t.on("shiftRadius", function () {
+            _this13._updateTick(e);
+          }), t.events.on("positionchanged", function () {
+            _this13._updateTick(e);
+          });
+          var i = this.makeLabel(e);
+          i.events.on("positionchanged", function () {
+            _this13._updateTick(e);
+          }), this.makeTick(e), t.events.on("positionchanged", function () {
+            i.markDirty();
+          });
+        }
+      }, {
+        key: "_getNextUp",
+        value: function _getNextUp() {
+          var e = this.chart;
+          return e ? e._maxRadius : this.labelsContainer.maxHeight() / 2;
+        }
+      }, {
+        key: "_getNextDown",
+        value: function _getNextDown() {
+          var e = this.chart;
+          return e ? -e._maxRadius : -this.labelsContainer.maxHeight() / 2;
+        }
+      }, {
+        key: "_prepareChildren",
+        value: function _prepareChildren() {
+          var _this14 = this;
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(C.prototype), "_prepareChildren", this).call(this);
+          var e = this.chart;
+          if (e) {
+            if (this.isDirty("alignLabels")) {
+              var _e4 = this.labels.template;
+              if (this.get("alignLabels")) _e4.set("textType", "aligned");else {
+                var _t8 = _e4.get("textType");
+                null != _t8 && "aligned" != _t8 || _e4.set("textType", "adjusted");
+              }
+            }
+            if (this._valuesDirty || this.isDirty("radius") || this.isDirty("innerRadius") || this.isDirty("startAngle") || this.isDirty("endAngle") || this.isDirty("alignLabels")) {
+              this.markDirtyBounds();
+              var _t9 = this.get("startAngle", e.get("startAngle", -90)),
+                _i4 = this.get("endAngle", e.get("endAngle", 270)) - _t9;
+              var _s4 = _t9;
+              var _a4 = e.radius(this);
+              this.setPrivateRaw("radius", _a4);
+              var _r = e.innerRadius(this) * e.getPrivate("irModifyer", 1);
+              _r < 0 && (_r = _a4 + _r), b.each(this._dataItems, function (e) {
+                _this14.updateLegendValue(e);
+                var t = _i4 * e.get("valuePercentTotal") / 100;
+                var n = e.get("slice");
+                if (n) {
+                  n.set("radius", _a4), n.set("innerRadius", _r), n.set("startAngle", _s4), n.set("arc", t);
+                  var _i5 = e.get("fill");
+                  n._setDefault("fill", _i5), n._setDefault("stroke", _i5);
+                }
+                var o = y.normalizeAngle(_s4 + t / 2);
+                var h = e.get("label");
+                if (h && (h.setPrivate("radius", _a4), h.setPrivate("innerRadius", _r), h.set("labelAngle", o), "aligned" == h.get("textType"))) {
+                  var _e5 = _a4 + h.get("radius", 0),
+                    _t10 = _a4 * y.sin(o);
+                  o > 90 && o <= 270 ? (h.isHidden() || h.isHiding() || _this14._lLabels.push({
+                    label: h,
+                    y: _t10
+                  }), _e5 *= -1, _e5 -= _this14.labelsContainer.get("paddingLeft", 0), h.set("centerX", l.AQ), h.setPrivateRaw("left", !0)) : (h.isHidden() || h.isHiding() || _this14._rLabels.push({
+                    label: h,
+                    y: _t10
+                  }), _e5 += _this14.labelsContainer.get("paddingRight", 0), h.set("centerX", 0), h.setPrivateRaw("left", !1)), h.set("x", _e5), h.set("y", _a4 * y.sin(o));
+                }
+                _s4 += t, _this14._updateTick(e);
+              });
+            }
+          }
+        }
+      }, {
+        key: "_updateTick",
+        value: function _updateTick(e) {
+          var t = e.get("tick"),
+            i = e.get("label"),
+            s = e.get("slice"),
+            a = t.get("location", 1);
+          if (t && i && s) {
+            var _e6 = (s.get("shiftRadius", 0) + s.get("radius", 0)) * s.get("scale", 1) * a,
+              _l4 = i.get("labelAngle", 0),
+              _r2 = y.cos(_l4),
+              _n = y.sin(_l4),
+              _o = this.labelsContainer,
+              _h2 = _o.get("paddingLeft", 0),
+              _c = _o.get("paddingRight", 0);
+            var _u = 0,
+              _d = 0;
+            if (_u = i.x(), _d = i.y(), "circular" == i.get("textType")) {
+              var _e7 = i.radius() - i.get("paddingBottom", 0),
+                _t11 = i.get("labelAngle", 0);
+              _u = _e7 * y.cos(_t11), _d = _e7 * y.sin(_t11);
+            }
+            var _g = -_c;
+            i.getPrivate("left") && (_g = _h2), t.set("points", [{
+              x: s.x() + _e6 * _r2,
+              y: s.y() + _e6 * _n
+            }, {
+              x: _u + _g,
+              y: _d
+            }, {
+              x: _u,
+              y: _d
+            }]);
+          }
+        }
+      }, {
+        key: "_positionBullet",
+        value: function _positionBullet(e) {
+          var t = e.get("sprite");
+          if (t) {
+            var _i6 = t.dataItem.get("slice");
+            if (_i6) {
+              var _s5 = _i6.get("innerRadius", 0),
+                _a5 = _i6.get("radius", 0),
+                _l5 = _i6.get("startAngle", 0) + _i6.get("arc", 0) * e.get("locationX", .5),
+                _r3 = _s5 + (_a5 - _s5) * e.get("locationY", .5);
+              t.setAll({
+                x: y.cos(_l5) * _r3,
+                y: y.sin(_l5) * _r3
+              });
+            }
+          }
+        }
+      }]);
+      return C;
+    }(m);
+    Object.defineProperty(C, "className", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: "PieSeries"
+    }), Object.defineProperty(C, "classNames", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: m.classNames.concat([C.className])
+    });
+    var A = /*#__PURE__*/function (_g$T) {
+      (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(A, _g$T);
+      var _super6 = _createSuper(A);
+      function A() {
+        var _this15;
+        (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, A);
+        _this15 = _super6.apply(this, arguments), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_projectionDirty", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: !1
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_tlx", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_tly", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_trx", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_try", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_blx", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_bly", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_brx", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_bry", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_cprx", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_cplx", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_cpry", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this15), "_cply", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        });
+        return _this15;
+      }
+      (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(A, [{
+        key: "_afterNew",
+        value: function _afterNew() {
+          var _this16 = this;
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(A.prototype), "_afterNew", this).call(this), this.set("draw", function (e) {
+            e.moveTo(_this16._tlx, _this16._tly), e.lineTo(_this16._trx, _this16._try), e.quadraticCurveTo(_this16._cprx, _this16._cpry, _this16._brx, _this16._bry), e.lineTo(_this16._blx, _this16._bly), e.quadraticCurveTo(_this16._cplx, _this16._cply, _this16._tlx, _this16._tly);
+          });
+        }
+      }, {
+        key: "getPoint",
+        value: function getPoint(e, t) {
+          var i = this.width(),
+            s = this.height();
+          var a = this.get("topWidth", 0),
+            l = this.get("bottomWidth", 0);
+          if ("vertical" == this.get("orientation")) {
+            var _i7 = -a / 2,
+              _r4 = a / 2,
+              _n2 = _i7 + (-l / 2 - _i7) * t;
+            return {
+              x: _n2 + (_r4 + (l / 2 - _r4) * t - _n2) * e,
+              y: s * t
+            };
+          }
+          {
+            var _s6 = -a / 2,
+              _r5 = a / 2,
+              _n3 = _s6 + (-l / 2 - _s6) * e;
+            return {
+              x: i * e,
+              y: _n3 + (_r5 + (l / 2 - _r5) * e - _n3) * t
+            };
+          }
+        }
+      }, {
+        key: "_changed",
+        value: function _changed() {
+          if (this.isDirty("topWidth") || this.isDirty("bottomWidth") || this.isDirty("expandDistance") || this.isDirty("orientation") || this.isDirty("width") || this.isDirty("height")) {
+            var _e8 = this.width(),
+              _t12 = this.height(),
+              _i8 = this.get("topWidth", 0),
+              _s7 = this.get("bottomWidth", 0);
+            this._clear = !0;
+            var _a6 = this.get("expandDistance", 0);
+            "vertical" == this.get("orientation") ? (this._tlx = -_i8 / 2, this._tly = 0, this._trx = _i8 / 2, this._try = 0, this._brx = _s7 / 2, this._bry = _t12, this._blx = -_s7 / 2, this._bly = _t12, this._cprx = this._trx + (this._brx - this._trx) / 2 + _a6 * _t12, this._cpry = this._try + .5 * _t12, this._cplx = this._tlx + (this._blx - this._tlx) / 2 - _a6 * _t12, this._cply = this._tly + .5 * _t12) : (this._tly = -_i8 / 2, this._tlx = 0, this._try = _i8 / 2, this._trx = 0, this._bry = _s7 / 2, this._brx = _e8, this._bly = -_s7 / 2, this._blx = _e8, this._cpry = this._try + (this._bry - this._try) / 2 + _a6 * _e8, this._cprx = this._trx + .5 * _e8, this._cply = this._tly + (this._bly - this._tly) / 2 - _a6 * _e8, this._cplx = this._tlx + .5 * _e8);
+          }
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(A.prototype), "_changed", this).call(this);
+        }
+      }]);
+      return A;
+    }(g.T);
+    Object.defineProperty(A, "className", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: "FunnelSlice"
+    }), Object.defineProperty(A, "classNames", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: g.T.classNames.concat([A.className])
+    });
+    var D = i(962);
+    var T = /*#__PURE__*/function (_m2) {
+      (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(T, _m2);
+      var _super7 = _createSuper(T);
+      function T() {
+        var _this17;
+        (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, T);
+        _this17 = _super7.apply(this, arguments), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this17), "_tag", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: "funnel"
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this17), "links", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: _this17._makeLinks()
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this17), "_total", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this17), "_count", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this17), "_nextCoord", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: 0
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this17), "_opposite", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: !1
+        });
+        return _this17;
+      }
+      (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(T, [{
+        key: "_makeSlices",
+        value: function _makeSlices() {
+          var _this18 = this;
+          return new P.o(v.YS["new"]({}), function () {
+            return A._new(_this18._root, {
+              themeTags: _.mergeTags(_this18.slices.template.get("themeTags", []), [_this18._tag, "series", "slice", _this18.get("orientation")])
+            }, [_this18.slices.template]);
+          });
+        }
+      }, {
+        key: "_makeLabels",
+        value: function _makeLabels() {
+          var _this19 = this;
+          return new P.o(v.YS["new"]({}), function () {
+            return D._._new(_this19._root, {
+              themeTags: _.mergeTags(_this19.labels.template.get("themeTags", []), [_this19._tag, "series", "label", _this19.get("orientation")])
+            }, [_this19.labels.template]);
+          });
+        }
+      }, {
+        key: "_makeTicks",
+        value: function _makeTicks() {
+          var _this20 = this;
+          return new P.o(v.YS["new"]({}), function () {
+            return w.d._new(_this20._root, {
+              themeTags: _.mergeTags(_this20.ticks.template.get("themeTags", []), [_this20._tag, "series", "tick", _this20.get("orientation")])
+            }, [_this20.ticks.template]);
+          });
+        }
+      }, {
+        key: "_makeLinks",
+        value: function _makeLinks() {
+          var _this21 = this;
+          return new P.o(v.YS["new"]({}), function () {
+            return A._new(_this21._root, {
+              themeTags: _.mergeTags(_this21.links.template.get("themeTags", []), [_this21._tag, "series", "link", _this21.get("orientation")])
+            }, [_this21.links.template]);
+          });
+        }
+      }, {
+        key: "makeLink",
+        value: function makeLink(e) {
+          var t = this.slicesContainer.children.push(this.links.make());
+          return t._setDataItem(e), e.set("link", t), this.links.push(t), t;
+        }
+      }, {
+        key: "_afterNew",
+        value: function _afterNew() {
+          var _this22 = this;
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(T.prototype), "_afterNew", this).call(this);
+          var e = this.slicesContainer;
+          e.setAll({
+            isMeasured: !0,
+            position: "relative",
+            width: (0, l.aQ)(100),
+            height: (0, l.aQ)(100)
+          }), e.onPrivate("width", function () {
+            _this22.markDirtySize();
+          }), e.onPrivate("height", function () {
+            _this22.markDirtySize();
+          }), "vertical" == this.get("orientation") ? this.set("layout", this._root.horizontalLayout) : this.set("layout", this._root.verticalLayout);
+        }
+      }, {
+        key: "processDataItem",
+        value: function processDataItem(e) {
+          var _this23 = this;
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(T.prototype), "processDataItem", this).call(this, e);
+          var t = this.makeSlice(e);
+          t._setDataItem(e), e.set("slice", t), this.makeLink(e);
+          var i = this.makeLabel(e);
+          i.on("x", function () {
+            _this23._updateTick(e);
+          }), i.on("y", function () {
+            _this23._updateTick(e);
+          }), this.makeTick(e), t.events.on("positionchanged", function () {
+            i.markDirty();
+          }), t.events.on("boundschanged", function () {
+            var e = t.dataItem;
+            e && _this23._updateTick(e);
+          });
+        }
+      }, {
+        key: "_updateChildren",
+        value: function _updateChildren() {
+          var _this24 = this;
+          this._opposite = !1, 0 == this.children.indexOf(this.labelsContainer) && (this._opposite = !0);
+          var e = 0,
+            t = 0;
+          if (b.each(this.dataItems, function (i) {
+            var s = i.get("value");
+            p.isNumber(s) && (t++, s > 0 ? e += Math.abs(i.get("valueWorking", s) / s) : _this24.get("ignoreZeroValues", !1) || i.isHidden() ? t-- : e += 1);
+          }), this._total = 1 / t * e, this._count = t, this.isDirty("alignLabels") && this._fixLayout(), this._total > 0 && (this._valuesDirty || this._sizeDirty)) {
+            var _e9 = this.slicesContainer;
+            var _t13;
+            _t13 = "vertical" == this.get("orientation") ? _e9.innerHeight() : _e9.innerWidth(), this._nextCoord = this.get("startLocation", 0) * _t13, this.markDirtyBounds();
+            var _i9 = 0;
+            b.each(this._dataItems, function (e) {
+              _this24.updateLegendValue(e), e.set("index", _i9), _i9++;
+              var t = e.get("slice"),
+                s = e.get("tick"),
+                a = e.get("label"),
+                l = e.get("link"),
+                r = e.get("fill");
+              t._setDefault("fill", r), t._setDefault("stroke", r), l._setDefault("fill", r), l._setDefault("stroke", r);
+              var n = e.get("value");
+              p.isNumber(n) && (0 == n && _this24.get("ignoreZeroValues") ? (t.setPrivate("visible", !1), s.setPrivate("visible", !1), a.setPrivate("visible", !1)) : (t.setPrivate("visible", !0), s.setPrivate("visible", !0), a.setPrivate("visible", !0), _this24.decorateSlice(e), _this24.isLast(e) ? l.setPrivate("visible", !1) : e.isHidden() || l.setPrivate("visible", !0)));
+            });
+          }
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(T.prototype), "_updateChildren", this).call(this);
+        }
+      }, {
+        key: "_fixLayout",
+        value: function _fixLayout() {
+          var e = this.get("orientation"),
+            t = this.labelsContainer,
+            i = this.labels.template;
+          this.get("alignLabels") ? (t.set("position", "relative"), t.setAll({
+            isMeasured: !0
+          }), "vertical" == e ? (this.set("layout", this._root.horizontalLayout), i.setAll({
+            centerX: l.AQ,
+            x: l.AQ
+          })) : (this.set("layout", this._root.verticalLayout), i.setAll({
+            centerX: 0,
+            x: 0
+          }))) : (t.setAll({
+            isMeasured: !1,
+            position: "absolute"
+          }), "vertical" == e ? (t.setAll({
+            x: l.CI
+          }), i.setAll({
+            centerX: l.CI,
+            x: 0
+          })) : (t.setAll({
+            y: l.CI
+          }), i.setAll({
+            centerX: l.CI,
+            y: 0
+          }))), this.markDirtySize();
+        }
+      }, {
+        key: "getNextValue",
+        value: function getNextValue(e) {
+          var t = e.get("index"),
+            i = e.get("valueWorking", 0);
+          if (t < this.dataItems.length - 1) {
+            var _e10 = this.dataItems[t + 1];
+            if (i = _e10.get("valueWorking", 0), _e10.isHidden() || 0 == _e10.get("value") && this.get("ignoreZeroValues")) return this.getNextValue(_e10);
+          }
+          return i;
+        }
+      }, {
+        key: "isLast",
+        value: function isLast(e) {
+          var t = e.get("index");
+          if (t == this.dataItems.length - 1) return !0;
+          for (var _e11 = t + 1; _e11 < this.dataItems.length; _e11++) if (!this.dataItems[_e11].isHidden()) return !1;
+          return !0;
+        }
+      }, {
+        key: "decorateSlice",
+        value: function decorateSlice(e) {
+          var t = this.get("orientation"),
+            i = e.get("slice"),
+            s = e.get("label"),
+            a = e.get("link"),
+            l = this.slicesContainer;
+          var r = l.innerWidth(),
+            n = l.innerHeight(),
+            o = r;
+          "horizontal" == t && (o = n);
+          var h = this.getNextValue(e),
+            c = e.get("value", 0),
+            u = Math.abs(e.get("valueWorking", c)),
+            d = this.get("bottomRatio", 0),
+            g = this.getPrivate("valueHigh", 0);
+          var b = 1;
+          0 != c ? b = u / Math.abs(c) : e.isHidden() && (b = 1e-6), this._nextCoord == 1 / 0 && (this._nextCoord = 0);
+          var p = u / g * o,
+            m = (u - (u - h) * d) / g * o;
+          i.setAll({
+            topWidth: p,
+            bottomWidth: m,
+            orientation: t
+          }), a.setAll({
+            topWidth: m,
+            bottomWidth: (u - (u - h)) / g * o,
+            orientation: t
+          });
+          var _ = this.get("startLocation", 0),
+            y = this.get("endLocation", 1);
+          if ("vertical" == t) {
+            var _e12 = a.height() * b;
+            n = n * (y - _) + _e12, i.set("y", this._nextCoord);
+            var _t14 = Math.min(1e5, Math.max(0, n / this._count * b / this._total - _e12));
+            i.setAll({
+              height: _t14,
+              x: r / 2
+            });
+            var _l6 = this._nextCoord + _t14 / 2;
+            s.set("y", _l6), this._nextCoord += _t14 + _e12, a.setAll({
+              y: this._nextCoord - _e12,
+              x: r / 2
+            });
+          } else {
+            var _e13 = a.width() * b;
+            r = r * (y - _) + _e13, i.set("x", this._nextCoord);
+            var _t15 = Math.min(1e5, Math.max(0, r / this._count * b / this._total - _e13));
+            i.setAll({
+              width: _t15,
+              y: n / 2
+            });
+            var _l7 = this._nextCoord + _t15 / 2;
+            s.set("x", _l7), this._nextCoord += _t15 + _e13, a.setAll({
+              x: this._nextCoord - _e13,
+              y: n / 2
+            });
+          }
+        }
+      }, {
+        key: "hideDataItem",
+        value: function hideDataItem(e, t) {
+          var _this25 = this;
+          var i = Object.create(null, {
+            hideDataItem: {
+              get: function get() {
+                return (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(T.prototype), "hideDataItem", _this25);
+              }
+            }
+          });
+          return (0, c.mG)(this, void 0, void 0, /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().mark(function _callee5() {
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().wrap(function _callee5$(_context5) {
+              while (1) switch (_context5.prev = _context5.next) {
+                case 0:
+                  return _context5.abrupt("return", (e.get("link").hide(t), i.hideDataItem.call(this, e, t)));
+                case 1:
+                case "end":
+                  return _context5.stop();
+              }
+            }, _callee5, this);
+          }));
+        }
+      }, {
+        key: "showDataItem",
+        value: function showDataItem(e, t) {
+          var _this26 = this;
+          var i = Object.create(null, {
+            showDataItem: {
+              get: function get() {
+                return (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(T.prototype), "showDataItem", _this26);
+              }
+            }
+          });
+          return (0, c.mG)(this, void 0, void 0, /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().mark(function _callee6() {
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_7___default().wrap(function _callee6$(_context6) {
+              while (1) switch (_context6.prev = _context6.next) {
+                case 0:
+                  return _context6.abrupt("return", (e.get("link").show(t), i.showDataItem.call(this, e, t)));
+                case 1:
+                case "end":
+                  return _context6.stop();
+              }
+            }, _callee6, this);
+          }));
+        }
+      }, {
+        key: "_updateTick",
+        value: function _updateTick(e) {
+          if (this.get("alignLabels")) {
+            var _t16 = e.get("tick"),
+              _i10 = e.get("label"),
+              _s8 = e.get("slice");
+            if (_t16 && _s8 && _i10) {
+              var _e14 = this.labelsContainer,
+                _a7 = this.slicesContainer;
+              var _l8 = _t16.get("location", .5);
+              var _r6 = _e14.width(),
+                _n4 = _e14.height(),
+                _o2 = _e14.get("paddingLeft", 0),
+                _h3 = _e14.get("paddingRight", 0),
+                _c2 = _e14.get("paddingTop", 0),
+                _u2 = _e14.get("paddingBottom", 0);
+              var _d2 = {
+                  x: 0,
+                  y: 0
+                },
+                _g2 = {
+                  x: 0,
+                  y: 0
+                },
+                _b = {
+                  x: 0,
+                  y: 0
+                };
+              this._opposite && (_l8 = 1 - _l8), "vertical" == this.get("orientation") ? (_d2 = _s8.getPoint(_l8, .5), _d2.x += _s8.x() + _a7.x(), _d2.y += _s8.y() + _a7.y(), this._opposite ? (_g2.x = _r6, _g2.y = _i10.y(), _b.x = _r6 - _o2, _b.y = _g2.y) : (_g2.x = _a7.x() + _a7.width(), _g2.y = _i10.y(), _b.x = _g2.x + _r6 - _i10.width() - _h3, _b.y = _g2.y)) : (_d2 = _s8.getPoint(.5, _l8), _d2.x += _s8.x() + _a7.x(), _d2.y += _s8.y() + _a7.y(), this._opposite ? (_g2.y = _n4, _g2.x = _i10.x(), _b.y = _n4 - _c2, _b.x = _g2.x) : (_g2.y = _a7.y() + _a7.height(), _g2.x = _i10.x(), _b.y = _g2.y + _n4 - _i10.height() - _u2, _b.x = _g2.x)), _t16.set("points", [_d2, _g2, _b]);
+            }
+          }
+        }
+      }, {
+        key: "disposeDataItem",
+        value: function disposeDataItem(e) {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(T.prototype), "disposeDataItem", this).call(this, e);
+          var t = e.get("link");
+          t && (this.links.removeValue(t), t.dispose());
+        }
+      }, {
+        key: "_positionBullet",
+        value: function _positionBullet(e) {
+          var t = e.get("sprite");
+          if (t) {
+            var _i11 = t.dataItem.get("slice");
+            if (_i11) {
+              var _s9 = _i11.width(),
+                _a8 = _i11.height(),
+                _l9 = e.get("locationX", .5),
+                _r7 = e.get("locationY", .5);
+              var _n5 = 0,
+                _o3 = 0;
+              "horizontal" == this.get("orientation") ? _o3 = _a8 / 2 : _n5 = _s9 / 2, t.setAll({
+                x: _i11.x() + _s9 * _l9 - _n5,
+                y: _i11.y() - _o3 + _a8 * _r7
+              });
+            }
+          }
+        }
+      }]);
+      return T;
+    }(m);
+    Object.defineProperty(T, "className", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: "FunnelSeries"
+    }), Object.defineProperty(T, "classNames", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: m.classNames.concat([T.className])
+    });
+    var L = /*#__PURE__*/function (_T) {
+      (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(L, _T);
+      var _super8 = _createSuper(L);
+      function L() {
+        var _this27;
+        (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, L);
+        _this27 = _super8.apply(this, arguments), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this27), "_tag", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: "pyramid"
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this27), "_nextSize", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: void 0
+        });
+        return _this27;
+      }
+      (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(L, [{
+        key: "_prepareChildren",
+        value: function _prepareChildren() {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(L.prototype), "_prepareChildren", this).call(this), this._nextSize = void 0;
+        }
+      }, {
+        key: "decorateSlice",
+        value: function decorateSlice(e) {
+          var _ref, _ref2, _ref3, _ref4;
+          var t = this.get("orientation"),
+            i = this.slicesContainer,
+            s = e.get("slice"),
+            a = e.get("label"),
+            r = e.get("link"),
+            n = this.get("valueIs", "area"),
+            o = this.getPrivate("valueAbsoluteSum", 0);
+          if (0 == o) return;
+          var h = this.get("startLocation", 0),
+            c = this.get("endLocation", 1),
+            u = this.get("topWidth", 0),
+            d = this.get("bottomWidth", l.AQ),
+            g = Math.abs(e.get("valueWorking", 0)),
+            b = e.get("value", 0);
+          var m,
+            y,
+            f = i.innerHeight(),
+            v = i.innerWidth(),
+            x = r.width(),
+            w = r.height();
+          "horizontal" == t && ((_ref = [f, v], v = _ref[0], f = _ref[1]), (_ref2 = [w, x], x = _ref2[0], w = _ref2[1]));
+          var k = v / 2;
+          var P = 1;
+          0 != b ? P = g / Math.abs(b) : e.isHidden() && (P = 1e-6), w *= P, f = f * (c - h) - w * (this._count * this._total - 1);
+          var C = _.relativeToValue(u, v);
+          p.isNumber(this._nextSize) || (this._nextSize = C);
+          var A = _.relativeToValue(d, v),
+            D = this._nextSize,
+            T = Math.atan2(f, C - A),
+            _L = Math.tan(Math.PI / 2 - T);
+          if (0 == _L && (_L = 1e-8), "area" == n) {
+            var _e15 = (C + A) / 2 * f * g / o,
+              _t17 = Math.abs(D * D - 2 * _e15 * _L);
+            m = (D - Math.sqrt(_t17)) / _L, y = m > 0 ? (2 * _e15 - m * D) / m : D;
+          } else m = f * g / o, y = D - m * _L;
+          var I = this._nextCoord + m / 2,
+            S = k,
+            N = this._nextCoord,
+            O = k,
+            j = N + m;
+          "vertical" == t ? (a.set("y", I), a.get("opacity") > 0 && this._rLabels.push({
+            label: a,
+            y: I
+          }), s.set("height", m)) : (a.set("x", I), a.get("opacity") > 0 && this._hLabels.push({
+            label: a,
+            y: I
+          }), (_ref3 = [N, S], S = _ref3[0], N = _ref3[1]), (_ref4 = [j, O], O = _ref4[0], j = _ref4[1]), s.set("width", m)), s.setAll({
+            orientation: t,
+            bottomWidth: y,
+            topWidth: D,
+            x: S,
+            y: N
+          }), r.setAll({
+            orientation: t,
+            x: O,
+            y: j,
+            topWidth: y,
+            bottomWidth: y
+          }), this._nextSize = y, this._nextCoord += m + w;
+        }
+      }]);
+      return L;
+    }(T);
+    Object.defineProperty(L, "className", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: "PyramidSeries"
+    }), Object.defineProperty(L, "classNames", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: T.classNames.concat([L.className])
+    });
+    var I = /*#__PURE__*/function (_L2) {
+      (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(I, _L2);
+      var _super9 = _createSuper(I);
+      function I() {
+        var _this28;
+        (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, I);
+        _this28 = _super9.apply(this, arguments), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this28), "_tag", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: "pictorial"
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this28), "seriesMask", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: g.T["new"](_this28._root, {
+            position: "absolute",
+            x: l.CI,
+            y: l.CI,
+            centerX: l.CI,
+            centerY: l.CI
+          })
+        }), Object.defineProperty((0,_babel_runtime_helpers_assertThisInitialized__WEBPACK_IMPORTED_MODULE_0__["default"])(_this28), "seriesGraphics", {
+          enumerable: !0,
+          configurable: !0,
+          writable: !0,
+          value: _this28.slicesContainer.children.push(g.T["new"](_this28._root, {
+            themeTags: ["pictorial", "background"],
+            position: "absolute",
+            x: l.CI,
+            y: l.CI,
+            centerX: l.CI,
+            centerY: l.CI
+          }))
+        });
+        return _this28;
+      }
+      (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(I, [{
+        key: "_afterNew",
+        value: function _afterNew() {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(I.prototype), "_afterNew", this).call(this), this.set("topWidth", l.AQ), this.set("bottomWidth", l.AQ), this.set("valueIs", "height"), this.slicesContainer.set("mask", this.seriesMask);
+        }
+      }, {
+        key: "_updateScale",
+        value: function _updateScale() {
+          var e = this.slicesContainer,
+            t = e.innerWidth(),
+            i = e.innerHeight(),
+            s = this.seriesMask,
+            a = this.seriesGraphics,
+            l = s.get("scale", 1);
+          var r = s.localBounds();
+          var n = r.right - r.left,
+            o = r.bottom - r.top;
+          l = "horizontal" == this.get("orientation") ? t / n : i / o, l != 1 / 0 && NaN != l && (s.set("scale", l), s.set("x", t / 2), s.set("y", i / 2), a.set("scale", l), a.set("x", t / 2), a.set("y", i / 2));
+        }
+      }, {
+        key: "_prepareChildren",
+        value: function _prepareChildren() {
+          if ((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(I.prototype), "_prepareChildren", this).call(this), this.isDirty("svgPath")) {
+            var _e16 = this.get("svgPath");
+            this.seriesMask.set("svgPath", _e16), this.seriesGraphics.set("svgPath", _e16);
+          }
+          this._updateScale();
+        }
+      }]);
+      return I;
+    }(L);
+    Object.defineProperty(I, "className", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: "PictorialStackedSeries"
+    }), Object.defineProperty(I, "classNames", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: L.classNames.concat([I.className])
+    });
+    var S = /*#__PURE__*/function (_h4) {
+      (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(S, _h4);
+      var _super10 = _createSuper(S);
+      function S() {
+        (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, S);
+        return _super10.apply(this, arguments);
+      }
+      (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(S, [{
+        key: "_afterNew",
+        value: function _afterNew() {
+          (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_3__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(S.prototype), "_afterNew", this).call(this), this.seriesContainer.setAll({
+            isMeasured: !0,
+            layout: this._root.horizontalLayout
+          });
+        }
+      }]);
+      return S;
+    }(h);
+    Object.defineProperty(S, "className", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: "SlicedChart"
+    }), Object.defineProperty(S, "classNames", {
+      enumerable: !0,
+      configurable: !0,
+      writable: !0,
+      value: h.classNames.concat([S.className])
+    });
+  },
+  8685: function _(e, t, i) {
+    i.r(t), i.d(t, {
+      am5percent: function am5percent() {
+        return s;
+      }
+    });
+    var s = i(2536);
+  }
+}, function (e) {
+  var t = (8685, e(e.s = 8685)),
+    i = window;
+  for (var s in t) i[s] = t[s];
+  t.__esModule && Object.defineProperty(i, "__esModule", {
+    value: !0
+  });
+}]);
+
+/***/ }),
+
+/***/ "./src/js/amcharts/ru_RU.js":
+/*!**********************************!*\
+  !*** ./src/js/amcharts/ru_RU.js ***!
+  \**********************************/
+/***/ (function() {
+
+"use strict";
+
+
+(self.webpackChunk_am5 = self.webpackChunk_am5 || []).push([[8270], {
+  7863: function _(e, o, a) {
+    a.r(o), a.d(o, {
+      am5locales_ru_RU: function am5locales_ru_RU() {
+        return t;
+      }
+    });
+    var t = {
+      _decimalSeparator: ",",
+      _thousandSeparator: " ",
+      _percentPrefix: null,
+      _percentSuffix: "%",
+      _date_millisecond: "mm:ss SSS",
+      _date_millisecond_full: "HH:mm:ss SSS",
+      _date_second: "HH:mm:ss",
+      _date_second_full: "HH:mm:ss",
+      _date_minute: "HH:mm",
+      _date_minute_full: "HH:mm - dd MMM",
+      _date_hour: "HH:mm",
+      _date_hour_full: "HH:mm - dd MMM",
+      _date_day: "dd MMM",
+      _date_day_full: "dd MMM",
+      _date_week: "ww",
+      _date_week_full: "dd MMM",
+      _date_month: "MMM",
+      _date_month_full: "MMM, yyyy",
+      _date_year: "yyyy",
+      _duration_millisecond: "SSS",
+      _duration_second: "ss",
+      _duration_minute: "mm",
+      _duration_hour: "hh",
+      _duration_day: "dd",
+      _duration_week: "ww",
+      _duration_month: "MM",
+      _duration_year: "yyyy",
+      _era_ad: "н.э.",
+      _era_bc: "до н.э.",
+      A: "У",
+      P: "В",
+      AM: "утра",
+      PM: "вечера",
+      "A.M.": "до полудня",
+      "P.M.": "после полудня",
+      January: "января",
+      February: "февраля",
+      March: "марта",
+      April: "апреля",
+      May: "мая",
+      June: "июня",
+      July: "июля",
+      August: "августа",
+      September: "сентября",
+      October: "октября",
+      November: "ноября",
+      December: "декабря",
+      Jan: "янв.",
+      Feb: "февр.",
+      Mar: "март",
+      Apr: "апр.",
+      "May(short)": "май",
+      Jun: "июнь",
+      Jul: "июль",
+      Aug: "авг.",
+      Sep: "сент.",
+      Oct: "окт.",
+      Nov: "нояб.",
+      Dec: "дек.",
+      Sunday: "воскресенье",
+      Monday: "понедельник",
+      Tuesday: "вторник",
+      Wednesday: "среда",
+      Thursday: "четверг",
+      Friday: "пятница",
+      Saturday: "суббота",
+      Sun: "вс.",
+      Mon: "пн.",
+      Tue: "вт.",
+      Wed: "ср.",
+      Thu: "чт.",
+      Fri: "пт.",
+      Sat: "сб.",
+      _dateOrd: function _dateOrd(e) {
+        return "-ое";
+      },
+      "Zoom Out": "Уменьшить",
+      Play: "Старт",
+      Stop: "Стоп",
+      Legend: "Легенда",
+      "Press ENTER to toggle": "Щелкните, коснитесь или нажмите ВВОД, чтобы переключить",
+      Loading: "Идет загрузка",
+      Home: "Начало",
+      Chart: "График",
+      "Serial chart": "Серийная диаграмма",
+      "X/Y chart": "Диаграмма X/Y",
+      "Pie chart": "Круговая диаграмма",
+      "Gauge chart": "Датчик-диаграмма",
+      "Radar chart": "Лепестковая диаграмма",
+      "Sankey diagram": "Диаграмма Сэнки",
+      "Chord diagram": "Диаграмма Chord",
+      "Flow diagram": "Диаграмма флоу",
+      "TreeMap chart": "Иерархическая диаграмма",
+      Series: "Серия",
+      "Candlestick Series": "Серия-подсвечник",
+      "Column Series": "Столбчатая серия",
+      "Line Series": "Линейная серия",
+      "Pie Slice Series": "Круговая серия",
+      "X/Y Series": "X/Y серия",
+      Map: "Карта",
+      "Press ENTER to zoom in": "Нажмите ВВОД чтобу увеличить",
+      "Press ENTER to zoom out": "Нажмите ВВОД чтобы уменьшить",
+      "Use arrow keys to zoom in and out": "Используйте клавиши-стрелки чтобы увеличить и уменьшить",
+      "Use plus and minus keys on your keyboard to zoom in and out": "Используйте клавиши плюс и минус на клавиатуре чтобы увеличить и уменьшить",
+      Export: "Экспортировать",
+      Image: "Изображение",
+      Data: "Данные",
+      Print: "Печатать",
+      "Press ENTER to open": "Щелкните, коснитесь или нажмите ВВОД чтобы открыть",
+      "Press ENTER to print.": "Щелкните, коснитесь или нажмите ВВОД чтобы распечатать",
+      "Press ENTER to export as %1.": "Щелкните, коснитесь или нажмите ВВОД чтобы экспортировать как %1",
+      'To save the image, right-click this link and choose "Save picture as..."': 'Чтобы сохранить изображение, щелкните правой кнопкой на ссылке и выберите "Сохранить изображение как..."',
+      'To save the image, right-click thumbnail on the left and choose "Save picture as..."': 'Чтобы сохранить изображение, щелкните правой кнопкой на картинке слева и выберите "Сохранить изображение как..."',
+      "(Press ESC to close this message)": "(Нажмите ESC чтобы закрыть это сообщение)",
+      "Image Export Complete": "Экспорт изображения завершен",
+      "Export operation took longer than expected. Something might have gone wrong.": "Экспортирование заняло дольше, чем планировалось. Возможно что-то пошло не так.",
+      "Saved from": "Сохранено из",
+      PNG: "PNG",
+      JPG: "JPG",
+      GIF: "GIF",
+      SVG: "SVG",
+      PDF: "PDF",
+      JSON: "JSON",
+      CSV: "CSV",
+      XLSX: "XLSX",
+      HTML: "",
+      "Use TAB to select grip buttons or left and right arrows to change selection": "Используйте клавишу TAB, чтобы выбрать рукоятки или клавиши стрелок влево и вправо, чтобы изменить выделение",
+      "Use left and right arrows to move selection": "Используйте стрелки влево-вправо, чтобы передвинуть выделение",
+      "Use left and right arrows to move left selection": "Используйте стрелки влево-вправо, чтобы передвинуть левое выделение",
+      "Use left and right arrows to move right selection": "Используйте стрелки влево-вправо, чтобы передвинуть правое выделение",
+      "Use TAB select grip buttons or up and down arrows to change selection": "Используйте TAB, чтобы выбрать рукоятки или клавиши вверх-вниз, чтобы изменить выделение",
+      "Use up and down arrows to move selection": "Используйте стрелки вверх-вниз, чтобы передвинуть выделение",
+      "Use up and down arrows to move lower selection": "Используйте стрелки вверх-вниз, чтобы передвинуть нижнее выделение",
+      "Use up and down arrows to move upper selection": "Используйте стрелки вверх-вниз, чтобы передвинуть верхнее выделение",
+      "From %1 to %2": "От %1 до %2",
+      "From %1": "От %1",
+      "To %1": "До %1",
+      "No parser available for file: %1": "Нет анализатора для файла: %1",
+      "Error parsing file: %1": "Ошибка при разборе файла: %1",
+      "Unable to load file: %1": "Не удалось загрузить файл: %1",
+      "Invalid date": "Некорректная дата"
+    };
+  }
+}, function (e) {
+  var o = (7863, e(e.s = 7863)),
+    a = window;
+  for (var t in o) a[t] = o[t];
+  o.__esModule && Object.defineProperty(a, "__esModule", {
+    value: !0
+  });
+}]);
+
+/***/ }),
+
 /***/ "./src/js/amcharts/themes/Animated.js":
 /*!********************************************!*\
   !*** ./src/js/amcharts/themes/Animated.js ***!
@@ -32415,6 +34305,195 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 /***/ }),
 
+/***/ "./src/js/components/action-in-store.js":
+/*!**********************************************!*\
+  !*** ./src/js/components/action-in-store.js ***!
+  \**********************************************/
+/***/ (function() {
+
+$('.action-in-store__item-top').on('click', function (evt) {
+  evt.preventDefault();
+  var $this = $(this);
+  var $item = $this.closest('.action-in-store__item');
+  var $bottom = $item.find('.action-in-store__item-bottom');
+  $item.toggleClass('active');
+  $bottom.slideToggle();
+});
+
+/***/ }),
+
+/***/ "./src/js/components/actions-by-category.js":
+/*!**************************************************!*\
+  !*** ./src/js/components/actions-by-category.js ***!
+  \**************************************************/
+/***/ (function() {
+
+if ($('#actions-by-category__funnel-chart').length) am5.ready(function () {
+  // Create root element
+  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+  var root = am5.Root["new"]("actions-by-category__funnel-chart");
+  root._logo.dispose();
+
+  // Set themes
+  // https://www.amcharts.com/docs/v5/concepts/themes/
+  root.setThemes([am5themes_Animated["new"](root)]);
+
+  // Create chart
+  // https://www.amcharts.com/docs/v5/charts/percent-charts/sliced-chart/
+  var chart = root.container.children.push(am5percent.SlicedChart["new"](root, {
+    layout: root.verticalLayout
+  }));
+
+  // Create series
+  // https://www.amcharts.com/docs/v5/charts/percent-charts/sliced-chart/#Series
+  var series = chart.series.push(am5percent.FunnelSeries["new"](root, {
+    alignLabels: false,
+    orientation: "vertical",
+    valueField: "value",
+    categoryField: "category"
+  }));
+  series.links.template.setAll({
+    height: 12,
+    fillOpacity: 0
+  });
+
+  // var footnote = chart.children.push(am5.Label.new(root, {
+  // 	text: "Copyright 2021 amCharts"
+  // }));
+
+  series.labels.template.setAll({
+    fontSize: 20,
+    fill: am5.color(0xFFFFFF),
+    textAlign: "center",
+    text: "[fontFamily: Gilroy]{category} \n{value}"
+  });
+  series.get("colors").set("colors", [am5.color(0x9CEC8A), am5.color(0x4DE3B6), am5.color(0x1BBABA), am5.color(0x72BBFF), am5.color(0x4C70F1), am5.color(0x745BD7)]);
+
+  // Set data
+  // https://www.amcharts.com/docs/v5/charts/percent-charts/sliced-chart/#Setting_data
+  series.data.setAll([{
+    value: 1000,
+    category: "Посещение магазина"
+  }, {
+    value: 800,
+    category: "Просмотр карточек"
+  }, {
+    value: 600,
+    category: "Запрос документа"
+  }, {
+    value: 500,
+    category: "Запрос цены"
+  }, {
+    value: 400,
+    category: "Запрос образца"
+  }, {
+    value: 300,
+    category: "Покупка"
+  }]);
+
+  // Play initial series animation
+  // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
+  series.appear();
+
+  // Make stuff animate on load
+  // https://www.amcharts.com/docs/v5/concepts/animations/
+  chart.appear(1000, 100);
+});
+if ($('#actions-by-category__donut-chart').length) am5.ready(function () {
+  // Create root element
+  // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+  var root = am5.Root["new"]("actions-by-category__donut-chart");
+  root._logo.dispose();
+
+  // Set themes
+  // https://www.amcharts.com/docs/v5/concepts/themes/
+  root.setThemes([am5themes_Animated["new"](root)]);
+
+  // Create chart
+  // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
+  var chart = root.container.children.push(am5percent.PieChart["new"](root, {
+    radius: am5.percent(90),
+    innerRadius: am5.percent(50),
+    layout: root.horizontalLayout
+  }));
+
+  // Create series
+  // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
+  var series = chart.series.push(am5percent.PieSeries["new"](root, {
+    name: "Series",
+    valueField: "value",
+    categoryField: "category",
+    alignLabels: false
+  }));
+
+  // Set data
+  // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Setting_data
+  series.data.setAll([{
+    value: 10,
+    category: "Скачивание документов"
+  }, {
+    value: 9,
+    category: "Заказы"
+  }, {
+    value: 6,
+    category: "Запрос образца"
+  }, {
+    value: 5,
+    category: "Запрос цены"
+  }, {
+    value: 4,
+    category: "Запрос документа"
+  }, {
+    value: 3,
+    category: "Просмотры карточек"
+  }, {
+    value: 3,
+    category: "Контакт в чате"
+  }]);
+
+  // Disabling ticks
+  // series.labels.template.set("visible", false);
+  series.labels.template.setAll({
+    fill: am5.color(0xffffff),
+    text: "{valuePercentTotal.formatNumber('0.00')}%[/]",
+    textType: "circular",
+    radius: 10,
+    inside: true
+  });
+  series.ticks.template.set("visible", false);
+
+  // Create legend
+  // https://www.amcharts.com/docs/v5/charts/percent-charts/legend-percent-series/
+  var legend = chart.children.push(am5.Legend["new"](root, {
+    centerY: am5.percent(50),
+    y: am5.percent(50),
+    layout: root.verticalLayout
+  }));
+  legend.markerRectangles.template.setAll({
+    cornerRadiusTL: 10,
+    cornerRadiusTR: 10,
+    cornerRadiusBL: 10,
+    cornerRadiusBR: 10
+  });
+  // set value labels align to right
+  legend.valueLabels.template.setAll({
+    textAlign: "right"
+  });
+  // set width and max width of labels
+  legend.labels.template.setAll({
+    maxWidth: 200,
+    width: 200,
+    oversizedBehavior: "wrap"
+  });
+  legend.data.setAll(series.dataItems);
+
+  // Play initial series animation
+  // https://www.amcharts.com/docs/v5/concepts/animations/#Animation_of_series
+  series.appear(1000, 100);
+});
+
+/***/ }),
+
 /***/ "./src/js/components/cabinet.js":
 /*!**************************************!*\
   !*** ./src/js/components/cabinet.js ***!
@@ -33819,6 +35898,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/components/modal-experts.js":
+/*!********************************************!*\
+  !*** ./src/js/components/modal-experts.js ***!
+  \********************************************/
+/***/ (function() {
+
+$('.sidebar-experts__link, .modal-experts .modal-box__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-experts');
+  var $container = $modal_box.children('.modal-box__container');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+
+/***/ }),
+
 /***/ "./src/js/components/modal-request.js":
 /*!********************************************!*\
   !*** ./src/js/components/modal-request.js ***!
@@ -34219,8 +36316,9 @@ $('.drop_btn').on('click', function (evt) {
   \************************************************/
 /***/ (function() {
 
-if ($('.number-of-actions__graph').length) am5.ready(function () {
+if ($('#number-of-actions__graph').length) am5.ready(function () {
   var root = am5.Root["new"]("number-of-actions__graph");
+  root._logo.dispose();
 
   // Set themes
   // https://www.amcharts.com/docs/v5/concepts/themes/
@@ -34232,6 +36330,7 @@ if ($('.number-of-actions__graph').length) am5.ready(function () {
     panX: false,
     panY: false
   }));
+  root.locale = am5locales_ru_RU;
 
   // Add cursor
   // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
@@ -34245,10 +36344,24 @@ if ($('.number-of-actions__graph').length) am5.ready(function () {
   function generateData() {
     value = Math.round(Math.random() * 10 - 5 + value);
     am5.time.add(date, "day", 1);
-    return {
-      date: date.getTime(),
-      value: value
-    };
+    var lastMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    if (lastMonth.getDate() == date.getDate()) {
+      return {
+        date: date.getTime(),
+        value: value,
+        bulletSettings: {
+          radius: 4,
+          stroke: root.interfaceColors.get("background"),
+          strokeWidth: 2,
+          fill: am5.color(0x00ff00)
+        }
+      };
+    } else {
+      return {
+        date: date.getTime(),
+        value: value
+      };
+    }
   }
   function generateDatas(count) {
     var data = [];
@@ -34266,6 +36379,13 @@ if ($('.number-of-actions__graph').length) am5.ready(function () {
       timeUnit: "day",
       count: 1
     },
+    gridIntervals: [{
+      timeUnit: "day",
+      count: 1
+    }, {
+      timeUnit: "month",
+      count: 1
+    }],
     renderer: am5xy.AxisRendererX["new"](root, {
       minGridDistance: 40
     }),
@@ -34274,6 +36394,15 @@ if ($('.number-of-actions__graph').length) am5.ready(function () {
   var yAxis = chart.yAxes.push(am5xy.ValueAxis["new"](root, {
     renderer: am5xy.AxisRendererY["new"](root, {})
   }));
+  var yRenderer = yAxis.get("renderer");
+  var xRenderer = xAxis.get("renderer");
+  yRenderer.ticks.template.setAll({
+    stroke: am5.color(0x8CA8B2),
+    strokeWidth: 1
+  });
+  xRenderer.grid.template.setAll({
+    strokeOpacity: 0
+  });
 
   // Add series
   // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
@@ -34290,20 +36419,24 @@ if ($('.number-of-actions__graph').length) am5.ready(function () {
     fillOpacity: 0.2
   });
   series.bullets.push(function () {
+    // console.log(data)
+    // console.log(new Date(date.getFullYear(), date.getMonth()+1, 0))
     return am5.Bullet["new"](root, {
       locationY: 0,
       sprite: am5.Circle["new"](root, {
-        radius: 4,
-        stroke: root.interfaceColors.get("background"),
-        strokeWidth: 2,
-        fill: series.get("fill")
+        templateField: "bulletSettings"
+        //   strokeWidth: 2,
+        //   fill: series.get("fill")
       })
     });
   });
+
   var tooltip = series.set("tooltip", am5.Tooltip["new"](root, {}));
   tooltip.label.set("text", "{valueY}");
-  var data = generateDatas(50);
+  var data = generateDatas(100);
   series.data.setAll(data);
+
+  // console.log(bullet)
 
   // Make stuff animate on load
   // https://www.amcharts.com/docs/v5/concepts/animations/
@@ -34340,6 +36473,385 @@ if ($('.number-of-actions__graph').length) am5.ready(function () {
       document.getElementById("selector-next").disabled = "";
     }
   }
+});
+if ($('#number-of-actions__multiple').length) am5.ready(function () {
+  var root = am5.Root["new"]("number-of-actions__multiple");
+  root._logo.dispose();
+  root.locale = am5locales_ru_RU;
+  root.setThemes([am5themes_Animated["new"](root)]);
+
+  // Create chart
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/
+  var chart = root.container.children.push(am5xy.XYChart["new"](root, {
+    panX: false,
+    panY: false
+  }));
+  root.locale = am5locales_ru_RU;
+
+  // Add cursor
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+  var cursor = chart.set("cursor", am5xy.XYCursor["new"](root, {}));
+  cursor.lineY.set("visible", false);
+
+  // Generate random data
+  var date = new Date();
+  date.setHours(0, 0, 0, 0);
+  var value = 50;
+  var value1 = 100;
+  var value2 = 150;
+  function generateData() {
+    value = Math.round(Math.random() * 10 - 5 + value);
+    value1 = Math.round(Math.random() * 10 - 5 + value1);
+    value2 = Math.round(Math.random() * 9 - 5 + value2);
+    am5.time.add(date, "day", 1);
+    var lastMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+    if (lastMonth.getDate() == date.getDate()) {
+      return {
+        date: date.getTime(),
+        flavors: value,
+        emulsifiers: value1,
+        stabilizers: value2,
+        bulletSettings: {
+          radius: 4,
+          stroke: root.interfaceColors.get("background"),
+          strokeWidth: 2,
+          fill: am5.color(0x00ff00)
+        }
+      };
+    } else {
+      return {
+        date: date.getTime(),
+        flavors: value,
+        emulsifiers: value1,
+        stabilizers: value2
+      };
+    }
+  }
+  function generateDatas(count) {
+    var data = [];
+    for (var i = 0; i < count; ++i) {
+      data.push(generateData());
+    }
+    return data;
+  }
+  var data = generateDatas(100);
+
+  // Create axes
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+  var xAxis = chart.xAxes.push(am5xy.DateAxis["new"](root, {
+    maxDeviation: 0,
+    baseInterval: {
+      timeUnit: "day",
+      count: 1
+    },
+    gridIntervals: [{
+      timeUnit: "day",
+      count: 1
+    }, {
+      timeUnit: "month",
+      count: 1
+    }],
+    renderer: am5xy.AxisRendererX["new"](root, {
+      minGridDistance: 40
+    }),
+    tooltip: am5.Tooltip["new"](root, {})
+  }));
+  var yAxis = chart.yAxes.push(am5xy.ValueAxis["new"](root, {
+    renderer: am5xy.AxisRendererY["new"](root, {})
+  }));
+  var yRenderer = yAxis.get("renderer");
+  var xRenderer = xAxis.get("renderer");
+  yRenderer.ticks.template.setAll({
+    stroke: am5.color(0x8CA8B2),
+    strokeWidth: 1
+  });
+  xRenderer.grid.template.setAll({
+    strokeOpacity: 0
+  });
+
+  // Add series
+  // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+  function createSeries(name, field) {
+    var series = chart.series.push(am5xy.LineSeries["new"](root, {
+      name: name,
+      xAxis: xAxis,
+      yAxis: yAxis,
+      valueYField: field,
+      valueXField: "date",
+      curveFactory: d3.curveNatural
+    }));
+    series.fills.template.setAll({
+      visible: false
+    });
+    series.bullets.push(function () {
+      return am5.Bullet["new"](root, {
+        locationY: 0,
+        sprite: am5.Circle["new"](root, {
+          templateField: "bulletSettings"
+        })
+      });
+    });
+    var tooltip = series.set("tooltip", am5.Tooltip["new"](root, {}));
+    tooltip.label.set("text", "{valueY}");
+    series.data.setAll(data);
+    series.appear(1000);
+  }
+  createSeries("Flavors", "flavors");
+  createSeries("Emulsifiers", "emulsifiers");
+  createSeries("Stabilizers", "stabilizers");
+
+  // Make stuff animate on load
+  // https://www.amcharts.com/docs/v5/concepts/animations/
+
+  chart.appear(1000, 100);
+  function setCurveFactory(factory) {
+    series.set("curveFactory", d3[factory]);
+    setButtonState();
+  }
+  function setIndex(offset) {
+    var selector = document.getElementById("selector");
+    var index = selector.selectedIndex + offset;
+    if (index < 0) {
+      index = 0;
+    }
+    if (index > selector.options.length - 1) {
+      index = selector.options.length - 1;
+    }
+    selector.selectedIndex = index;
+    setCurveFactory(selector.options[index].value);
+    setButtonState();
+  }
+  function setButtonState() {
+    var selector = document.getElementById("selector");
+    var index = selector.selectedIndex;
+    if (index == 0) {
+      document.getElementById("selector-prev").disabled = "disabled";
+      document.getElementById("selector-next").disabled = "";
+    } else if (index >= selector.options.length - 1) {
+      document.getElementById("selector-prev").disabled = "";
+      document.getElementById("selector-next").disabled = "disabled";
+    } else {
+      document.getElementById("selector-prev").disabled = "";
+      document.getElementById("selector-next").disabled = "";
+    }
+  }
+
+  // // Set themes
+  // // https://www.amcharts.com/docs/v5/concepts/themes/
+  // root.setThemes([
+  // 	am5themes_Animated.new(root)
+  // ]);
+
+  // // Create chart
+  // // https://www.amcharts.com/docs/v5/charts/xy-chart/
+  // var chart = root.container.children.push(am5xy.XYChart.new(root, {
+  // 	panX: true,
+  // 	panY: true,
+  // }));
+
+  // // Add cursor
+  // // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+  // var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
+  // 	// behavior: "none"
+  // }));
+  // cursor.lineY.set("visible", false);
+
+  // // Generate random data
+  // var date = new Date();
+  // date.setHours(0, 0, 0, 0);
+  // var value = 100;
+
+  // function generateData() {
+  // 	value = Math.round((Math.random() * 10 - 5) + value);
+  // 	am5.time.add(date, "day", 1);
+  // 	var lastMonth = new Date(date.getFullYear(), date.getMonth()+1, 0)
+
+  // 	if (lastMonth.getDate() == date.getDate()) {
+  // 		return {
+  // 			date: date.getTime(),
+  // 			value: value,
+  // 			bulletSettings: {
+  // 				radius: 4,
+  // 				stroke: root.interfaceColors.get("background"),
+  // 				strokeWidth: 2,
+  // 				fill: am5.color(0x00ff00)
+  // 			}
+  // 		};
+  // 	} else {
+  // 		return {
+  // 			date: date.getTime(),
+  // 			value: value,
+  // 		};
+  // 	}
+
+  // }
+
+  // function generateDatas(count) {
+  //   var data = [];
+  //   for (var i = 0; i < count; ++i) {
+  // 	data.push(generateData());
+  //   }
+  //   return data;
+  // }
+
+  // var data = generateDatas(100);
+
+  // // // The data
+  // // var data = [{
+  // // 	"year": "1994",
+  // // 	"cars": 1587,
+  // // 	"motorcycles": 650,
+  // // 	"bicycles": 121
+  // // }, {
+  // // 	"year": "1995",
+  // // 	"cars": 1567,
+  // // 	"motorcycles": 683,
+  // // 	"bicycles": 146
+  // // }, {
+  // // 	"year": "1996",
+  // // 	"cars": 1617,
+  // // 	"motorcycles": 691,
+  // // 	"bicycles": 138
+  // // }, {
+  // // 	"year": "1997",
+  // // 	"cars": 1630,
+  // // 	"motorcycles": 642,
+  // // 	"bicycles": 127
+  // // }, {
+  // // 	"year": "1998",
+  // // 	"cars": 1660,
+  // // 	"motorcycles": 699,
+  // // 	"bicycles": 105
+  // // }, {
+  // // 	"year": "1999",
+  // // 	"cars": 1683,
+  // // 	"motorcycles": 721,
+  // // 	"bicycles": 109
+  // // }, {
+  // // 	"year": "2000",
+  // // 	"cars": 1691,
+  // // 	"motorcycles": 737,
+  // // 	"bicycles": 112
+  // // }, {
+  // // 	"year": "2001",
+  // // 	"cars": 1298,
+  // // 	"motorcycles": 680,
+  // // 	"bicycles": 101
+  // // }, {
+  // // 	"year": "2002",
+  // // 	"cars": 1275,
+  // // 	"motorcycles": 664,
+  // // 	"bicycles": 97
+  // // }, {
+  // // 	"year": "2003",
+  // // 	"cars": 1246,
+  // // 	"motorcycles": 648,
+  // // 	"bicycles": 93
+  // // }, {
+  // // 	"year": "2004",
+  // // 	"cars": 1318,
+  // // 	"motorcycles": 697,
+  // // 	"bicycles": 111
+  // // }, {
+  // // 	"year": "2005",
+  // // 	"cars": 1213,
+  // // 	"motorcycles": 633,
+  // // 	"bicycles": 87
+  // // }, {
+  // // 	"year": "2006",
+  // // 	"cars": 1199,
+  // // 	"motorcycles": 621,
+  // // 	"bicycles": 79
+  // // }, {
+  // // 	"year": "2007",
+  // // 	"cars": 1110,
+  // // 	"motorcycles": 210,
+  // // 	"bicycles": 81
+  // // }, {
+  // // 	"year": "2008",
+  // // 	"cars": 1165,
+  // // 	"motorcycles": 232,
+  // // 	"bicycles": 75
+  // // }, {
+  // // 	"year": "2009",
+  // // 	"cars": 1145,
+  // // 	"motorcycles": 219,
+  // // 	"bicycles": 88
+  // // }, {
+  // // 	"year": "2010",
+  // // 	"cars": 1163,
+  // // 	"motorcycles": 201,
+  // // 	"bicycles": 82
+  // // }, {
+  // // 	"year": "2011",
+  // // 	"cars": 1180,
+  // // 	"motorcycles": 285,
+  // // 	"bicycles": 87
+  // // }, {
+  // // 	"year": "2012",
+  // // 	"cars": 1159,
+  // // 	"motorcycles": 277,
+  // // 	"bicycles": 71
+  // // }];
+
+  // // Create axes
+  // // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+  // var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
+  // 	maxDeviation: 0,
+  // 	baseInterval: {
+  // 	  timeUnit: "day",
+  // 	  count: 1
+  // 	},
+  // 	gridIntervals: [
+  // 	  { timeUnit: "day", count: 1 },
+  // 	  { timeUnit: "month", count: 1 }
+  // 	],
+  // 	renderer: am5xy.AxisRendererX.new(root, {
+  // 	  minGridDistance: 40
+  // 	}),
+  // 	tooltip: am5.Tooltip.new(root, {})
+  // }));
+
+  // xAxis.data.setAll(data);
+
+  // var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
+  // 	renderer: am5xy.AxisRendererY.new(root, {})
+  // }));
+
+  // // Add series
+  // // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+
+  // // function createSeries(name, field) {
+  // 	var series = chart.series.push(am5xy.LineSeries.new(root, {
+  // 	name: 'Values',
+  // 	xAxis: xAxis,
+  // 	yAxis: yAxis,
+  // 	stacked:true,
+  // 	valueYField: 'value',
+  // 	categoryXField: "date",
+  // 	curveFactory: d3.curveNatural,
+  // 	tooltip: am5.Tooltip.new(root, {
+  // 		pointerOrientation: "horizontal",
+  // 		labelText: "{valueY}"
+  // 		})
+  // 	}));
+
+  // 	series.fills.template.setAll({
+  // 	fillOpacity: 0.5,
+  // 	visible: true
+  // 	});
+
+  // 	series.data.setAll(data);
+  // 	series.appear(1000);
+  // // }
+
+  // // createSeries("Cars", "value");
+  // // createSeries("Motorcycles", "motorcycles");
+  // // createSeries("Bicycles", "bicycles");
+
+  // // Make stuff animate on load
+  // // https://www.amcharts.com/docs/v5/concepts/animations/
+  // chart.appear(1000, 100);
 });
 
 /***/ }),
@@ -35457,84 +37969,98 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_lazyLoading__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/lazyLoading */ "./src/js/modules/lazyLoading.js");
 /* harmony import */ var _modules_scrollToAnchor__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/scrollToAnchor */ "./src/js/modules/scrollToAnchor.js");
 /* harmony import */ var _amcharts_index__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./amcharts/index */ "./src/js/amcharts/index.js");
-/* harmony import */ var _amcharts_xy__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./amcharts/xy */ "./src/js/amcharts/xy.js");
-/* harmony import */ var _amcharts_themes_Animated__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./amcharts/themes/Animated */ "./src/js/amcharts/themes/Animated.js");
-/* harmony import */ var _components_jquery_nice_select__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/jquery.nice-select */ "./src/js/components/jquery.nice-select.js");
-/* harmony import */ var _components_jquery_nice_select__WEBPACK_IMPORTED_MODULE_12___default = /*#__PURE__*/__webpack_require__.n(_components_jquery_nice_select__WEBPACK_IMPORTED_MODULE_12__);
-/* harmony import */ var _components_jquery_quicksearch__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/jquery.quicksearch */ "./src/js/components/jquery.quicksearch.js");
-/* harmony import */ var _components_jquery_multi_select__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/jquery.multi-select */ "./src/js/components/jquery.multi-select.js");
-/* harmony import */ var _components_search_header__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/search-header */ "./src/js/components/search-header.js");
-/* harmony import */ var _components_search_header__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_components_search_header__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/footer */ "./src/js/components/footer.js");
-/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_components_footer__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _components_swiper_product_comparison__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/swiper_product_comparison */ "./src/js/components/swiper_product_comparison.js");
-/* harmony import */ var _components_swiper_product_comparison__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_product_comparison__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/swiper_materials */ "./src/js/components/swiper_materials.js");
-/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_materials__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/swiper_solutions */ "./src/js/components/swiper_solutions.js");
-/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_solutions__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/swiper_vendors */ "./src/js/components/swiper_vendors.js");
-/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_vendors__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/swiper_news */ "./src/js/components/swiper_news.js");
-/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_news__WEBPACK_IMPORTED_MODULE_21__);
-/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/swiper_my_orders */ "./src/js/components/swiper_my_orders.js");
-/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_22__);
-/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/swiper_products_category */ "./src/js/components/swiper_products_category.js");
-/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_products_category__WEBPACK_IMPORTED_MODULE_23__);
-/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/swiper_grid */ "./src/js/components/swiper_grid.js");
-/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_grid__WEBPACK_IMPORTED_MODULE_24__);
-/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/navigation */ "./src/js/components/navigation.js");
-/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_components_navigation__WEBPACK_IMPORTED_MODULE_25__);
-/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/switcher */ "./src/js/components/switcher.js");
-/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_components_switcher__WEBPACK_IMPORTED_MODULE_26__);
-/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/displaying */ "./src/js/components/displaying.js");
-/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_components_displaying__WEBPACK_IMPORTED_MODULE_27__);
-/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/components/dropdown.js");
-/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_components_dropdown__WEBPACK_IMPORTED_MODULE_28__);
-/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/forms */ "./src/js/components/forms.js");
-/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_components_forms__WEBPACK_IMPORTED_MODULE_29__);
-/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/cabinet */ "./src/js/components/cabinet.js");
-/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(_components_cabinet__WEBPACK_IMPORTED_MODULE_30__);
-/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/tags */ "./src/js/components/tags.js");
-/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_components_tags__WEBPACK_IMPORTED_MODULE_31__);
-/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/search */ "./src/js/components/search.js");
-/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(_components_search__WEBPACK_IMPORTED_MODULE_32__);
-/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/filter_modal */ "./src/js/components/filter_modal.js");
-/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(_components_filter_modal__WEBPACK_IMPORTED_MODULE_33__);
-/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/swiper_experts */ "./src/js/components/swiper_experts.js");
-/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_experts__WEBPACK_IMPORTED_MODULE_34__);
-/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/header_mobile */ "./src/js/components/header_mobile.js");
-/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(_components_header_mobile__WEBPACK_IMPORTED_MODULE_35__);
-/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/modal_experts */ "./src/js/components/modal_experts.js");
-/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(_components_modal_experts__WEBPACK_IMPORTED_MODULE_36__);
-/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/swiper_sample_request */ "./src/js/components/swiper_sample_request.js");
-/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_37__);
-/* harmony import */ var _components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/swiper_provider_orders */ "./src/js/components/swiper_provider_orders.js");
-/* harmony import */ var _components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_38___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_38__);
-/* harmony import */ var _components_swiper_brand__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/swiper_brand */ "./src/js/components/swiper_brand.js");
-/* harmony import */ var _components_swiper_brand__WEBPACK_IMPORTED_MODULE_39___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_brand__WEBPACK_IMPORTED_MODULE_39__);
-/* harmony import */ var _components_modal_brand__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/modal_brand */ "./src/js/components/modal_brand.js");
-/* harmony import */ var _components_modal_brand__WEBPACK_IMPORTED_MODULE_40___default = /*#__PURE__*/__webpack_require__.n(_components_modal_brand__WEBPACK_IMPORTED_MODULE_40__);
-/* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/multi-select */ "./src/js/components/multi-select.js");
-/* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_41___default = /*#__PURE__*/__webpack_require__.n(_components_multi_select__WEBPACK_IMPORTED_MODULE_41__);
-/* harmony import */ var _components_choose_tag__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/choose-tag */ "./src/js/components/choose-tag.js");
-/* harmony import */ var _components_choose_tag__WEBPACK_IMPORTED_MODULE_42___default = /*#__PURE__*/__webpack_require__.n(_components_choose_tag__WEBPACK_IMPORTED_MODULE_42__);
-/* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./components/swiper_product_cards */ "./src/js/components/swiper_product_cards.js");
-/* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_43___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_43__);
-/* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/modal_product_reviews */ "./src/js/components/modal_product_reviews.js");
-/* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_44___default = /*#__PURE__*/__webpack_require__.n(_components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_44__);
-/* harmony import */ var _components_swiper_review__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/swiper_review */ "./src/js/components/swiper_review.js");
-/* harmony import */ var _components_swiper_review__WEBPACK_IMPORTED_MODULE_45___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_review__WEBPACK_IMPORTED_MODULE_45__);
-/* harmony import */ var _components_swiper_column_line__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./components/swiper_column_line */ "./src/js/components/swiper_column_line.js");
-/* harmony import */ var _components_swiper_column_line__WEBPACK_IMPORTED_MODULE_46___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_column_line__WEBPACK_IMPORTED_MODULE_46__);
-/* harmony import */ var _components_modal_request__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./components/modal-request */ "./src/js/components/modal-request.js");
-/* harmony import */ var _components_modal_request__WEBPACK_IMPORTED_MODULE_47___default = /*#__PURE__*/__webpack_require__.n(_components_modal_request__WEBPACK_IMPORTED_MODULE_47__);
-/* harmony import */ var _components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/fixed_sidebar */ "./src/js/components/fixed_sidebar.js");
-/* harmony import */ var _components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_48___default = /*#__PURE__*/__webpack_require__.n(_components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_48__);
-/* harmony import */ var _components_modal_admin__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/modal_admin */ "./src/js/components/modal_admin.js");
-/* harmony import */ var _components_modal_admin__WEBPACK_IMPORTED_MODULE_49___default = /*#__PURE__*/__webpack_require__.n(_components_modal_admin__WEBPACK_IMPORTED_MODULE_49__);
-/* harmony import */ var _components_number_of_actions__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./components/number-of-actions */ "./src/js/components/number-of-actions.js");
-/* harmony import */ var _components_number_of_actions__WEBPACK_IMPORTED_MODULE_50___default = /*#__PURE__*/__webpack_require__.n(_components_number_of_actions__WEBPACK_IMPORTED_MODULE_50__);
+/* harmony import */ var _amcharts_ru_RU__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./amcharts/ru_RU */ "./src/js/amcharts/ru_RU.js");
+/* harmony import */ var _amcharts_ru_RU__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_amcharts_ru_RU__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var _amcharts_xy__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./amcharts/xy */ "./src/js/amcharts/xy.js");
+/* harmony import */ var _amcharts_percent__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./amcharts/percent */ "./src/js/amcharts/percent.js");
+/* harmony import */ var _amcharts_themes_Animated__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./amcharts/themes/Animated */ "./src/js/amcharts/themes/Animated.js");
+/* harmony import */ var _components_jquery_nice_select__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/jquery.nice-select */ "./src/js/components/jquery.nice-select.js");
+/* harmony import */ var _components_jquery_nice_select__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_components_jquery_nice_select__WEBPACK_IMPORTED_MODULE_14__);
+/* harmony import */ var _components_jquery_quicksearch__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/jquery.quicksearch */ "./src/js/components/jquery.quicksearch.js");
+/* harmony import */ var _components_jquery_multi_select__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/jquery.multi-select */ "./src/js/components/jquery.multi-select.js");
+/* harmony import */ var _components_search_header__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/search-header */ "./src/js/components/search-header.js");
+/* harmony import */ var _components_search_header__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_components_search_header__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/footer */ "./src/js/components/footer.js");
+/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_components_footer__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _components_swiper_product_comparison__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/swiper_product_comparison */ "./src/js/components/swiper_product_comparison.js");
+/* harmony import */ var _components_swiper_product_comparison__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_product_comparison__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/swiper_materials */ "./src/js/components/swiper_materials.js");
+/* harmony import */ var _components_swiper_materials__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_materials__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./components/swiper_solutions */ "./src/js/components/swiper_solutions.js");
+/* harmony import */ var _components_swiper_solutions__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_solutions__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./components/swiper_vendors */ "./src/js/components/swiper_vendors.js");
+/* harmony import */ var _components_swiper_vendors__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_vendors__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./components/swiper_news */ "./src/js/components/swiper_news.js");
+/* harmony import */ var _components_swiper_news__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_news__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./components/swiper_my_orders */ "./src/js/components/swiper_my_orders.js");
+/* harmony import */ var _components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_my_orders__WEBPACK_IMPORTED_MODULE_24__);
+/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_25__ = __webpack_require__(/*! ./components/swiper_products_category */ "./src/js/components/swiper_products_category.js");
+/* harmony import */ var _components_swiper_products_category__WEBPACK_IMPORTED_MODULE_25___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_products_category__WEBPACK_IMPORTED_MODULE_25__);
+/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_26__ = __webpack_require__(/*! ./components/swiper_grid */ "./src/js/components/swiper_grid.js");
+/* harmony import */ var _components_swiper_grid__WEBPACK_IMPORTED_MODULE_26___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_grid__WEBPACK_IMPORTED_MODULE_26__);
+/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_27__ = __webpack_require__(/*! ./components/navigation */ "./src/js/components/navigation.js");
+/* harmony import */ var _components_navigation__WEBPACK_IMPORTED_MODULE_27___default = /*#__PURE__*/__webpack_require__.n(_components_navigation__WEBPACK_IMPORTED_MODULE_27__);
+/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_28__ = __webpack_require__(/*! ./components/switcher */ "./src/js/components/switcher.js");
+/* harmony import */ var _components_switcher__WEBPACK_IMPORTED_MODULE_28___default = /*#__PURE__*/__webpack_require__.n(_components_switcher__WEBPACK_IMPORTED_MODULE_28__);
+/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_29__ = __webpack_require__(/*! ./components/displaying */ "./src/js/components/displaying.js");
+/* harmony import */ var _components_displaying__WEBPACK_IMPORTED_MODULE_29___default = /*#__PURE__*/__webpack_require__.n(_components_displaying__WEBPACK_IMPORTED_MODULE_29__);
+/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_30__ = __webpack_require__(/*! ./components/dropdown */ "./src/js/components/dropdown.js");
+/* harmony import */ var _components_dropdown__WEBPACK_IMPORTED_MODULE_30___default = /*#__PURE__*/__webpack_require__.n(_components_dropdown__WEBPACK_IMPORTED_MODULE_30__);
+/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_31__ = __webpack_require__(/*! ./components/forms */ "./src/js/components/forms.js");
+/* harmony import */ var _components_forms__WEBPACK_IMPORTED_MODULE_31___default = /*#__PURE__*/__webpack_require__.n(_components_forms__WEBPACK_IMPORTED_MODULE_31__);
+/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_32__ = __webpack_require__(/*! ./components/cabinet */ "./src/js/components/cabinet.js");
+/* harmony import */ var _components_cabinet__WEBPACK_IMPORTED_MODULE_32___default = /*#__PURE__*/__webpack_require__.n(_components_cabinet__WEBPACK_IMPORTED_MODULE_32__);
+/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_33__ = __webpack_require__(/*! ./components/tags */ "./src/js/components/tags.js");
+/* harmony import */ var _components_tags__WEBPACK_IMPORTED_MODULE_33___default = /*#__PURE__*/__webpack_require__.n(_components_tags__WEBPACK_IMPORTED_MODULE_33__);
+/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_34__ = __webpack_require__(/*! ./components/search */ "./src/js/components/search.js");
+/* harmony import */ var _components_search__WEBPACK_IMPORTED_MODULE_34___default = /*#__PURE__*/__webpack_require__.n(_components_search__WEBPACK_IMPORTED_MODULE_34__);
+/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_35__ = __webpack_require__(/*! ./components/filter_modal */ "./src/js/components/filter_modal.js");
+/* harmony import */ var _components_filter_modal__WEBPACK_IMPORTED_MODULE_35___default = /*#__PURE__*/__webpack_require__.n(_components_filter_modal__WEBPACK_IMPORTED_MODULE_35__);
+/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_36__ = __webpack_require__(/*! ./components/swiper_experts */ "./src/js/components/swiper_experts.js");
+/* harmony import */ var _components_swiper_experts__WEBPACK_IMPORTED_MODULE_36___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_experts__WEBPACK_IMPORTED_MODULE_36__);
+/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_37__ = __webpack_require__(/*! ./components/header_mobile */ "./src/js/components/header_mobile.js");
+/* harmony import */ var _components_header_mobile__WEBPACK_IMPORTED_MODULE_37___default = /*#__PURE__*/__webpack_require__.n(_components_header_mobile__WEBPACK_IMPORTED_MODULE_37__);
+/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_38__ = __webpack_require__(/*! ./components/modal_experts */ "./src/js/components/modal_experts.js");
+/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_38___default = /*#__PURE__*/__webpack_require__.n(_components_modal_experts__WEBPACK_IMPORTED_MODULE_38__);
+/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_39__ = __webpack_require__(/*! ./components/swiper_sample_request */ "./src/js/components/swiper_sample_request.js");
+/* harmony import */ var _components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_39___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_sample_request__WEBPACK_IMPORTED_MODULE_39__);
+/* harmony import */ var _components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_40__ = __webpack_require__(/*! ./components/swiper_provider_orders */ "./src/js/components/swiper_provider_orders.js");
+/* harmony import */ var _components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_40___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_provider_orders__WEBPACK_IMPORTED_MODULE_40__);
+/* harmony import */ var _components_swiper_brand__WEBPACK_IMPORTED_MODULE_41__ = __webpack_require__(/*! ./components/swiper_brand */ "./src/js/components/swiper_brand.js");
+/* harmony import */ var _components_swiper_brand__WEBPACK_IMPORTED_MODULE_41___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_brand__WEBPACK_IMPORTED_MODULE_41__);
+/* harmony import */ var _components_modal_brand__WEBPACK_IMPORTED_MODULE_42__ = __webpack_require__(/*! ./components/modal_brand */ "./src/js/components/modal_brand.js");
+/* harmony import */ var _components_modal_brand__WEBPACK_IMPORTED_MODULE_42___default = /*#__PURE__*/__webpack_require__.n(_components_modal_brand__WEBPACK_IMPORTED_MODULE_42__);
+/* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_43__ = __webpack_require__(/*! ./components/multi-select */ "./src/js/components/multi-select.js");
+/* harmony import */ var _components_multi_select__WEBPACK_IMPORTED_MODULE_43___default = /*#__PURE__*/__webpack_require__.n(_components_multi_select__WEBPACK_IMPORTED_MODULE_43__);
+/* harmony import */ var _components_choose_tag__WEBPACK_IMPORTED_MODULE_44__ = __webpack_require__(/*! ./components/choose-tag */ "./src/js/components/choose-tag.js");
+/* harmony import */ var _components_choose_tag__WEBPACK_IMPORTED_MODULE_44___default = /*#__PURE__*/__webpack_require__.n(_components_choose_tag__WEBPACK_IMPORTED_MODULE_44__);
+/* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_45__ = __webpack_require__(/*! ./components/swiper_product_cards */ "./src/js/components/swiper_product_cards.js");
+/* harmony import */ var _components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_45___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_product_cards__WEBPACK_IMPORTED_MODULE_45__);
+/* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_46__ = __webpack_require__(/*! ./components/modal_product_reviews */ "./src/js/components/modal_product_reviews.js");
+/* harmony import */ var _components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_46___default = /*#__PURE__*/__webpack_require__.n(_components_modal_product_reviews__WEBPACK_IMPORTED_MODULE_46__);
+/* harmony import */ var _components_swiper_review__WEBPACK_IMPORTED_MODULE_47__ = __webpack_require__(/*! ./components/swiper_review */ "./src/js/components/swiper_review.js");
+/* harmony import */ var _components_swiper_review__WEBPACK_IMPORTED_MODULE_47___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_review__WEBPACK_IMPORTED_MODULE_47__);
+/* harmony import */ var _components_swiper_column_line__WEBPACK_IMPORTED_MODULE_48__ = __webpack_require__(/*! ./components/swiper_column_line */ "./src/js/components/swiper_column_line.js");
+/* harmony import */ var _components_swiper_column_line__WEBPACK_IMPORTED_MODULE_48___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_column_line__WEBPACK_IMPORTED_MODULE_48__);
+/* harmony import */ var _components_modal_request__WEBPACK_IMPORTED_MODULE_49__ = __webpack_require__(/*! ./components/modal-request */ "./src/js/components/modal-request.js");
+/* harmony import */ var _components_modal_request__WEBPACK_IMPORTED_MODULE_49___default = /*#__PURE__*/__webpack_require__.n(_components_modal_request__WEBPACK_IMPORTED_MODULE_49__);
+/* harmony import */ var _components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_50__ = __webpack_require__(/*! ./components/fixed_sidebar */ "./src/js/components/fixed_sidebar.js");
+/* harmony import */ var _components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_50___default = /*#__PURE__*/__webpack_require__.n(_components_fixed_sidebar__WEBPACK_IMPORTED_MODULE_50__);
+/* harmony import */ var _components_modal_admin__WEBPACK_IMPORTED_MODULE_51__ = __webpack_require__(/*! ./components/modal_admin */ "./src/js/components/modal_admin.js");
+/* harmony import */ var _components_modal_admin__WEBPACK_IMPORTED_MODULE_51___default = /*#__PURE__*/__webpack_require__.n(_components_modal_admin__WEBPACK_IMPORTED_MODULE_51__);
+/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_52__ = __webpack_require__(/*! ./components/modal-experts */ "./src/js/components/modal-experts.js");
+/* harmony import */ var _components_modal_experts__WEBPACK_IMPORTED_MODULE_52___default = /*#__PURE__*/__webpack_require__.n(_components_modal_experts__WEBPACK_IMPORTED_MODULE_52__);
+/* harmony import */ var _components_number_of_actions__WEBPACK_IMPORTED_MODULE_53__ = __webpack_require__(/*! ./components/number-of-actions */ "./src/js/components/number-of-actions.js");
+/* harmony import */ var _components_number_of_actions__WEBPACK_IMPORTED_MODULE_53___default = /*#__PURE__*/__webpack_require__.n(_components_number_of_actions__WEBPACK_IMPORTED_MODULE_53__);
+/* harmony import */ var _components_actions_by_category__WEBPACK_IMPORTED_MODULE_54__ = __webpack_require__(/*! ./components/actions-by-category */ "./src/js/components/actions-by-category.js");
+/* harmony import */ var _components_actions_by_category__WEBPACK_IMPORTED_MODULE_54___default = /*#__PURE__*/__webpack_require__.n(_components_actions_by_category__WEBPACK_IMPORTED_MODULE_54__);
+/* harmony import */ var _components_action_in_store__WEBPACK_IMPORTED_MODULE_55__ = __webpack_require__(/*! ./components/action-in-store */ "./src/js/components/action-in-store.js");
+/* harmony import */ var _components_action_in_store__WEBPACK_IMPORTED_MODULE_55___default = /*#__PURE__*/__webpack_require__.n(_components_action_in_store__WEBPACK_IMPORTED_MODULE_55__);
+
+
+
+
+
 
 
 
