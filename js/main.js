@@ -34411,11 +34411,19 @@ if ($('#actions-by-category__donut-chart').length) am5.ready(function () {
 
   // Create chart
   // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/
-  var chart = root.container.children.push(am5percent.PieChart["new"](root, {
-    radius: am5.percent(90),
-    innerRadius: am5.percent(50),
-    layout: root.horizontalLayout
-  }));
+  if (window.outerWidth <= 768) {
+    var chart = root.container.children.push(am5percent.PieChart["new"](root, {
+      radius: am5.percent(90),
+      innerRadius: am5.percent(40),
+      layout: root.verticalLayout
+    }));
+  } else {
+    var chart = root.container.children.push(am5percent.PieChart["new"](root, {
+      radius: am5.percent(90),
+      innerRadius: am5.percent(40),
+      layout: root.horizontalLayout
+    }));
+  }
 
   // Create series
   // https://www.amcharts.com/docs/v5/charts/percent-charts/pie-chart/#Series
@@ -34464,11 +34472,16 @@ if ($('#actions-by-category__donut-chart').length) am5.ready(function () {
 
   // Create legend
   // https://www.amcharts.com/docs/v5/charts/percent-charts/legend-percent-series/
-  var legend = chart.children.push(am5.Legend["new"](root, {
-    centerY: am5.percent(50),
-    y: am5.percent(50),
-    layout: root.verticalLayout
-  }));
+
+  if (window.outerWidth <= 768) {
+    var legend = chart.children.push(am5.Legend["new"](root, {}));
+  } else {
+    var legend = chart.children.push(am5.Legend["new"](root, {
+      centerY: am5.percent(50),
+      y: am5.percent(50),
+      layout: root.verticalLayout
+    }));
+  }
   legend.markerRectangles.template.setAll({
     cornerRadiusTL: 10,
     cornerRadiusTR: 10,
@@ -36319,6 +36332,12 @@ $('.drop_btn').on('click', function (evt) {
 if ($('#number-of-actions__graph').length) am5.ready(function () {
   var root = am5.Root["new"]("number-of-actions__graph");
   root._logo.dispose();
+  var color = [0x4669C2, 0x3CB7E3, 0xE33046];
+  var colorString = ['#4669C2', '#3CB7E3', '#E33046'];
+  var $changeCssColor = $('#number-of-actions__graph').closest('.statistics-box').find('.number-of-actions__month-color');
+  $changeCssColor.each(function (i) {
+    $(this).css('background', "".concat(colorString[i % 3]));
+  });
 
   // Set themes
   // https://www.amcharts.com/docs/v5/concepts/themes/
@@ -36341,11 +36360,13 @@ if ($('#number-of-actions__graph').length) am5.ready(function () {
   var date = new Date();
   date.setHours(0, 0, 0, 0);
   var value = 100;
+  var colorId = 0;
   function generateData() {
     value = Math.round(Math.random() * 10 - 5 + value);
     am5.time.add(date, "day", 1);
     var lastMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
     if (lastMonth.getDate() == date.getDate()) {
+      colorId++;
       return {
         date: date.getTime(),
         value: value,
@@ -36353,7 +36374,7 @@ if ($('#number-of-actions__graph').length) am5.ready(function () {
           radius: 4,
           stroke: root.interfaceColors.get("background"),
           strokeWidth: 2,
-          fill: am5.color(0x00ff00)
+          fill: am5.color(color[colorId - 1])
         }
       };
     } else {
@@ -36386,9 +36407,7 @@ if ($('#number-of-actions__graph').length) am5.ready(function () {
       timeUnit: "month",
       count: 1
     }],
-    renderer: am5xy.AxisRendererX["new"](root, {
-      minGridDistance: 40
-    }),
+    renderer: am5xy.AxisRendererX["new"](root, {}),
     tooltip: am5.Tooltip["new"](root, {})
   }));
   var yAxis = chart.yAxes.push(am5xy.ValueAxis["new"](root, {
@@ -36477,6 +36496,12 @@ if ($('#number-of-actions__graph').length) am5.ready(function () {
 if ($('#number-of-actions__multiple').length) am5.ready(function () {
   var root = am5.Root["new"]("number-of-actions__multiple");
   root._logo.dispose();
+  var color = [0x4669C2, 0x3CB7E3, 0xE33046];
+  var colorString = ['#4669C2', '#3CB7E3', '#E33046'];
+  var $changeCssColor = $('#number-of-actions__multiple').closest('.statistics-box').find('.number-of-actions__month-color');
+  $changeCssColor.each(function (i) {
+    $(this).css('background', "".concat(colorString[i % 3]));
+  });
   root.locale = am5locales_ru_RU;
   root.setThemes([am5themes_Animated["new"](root)]);
 
@@ -36511,11 +36536,23 @@ if ($('#number-of-actions__multiple').length) am5.ready(function () {
         flavors: value,
         emulsifiers: value1,
         stabilizers: value2,
-        bulletSettings: {
+        bulletSettings1: {
           radius: 4,
           stroke: root.interfaceColors.get("background"),
           strokeWidth: 2,
-          fill: am5.color(0x00ff00)
+          fill: am5.color(color[0])
+        },
+        bulletSettings2: {
+          radius: 4,
+          stroke: root.interfaceColors.get("background"),
+          strokeWidth: 2,
+          fill: am5.color(color[1])
+        },
+        bulletSettings3: {
+          radius: 4,
+          stroke: root.interfaceColors.get("background"),
+          strokeWidth: 2,
+          fill: am5.color(color[2])
         }
       };
     } else {
@@ -36571,13 +36608,14 @@ if ($('#number-of-actions__multiple').length) am5.ready(function () {
 
   // Add series
   // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-  function createSeries(name, field) {
+  function createSeries(name, field, color, bulletSet) {
     var series = chart.series.push(am5xy.LineSeries["new"](root, {
       name: name,
       xAxis: xAxis,
       yAxis: yAxis,
       valueYField: field,
       valueXField: "date",
+      stroke: am5.color(color),
       curveFactory: d3.curveNatural
     }));
     series.fills.template.setAll({
@@ -36587,7 +36625,7 @@ if ($('#number-of-actions__multiple').length) am5.ready(function () {
       return am5.Bullet["new"](root, {
         locationY: 0,
         sprite: am5.Circle["new"](root, {
-          templateField: "bulletSettings"
+          templateField: bulletSet
         })
       });
     });
@@ -36596,9 +36634,9 @@ if ($('#number-of-actions__multiple').length) am5.ready(function () {
     series.data.setAll(data);
     series.appear(1000);
   }
-  createSeries("Flavors", "flavors");
-  createSeries("Emulsifiers", "emulsifiers");
-  createSeries("Stabilizers", "stabilizers");
+  createSeries("Flavors", "flavors", color[0], 'bulletSettings1');
+  createSeries("Emulsifiers", "emulsifiers", color[1], 'bulletSettings2');
+  createSeries("Stabilizers", "stabilizers", color[2], 'bulletSettings3');
 
   // Make stuff animate on load
   // https://www.amcharts.com/docs/v5/concepts/animations/
@@ -36635,223 +36673,6 @@ if ($('#number-of-actions__multiple').length) am5.ready(function () {
       document.getElementById("selector-next").disabled = "";
     }
   }
-
-  // // Set themes
-  // // https://www.amcharts.com/docs/v5/concepts/themes/
-  // root.setThemes([
-  // 	am5themes_Animated.new(root)
-  // ]);
-
-  // // Create chart
-  // // https://www.amcharts.com/docs/v5/charts/xy-chart/
-  // var chart = root.container.children.push(am5xy.XYChart.new(root, {
-  // 	panX: true,
-  // 	panY: true,
-  // }));
-
-  // // Add cursor
-  // // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
-  // var cursor = chart.set("cursor", am5xy.XYCursor.new(root, {
-  // 	// behavior: "none"
-  // }));
-  // cursor.lineY.set("visible", false);
-
-  // // Generate random data
-  // var date = new Date();
-  // date.setHours(0, 0, 0, 0);
-  // var value = 100;
-
-  // function generateData() {
-  // 	value = Math.round((Math.random() * 10 - 5) + value);
-  // 	am5.time.add(date, "day", 1);
-  // 	var lastMonth = new Date(date.getFullYear(), date.getMonth()+1, 0)
-
-  // 	if (lastMonth.getDate() == date.getDate()) {
-  // 		return {
-  // 			date: date.getTime(),
-  // 			value: value,
-  // 			bulletSettings: {
-  // 				radius: 4,
-  // 				stroke: root.interfaceColors.get("background"),
-  // 				strokeWidth: 2,
-  // 				fill: am5.color(0x00ff00)
-  // 			}
-  // 		};
-  // 	} else {
-  // 		return {
-  // 			date: date.getTime(),
-  // 			value: value,
-  // 		};
-  // 	}
-
-  // }
-
-  // function generateDatas(count) {
-  //   var data = [];
-  //   for (var i = 0; i < count; ++i) {
-  // 	data.push(generateData());
-  //   }
-  //   return data;
-  // }
-
-  // var data = generateDatas(100);
-
-  // // // The data
-  // // var data = [{
-  // // 	"year": "1994",
-  // // 	"cars": 1587,
-  // // 	"motorcycles": 650,
-  // // 	"bicycles": 121
-  // // }, {
-  // // 	"year": "1995",
-  // // 	"cars": 1567,
-  // // 	"motorcycles": 683,
-  // // 	"bicycles": 146
-  // // }, {
-  // // 	"year": "1996",
-  // // 	"cars": 1617,
-  // // 	"motorcycles": 691,
-  // // 	"bicycles": 138
-  // // }, {
-  // // 	"year": "1997",
-  // // 	"cars": 1630,
-  // // 	"motorcycles": 642,
-  // // 	"bicycles": 127
-  // // }, {
-  // // 	"year": "1998",
-  // // 	"cars": 1660,
-  // // 	"motorcycles": 699,
-  // // 	"bicycles": 105
-  // // }, {
-  // // 	"year": "1999",
-  // // 	"cars": 1683,
-  // // 	"motorcycles": 721,
-  // // 	"bicycles": 109
-  // // }, {
-  // // 	"year": "2000",
-  // // 	"cars": 1691,
-  // // 	"motorcycles": 737,
-  // // 	"bicycles": 112
-  // // }, {
-  // // 	"year": "2001",
-  // // 	"cars": 1298,
-  // // 	"motorcycles": 680,
-  // // 	"bicycles": 101
-  // // }, {
-  // // 	"year": "2002",
-  // // 	"cars": 1275,
-  // // 	"motorcycles": 664,
-  // // 	"bicycles": 97
-  // // }, {
-  // // 	"year": "2003",
-  // // 	"cars": 1246,
-  // // 	"motorcycles": 648,
-  // // 	"bicycles": 93
-  // // }, {
-  // // 	"year": "2004",
-  // // 	"cars": 1318,
-  // // 	"motorcycles": 697,
-  // // 	"bicycles": 111
-  // // }, {
-  // // 	"year": "2005",
-  // // 	"cars": 1213,
-  // // 	"motorcycles": 633,
-  // // 	"bicycles": 87
-  // // }, {
-  // // 	"year": "2006",
-  // // 	"cars": 1199,
-  // // 	"motorcycles": 621,
-  // // 	"bicycles": 79
-  // // }, {
-  // // 	"year": "2007",
-  // // 	"cars": 1110,
-  // // 	"motorcycles": 210,
-  // // 	"bicycles": 81
-  // // }, {
-  // // 	"year": "2008",
-  // // 	"cars": 1165,
-  // // 	"motorcycles": 232,
-  // // 	"bicycles": 75
-  // // }, {
-  // // 	"year": "2009",
-  // // 	"cars": 1145,
-  // // 	"motorcycles": 219,
-  // // 	"bicycles": 88
-  // // }, {
-  // // 	"year": "2010",
-  // // 	"cars": 1163,
-  // // 	"motorcycles": 201,
-  // // 	"bicycles": 82
-  // // }, {
-  // // 	"year": "2011",
-  // // 	"cars": 1180,
-  // // 	"motorcycles": 285,
-  // // 	"bicycles": 87
-  // // }, {
-  // // 	"year": "2012",
-  // // 	"cars": 1159,
-  // // 	"motorcycles": 277,
-  // // 	"bicycles": 71
-  // // }];
-
-  // // Create axes
-  // // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-  // var xAxis = chart.xAxes.push(am5xy.CategoryAxis.new(root, {
-  // 	maxDeviation: 0,
-  // 	baseInterval: {
-  // 	  timeUnit: "day",
-  // 	  count: 1
-  // 	},
-  // 	gridIntervals: [
-  // 	  { timeUnit: "day", count: 1 },
-  // 	  { timeUnit: "month", count: 1 }
-  // 	],
-  // 	renderer: am5xy.AxisRendererX.new(root, {
-  // 	  minGridDistance: 40
-  // 	}),
-  // 	tooltip: am5.Tooltip.new(root, {})
-  // }));
-
-  // xAxis.data.setAll(data);
-
-  // var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
-  // 	renderer: am5xy.AxisRendererY.new(root, {})
-  // }));
-
-  // // Add series
-  // // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-
-  // // function createSeries(name, field) {
-  // 	var series = chart.series.push(am5xy.LineSeries.new(root, {
-  // 	name: 'Values',
-  // 	xAxis: xAxis,
-  // 	yAxis: yAxis,
-  // 	stacked:true,
-  // 	valueYField: 'value',
-  // 	categoryXField: "date",
-  // 	curveFactory: d3.curveNatural,
-  // 	tooltip: am5.Tooltip.new(root, {
-  // 		pointerOrientation: "horizontal",
-  // 		labelText: "{valueY}"
-  // 		})
-  // 	}));
-
-  // 	series.fills.template.setAll({
-  // 	fillOpacity: 0.5,
-  // 	visible: true
-  // 	});
-
-  // 	series.data.setAll(data);
-  // 	series.appear(1000);
-  // // }
-
-  // // createSeries("Cars", "value");
-  // // createSeries("Motorcycles", "motorcycles");
-  // // createSeries("Bicycles", "bicycles");
-
-  // // Make stuff animate on load
-  // // https://www.amcharts.com/docs/v5/concepts/animations/
-  // chart.appear(1000, 100);
 });
 
 /***/ }),
