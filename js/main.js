@@ -34352,15 +34352,17 @@ if ($('#actions-by-category__funnel-chart').length) am5.ready(function () {
     valueField: "value",
     categoryField: "category"
   }));
+
+  // series.slices.template.setAll({
+  // 	cornerRadius: 1000,
+  // 	fillOpacity: 0.5,
+  // 	strokeWidth: 0,
+  // });
+
   series.links.template.setAll({
     height: 12,
     fillOpacity: 0
   });
-
-  // var footnote = chart.children.push(am5.Label.new(root, {
-  // 	text: "Copyright 2021 amCharts"
-  // }));
-
   series.labels.template.setAll({
     fontSize: 20,
     fill: am5.color(0xFFFFFF),
@@ -34676,7 +34678,7 @@ if ($('#client_portrait__column-one').length) am5.ready(function () {
     valueXField: "value",
     categoryYField: "product",
     tooltip: am5.Tooltip["new"](root, {
-      pointerOrientation: "left",
+      pointerOrientation: "vertical",
       labelText: "{valueX}"
     })
   }));
@@ -34685,7 +34687,8 @@ if ($('#client_portrait__column-one').length) am5.ready(function () {
   series.columns.template.setAll({
     cornerRadiusTR: 5,
     cornerRadiusBR: 5,
-    strokeOpacity: 0
+    strokeOpacity: 0,
+    tooltipText: "{valueX}"
   });
 
   // Make each column to be of a different color
@@ -34695,46 +34698,50 @@ if ($('#client_portrait__column-one').length) am5.ready(function () {
   series.columns.template.adapters.add("stroke", function (stroke, target) {
     return chart.get("colors").getIndex(series.columns.indexOf(target));
   });
-
-  // series.columns.template.adapters.add("fillGradient", am5.LinearGradient.new(root, {
-  // 	stops: [{
-  // 	  color: am5.color(0xffffff)
-  // 	}, {
-  // 	  color: am5.color(0x946b49)
-  // 	}],
-  // 	rotation: 0
-  // }));
+  series.columns.template.set("fillGradient", am5.LinearGradient["new"](root, {
+    stops: [{
+      opacity: 0
+    }, {
+      opacity: 1
+    }],
+    rotation: 0
+  }));
 
   // Set data
   var data = [{
     product: "Бады",
-    value: 2025
+    value: 1
   }, {
     product: "Снижение сахара",
-    value: 1882
+    value: 2
   }, {
     product: "Снеки",
-    value: 1809
+    value: 3
   }, {
     product: "Корма для животных",
-    value: 1322
+    value: 4
   }, {
     product: "Газированные напитки",
-    value: 1122
+    value: 5
   }, {
     product: "Энергетические напитки",
-    value: 1114
+    value: 6
   }, {
     product: "Безалкогольные напитки",
-    value: 984
+    value: 7
   }];
+  randomData(data);
+  function randomData(data) {
+    for (var i = 0; i < data.length; i++) {
+      data[i].value = Math.floor(Math.random() * 100) + 1;
+    }
+  }
   series.bullets.push(function () {
     return am5.Bullet["new"](root, {
-      locationX: 1,
+      locationX: 0,
       sprite: am5.Label["new"](root, {
         text: "{product}",
-        fill: root.interfaceColors.get("alternativeText"),
-        centerX: am5.p100,
+        fill: 0x000000,
         centerY: am5.p50,
         populateText: true
       })
@@ -34804,7 +34811,7 @@ if ($('#client_portrait__column-two').length) am5.ready(function () {
     valueXField: "value",
     categoryYField: "product",
     tooltip: am5.Tooltip["new"](root, {
-      pointerOrientation: "left",
+      pointerOrientation: "vertical",
       labelText: "{valueX}"
     })
   }));
@@ -34813,7 +34820,8 @@ if ($('#client_portrait__column-two').length) am5.ready(function () {
   series.columns.template.setAll({
     cornerRadiusTR: 5,
     cornerRadiusBR: 5,
-    strokeOpacity: 0
+    strokeOpacity: 0,
+    tooltipText: "{valueX}"
   });
 
   // Make each column to be of a different color
@@ -34823,6 +34831,14 @@ if ($('#client_portrait__column-two').length) am5.ready(function () {
   series.columns.template.adapters.add("stroke", function (stroke, target) {
     return chart.get("colors").getIndex(series.columns.indexOf(target));
   });
+  series.columns.template.set("fillGradient", am5.LinearGradient["new"](root, {
+    stops: [{
+      opacity: 0
+    }, {
+      opacity: 1
+    }],
+    rotation: 0
+  }));
 
   // Set data
   var data = [{
@@ -34847,13 +34863,18 @@ if ($('#client_portrait__column-two').length) am5.ready(function () {
     product: "Безалкогольные напитки",
     value: 984
   }];
+  randomData(data);
+  function randomData(data) {
+    for (var i = 0; i < data.length; i++) {
+      data[i].value = Math.floor(Math.random() * 100) + 1;
+    }
+  }
   series.bullets.push(function () {
     return am5.Bullet["new"](root, {
-      locationX: 1,
+      locationX: 0,
       sprite: am5.Label["new"](root, {
         text: "{product}",
-        fill: root.interfaceColors.get("alternativeText"),
-        centerX: am5.p100,
+        fill: 0x000000,
         centerY: am5.p50,
         populateText: true
       })
@@ -36582,6 +36603,24 @@ $('.btn-sample-vendor, .modal-sample-vendor .modal-box__close, .modal-sample-ven
   var $modal_box = $('.modal-sample-vendor');
   var $container = $modal_box.children('.modal-box__container');
   $container.children('.modal-request-list').toggleClass('active');
+  if ($(this).hasClass('modal-box__close') || $(this).hasClass('btn__close')) {
+    $container.children('.active').each(function () {
+      $(this).toggleClass('active');
+    });
+  }
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+
+//feedback-open
+
+$('.feedback-open, .modal-feedback .modal-box__close, .modal-feedback .btn__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-feedback');
+  var $container = $modal_box.children('.modal-box__container');
+  $container.children('.modal-request-first').toggleClass('active');
   if ($(this).hasClass('modal-box__close') || $(this).hasClass('btn__close')) {
     $container.children('.active').each(function () {
       $(this).toggleClass('active');
