@@ -36386,6 +36386,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/js/components/modal-advice.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/modal-advice.js ***!
+  \*******************************************/
+/***/ (function() {
+
+$('.advice-open, .modal-advice .modal-box__close, .modal-advice .btn-exit').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-advice');
+  var $container = $modal_box.children('.modal-box__container');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+
+/***/ }),
+
 /***/ "./src/js/components/modal-experts.js":
 /*!********************************************!*\
   !*** ./src/js/components/modal-experts.js ***!
@@ -36397,6 +36415,42 @@ $('.sidebar-experts__link, .modal-experts .modal-box__close').on('click', functi
   $('main').toggleClass('modal');
   $('html').toggleClass('modal');
   var $modal_box = $('.modal-experts');
+  var $container = $modal_box.children('.modal-box__container');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+
+/***/ }),
+
+/***/ "./src/js/components/modal-instruction.js":
+/*!************************************************!*\
+  !*** ./src/js/components/modal-instruction.js ***!
+  \************************************************/
+/***/ (function() {
+
+$('.instruction-open, .modal-instruction .modal-box__close, .modal-instruction .btn-exit').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-instruction');
+  var $container = $modal_box.children('.modal-box__container');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+
+/***/ }),
+
+/***/ "./src/js/components/modal-note.js":
+/*!*****************************************!*\
+  !*** ./src/js/components/modal-note.js ***!
+  \*****************************************/
+/***/ (function() {
+
+$('.note-open, .modal-note .modal-box__close, .modal-note .btn-exit').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-note');
   var $container = $modal_box.children('.modal-box__container');
   $modal_box.toggleClass('active');
   $container.slideToggle();
@@ -38356,6 +38410,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_client_portrait_donut_chart__WEBPACK_IMPORTED_MODULE_56___default = /*#__PURE__*/__webpack_require__.n(_components_client_portrait_donut_chart__WEBPACK_IMPORTED_MODULE_56__);
 /* harmony import */ var _components_client_portrait_column__WEBPACK_IMPORTED_MODULE_57__ = __webpack_require__(/*! ./components/client_portrait__column */ "./src/js/components/client_portrait__column.js");
 /* harmony import */ var _components_client_portrait_column__WEBPACK_IMPORTED_MODULE_57___default = /*#__PURE__*/__webpack_require__.n(_components_client_portrait_column__WEBPACK_IMPORTED_MODULE_57__);
+/* harmony import */ var _components_modal_instruction__WEBPACK_IMPORTED_MODULE_58__ = __webpack_require__(/*! ./components/modal-instruction */ "./src/js/components/modal-instruction.js");
+/* harmony import */ var _components_modal_instruction__WEBPACK_IMPORTED_MODULE_58___default = /*#__PURE__*/__webpack_require__.n(_components_modal_instruction__WEBPACK_IMPORTED_MODULE_58__);
+/* harmony import */ var _components_modal_note__WEBPACK_IMPORTED_MODULE_59__ = __webpack_require__(/*! ./components/modal-note */ "./src/js/components/modal-note.js");
+/* harmony import */ var _components_modal_note__WEBPACK_IMPORTED_MODULE_59___default = /*#__PURE__*/__webpack_require__.n(_components_modal_note__WEBPACK_IMPORTED_MODULE_59__);
+/* harmony import */ var _components_modal_advice__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./components/modal-advice */ "./src/js/components/modal-advice.js");
+/* harmony import */ var _components_modal_advice__WEBPACK_IMPORTED_MODULE_60___default = /*#__PURE__*/__webpack_require__.n(_components_modal_advice__WEBPACK_IMPORTED_MODULE_60__);
+
+
+
 
 
 

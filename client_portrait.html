@@ -10,7 +10,7 @@
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:title" content="Ingredients | Портрет клиента">
 		<title>Ingredients | Портрет клиента</title>
-		<link rel="stylesheet" href="./css/main.css?v=1686324205184">
+		<link rel="stylesheet" href="./css/main.css?v=1686566353983">
 	</head>
 	<body>
 		<div class="header-blur"></div>
@@ -405,6 +405,57 @@
 				<div class="container back">
 					<div class="underline">Вернуться назад</div>
 				</div>
+				<div class="modal-box modal-instruction">
+					<div class="modal-box__container">
+						<button class="modal-box__close" type="button"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1L16 16M1 16L16 1" stroke="#BBCBD0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+						</button>
+						<div class="section__title">Инструкция</div>
+						<div class="modal__text">
+							<div class="modal__text-title">Покупатель</div>
+							<div class="modal__text-subtitle">пользователь сайта, который заинтересован в категории вашего продукта или аналогах</div>
+						</div>
+						<div class="modal__text">
+							<div class="modal__text-title">Marketing Leads (MQL)</div>
+							<div class="modal__text-subtitle">потенциальные клиенты, которые еще не интересуются покупкой, но уже просматривают ваш онлайн профиль в магазине, скачивает документы, добавляют к сравнение с конкурентами</div>
+						</div>
+						<div class="modal__text">
+							<div class="modal__text-title">Sales leads (SQL)</div>
+							<div class="modal__text-subtitle">потенциальные клиенты, которые уже интересуются покупкой, запрашивают цену, образцы для тестов, интересуются условиями поставки.</div>
+						</div>
+						<div class="btn btn-exit">Понятно</div>
+					</div>
+				</div>
+				<div class="modal-box modal-note">
+					<div class="modal-box__container">
+						<button class="modal-box__close" type="button"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1L16 16M1 16L16 1" stroke="#BBCBD0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+						</button>
+						<div class="section__title">Заметка о клиенте</div>
+						<form class="form form_validation">
+							<label class="form__item">
+								<textarea class="textarea" maxlength="5000"></textarea><span class="placeholder">Введите заметку о клиенте</span><span class="count-text"><span>0</span> /5000</span>
+							</label>
+							<div class="form__bottom right">
+								<button class="btn btn-exit btn-right" type="submit">Добавить</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-box modal-advice">
+					<div class="modal-box__container">
+						<button class="modal-box__close" type="button"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1L16 16M1 16L16 1" stroke="#BBCBD0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+						</button>
+						<div class="section__title">Совет по статистике</div>
+						<div class="section__subtitle">Для корректной работы статистики задайте нужный временной промежуток и интересующие вас категории.</div>
+						<div class="section__subtitle">Данные статистики обновляются в режиме реального времени</div>
+						<div class="btn btn-exit">Понятно</div>
+					</div>
+				</div>
 				<div class="container">
 					<div class="sidebar other_client">
 						<div class="other_client-title">Другие клиенты:</div>
@@ -557,7 +608,7 @@
 							<div class="client_portrait-head__right">
 								<div class="client_portrait-head__info-box gradient_border">
 									<div class="contact__us-circle"></div>
-									<div class="info-box__item">
+									<div class="info-box__item instruction-open">
 										<button class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M5 2H19C20.1046 2 21 2.89543 21 4V19.1543C21 20.5396 19.6259 21.5053 18.3226 21.0361L16.7608 20.4739C16.2728 20.2982 15.7356 20.319 15.2626 20.5318L12.8207 21.6307C12.2988 21.8655 11.7012 21.8655 11.1793 21.6307L8.73737 20.5318C8.26439 20.319 7.72721 20.2982 7.2392 20.4739L5.67744 21.0361C4.37412 21.5053 3 20.5396 3 19.1543V4C3 2.89543 3.89543 2 5 2ZM8 6.25C7.58579 6.25 7.25 6.58579 7.25 7C7.25 7.41421 7.58579 7.75 8 7.75H12C12.4142 7.75 12.75 7.41421 12.75 7C12.75 6.58579 12.4142 6.25 12 6.25H8ZM8 10.25C7.58579 10.25 7.25 10.5858 7.25 11C7.25 11.4142 7.58579 11.75 8 11.75H16C16.4142 11.75 16.75 11.4142 16.75 11C16.75 10.5858 16.4142 10.25 16 10.25H8ZM8 14.25C7.58579 14.25 7.25 14.5858 7.25 15C7.25 15.4142 7.58579 15.75 8 15.75H16C16.4142 15.75 16.75 15.4142 16.75 15C16.75 14.5858 16.4142 14.25 16 14.25H8Z" fill="#7C9DA8"/>
 </svg>
@@ -565,7 +616,7 @@
 										</button>
 										<div class="filter__text">Инструкция</div>
 									</div>
-									<div class="info-box__item">
+									<div class="info-box__item note-open">
 										<button class="icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.419 3.67708C16.3218 2.77431 17.7855 2.77431 18.6883 3.67708L20.3229 5.31171C21.2257 6.21449 21.2257 7.67818 20.3229 8.58096L18.8736 10.0303C18.7598 9.97394 18.6401 9.91302 18.516 9.84767C17.6806 9.40786 16.6892 8.79057 15.9493 8.05069C15.2095 7.31082 14.5922 6.31945 14.1524 5.48403C14.087 5.35989 14.0261 5.24018 13.9697 5.12639L15.419 3.67708ZM14.8887 9.11135C15.7642 9.98687 16.8777 10.6759 17.7595 11.1444L12.06 16.8438C11.7064 17.1975 11.2475 17.4269 10.7523 17.4977L7.31963 17.9881C6.5568 18.097 5.90295 17.4432 6.01193 16.6804L6.50231 13.2477C6.57305 12.7525 6.80248 12.2936 7.15616 11.94L12.8556 6.24053C13.3241 7.12234 14.0131 8.23582 14.8887 9.11135ZM3.75 19.5C3.33579 19.5 3 19.8358 3 20.25C3 20.6642 3.33579 21 3.75 21H20.25C20.6642 21 21 20.6642 21 20.25C21 19.8358 20.6642 19.5 20.25 19.5H3.75Z" fill="#7C9DA8"/>
 </svg>
@@ -576,8 +627,55 @@
 								</div>
 							</div>
 						</div>
+						<div class="other_client mobile">
+							<div class="other_client-title">Другие клиенты:</div>
+							<div class="swiper_shadow">
+								<div class="swiper_grid_container">
+									<div class="swiper swiper_review">
+										<div class="swiper-wrapper">
+											<div class="swiper-slide">
+												<div class="slide">
+													<div class="other_client-item gradient_border">
+														<div class="other_client-item-img"><img src="images/vendors/vendor2.jpg" alt=""></div>
+														<div class="text-box">
+															<div class="other_client-item-title">ООО «Милорада»</div>
+															<div class="other_client-item-name">Викторов Александр</div>
+															<div class="other_client-item-status">Статус: Новый</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="slide">
+													<div class="other_client-item gradient_border">
+														<div class="other_client-item-img"><img src="images/vendors/vendor2.jpg" alt=""></div>
+														<div class="text-box">
+															<div class="other_client-item-title">ООО «Милорада»</div>
+															<div class="other_client-item-name">Викторов Александр</div>
+															<div class="other_client-item-status">Статус: Новый</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="swiper-slide">
+												<div class="slide">
+													<div class="other_client-item gradient_border">
+														<div class="other_client-item-img"><img src="images/vendors/vendor2.jpg" alt=""></div>
+														<div class="text-box">
+															<div class="other_client-item-title">ООО «Милорада»</div>
+															<div class="other_client-item-name">Викторов Александр</div>
+															<div class="other_client-item-status">Статус: Новый</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="section__title">Активность на портале</div>
-						<div class="number-of-actions">
+						<div class="number-of-actions with-scroll">
 							<div class="statistics-box gradient_border">
 								<div class="number-of-actions__head">
 									<div class="section__title">Общее количество действий</div>
@@ -601,7 +699,7 @@
 											<option>За последние 3 месяца 2</option>
 											<option>За последние 3 месяца 3</option>
 										</select>
-										<div class="icon gradient_border blank"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<div class="icon gradient_border blank advice-open"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M16 18.458V18.7497C16 21.0509 14.2091 22.9163 12 22.9163C9.79086 22.9163 8 21.0509 8 18.7497V18.458H11.7893C11.8561 18.4783 11.9268 18.4893 12 18.4893C12.0732 18.4893 12.1439 18.4783 12.2107 18.458H16ZM16 16.958V16.4463C16 15.7652 16.3334 15.1417 16.8085 14.6738C18.158 13.3446 19 11.462 19 9.37467C19 5.3476 15.866 2.08301 12 2.08301C8.13401 2.08301 5 5.3476 5 9.37467C5 11.462 5.84201 13.3446 7.19153 14.6738C7.66659 15.1417 8 15.7652 8 16.4463V16.958H11.25V11.7816L9.46967 9.9271C9.17678 9.622 9.17678 9.12734 9.46967 8.82225C9.76256 8.51715 10.2374 8.51715 10.5303 8.82225L12 10.3532L13.4697 8.82225C13.7626 8.51715 14.2374 8.51715 14.5303 8.82225C14.8232 9.12734 14.8232 9.622 14.5303 9.9271L12.75 11.7816V16.958H16Z" fill="#7C9DA8"/>
 </svg>
 
@@ -615,7 +713,7 @@
 							<div class="statistics-box gradient_border">
 								<div class="number-of-actions__head">
 									<div class="section__title">Действия по категориям за январь 2022</div>
-									<div class="icon gradient_border blank"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<div class="icon gradient_border blank advice-open"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M16 18.458V18.7497C16 21.0509 14.2091 22.9163 12 22.9163C9.79086 22.9163 8 21.0509 8 18.7497V18.458H11.7893C11.8561 18.4783 11.9268 18.4893 12 18.4893C12.0732 18.4893 12.1439 18.4783 12.2107 18.458H16ZM16 16.958V16.4463C16 15.7652 16.3334 15.1417 16.8085 14.6738C18.158 13.3446 19 11.462 19 9.37467C19 5.3476 15.866 2.08301 12 2.08301C8.13401 2.08301 5 5.3476 5 9.37467C5 11.462 5.84201 13.3446 7.19153 14.6738C7.66659 15.1417 8 15.7652 8 16.4463V16.958H11.25V11.7816L9.46967 9.9271C9.17678 9.622 9.17678 9.12734 9.46967 8.82225C9.76256 8.51715 10.2374 8.51715 10.5303 8.82225L12 10.3532L13.4697 8.82225C13.7626 8.51715 14.2374 8.51715 14.5303 8.82225C14.8232 9.12734 14.8232 9.622 14.5303 9.9271L12.75 11.7816V16.958H16Z" fill="#7C9DA8"/>
 </svg>
 
@@ -670,7 +768,7 @@
 										<option>Фильтры 3</option>
 									</select>
 								</div>
-								<div class="icon gradient_border blank"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<div class="icon gradient_border blank advice-open"><svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M16 18.458V18.7497C16 21.0509 14.2091 22.9163 12 22.9163C9.79086 22.9163 8 21.0509 8 18.7497V18.458H11.7893C11.8561 18.4783 11.9268 18.4893 12 18.4893C12.0732 18.4893 12.1439 18.4783 12.2107 18.458H16ZM16 16.958V16.4463C16 15.7652 16.3334 15.1417 16.8085 14.6738C18.158 13.3446 19 11.462 19 9.37467C19 5.3476 15.866 2.08301 12 2.08301C8.13401 2.08301 5 5.3476 5 9.37467C5 11.462 5.84201 13.3446 7.19153 14.6738C7.66659 15.1417 8 15.7652 8 16.4463V16.958H11.25V11.7816L9.46967 9.9271C9.17678 9.622 9.17678 9.12734 9.46967 8.82225C9.76256 8.51715 10.2374 8.51715 10.5303 8.82225L12 10.3532L13.4697 8.82225C13.7626 8.51715 14.2374 8.51715 14.5303 8.82225C14.8232 9.12734 14.8232 9.622 14.5303 9.9271L12.75 11.7816V16.958H16Z" fill="#7C9DA8"/>
 </svg>
 
@@ -931,7 +1029,7 @@
 			}
 		</script>
 		<script src="https://cdn.jsdelivr.net/npm/d3-shape@3"></script>
-		<script src="./js/vendor.js?v=1686324205184"></script>
-		<script src="./js/main.js?v=1686324205184"></script>
+		<script src="./js/vendor.js?v=1686566353983"></script>
+		<script src="./js/main.js?v=1686566353983"></script>
 	</body>
 </html>
