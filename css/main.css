@@ -15090,6 +15090,13 @@ button {
   color: #686666;
   margin-left: auto; }
 
+.client_portrait .with-note {
+  height: 100%; }
+  .client_portrait .with-note .info-box__item:last-child {
+    font-size: 16rem;
+    line-height: 150%;
+    color: #999999; }
+
 @media (max-width: 48em) {
   .client_portrait .container.back {
     margin-bottom: 24rem; }
