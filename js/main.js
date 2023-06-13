@@ -34363,12 +34363,21 @@ if ($('#actions-by-category__funnel-chart').length) am5.ready(function () {
     height: 12,
     fillOpacity: 0
   });
-  series.labels.template.setAll({
-    fontSize: 20,
-    fill: am5.color(0xFFFFFF),
-    textAlign: "center",
-    text: "[fontFamily: Gilroy]{category} \n{value}"
-  });
+  if (window.outerWidth <= 768) {
+    series.labels.template.setAll({
+      fontSize: '12rem',
+      fill: am5.color(0xFFFFFF),
+      textAlign: "center",
+      text: "[fontFamily: Gilroy]{category} \n{value}"
+    });
+  } else {
+    series.labels.template.setAll({
+      fontSize: '16rem',
+      fill: am5.color(0xFFFFFF),
+      textAlign: "center",
+      text: "[fontFamily: Gilroy]{category} \n{value}"
+    });
+  }
   series.get("colors").set("colors", [am5.color(0x9CEC8A), am5.color(0x4DE3B6), am5.color(0x1BBABA), am5.color(0x72BBFF), am5.color(0x4C70F1), am5.color(0x745BD7)]);
 
   // Set data
@@ -34433,7 +34442,8 @@ if ($('#actions-by-category__donut-chart').length) am5.ready(function () {
     name: "Series",
     valueField: "value",
     categoryField: "category",
-    alignLabels: false
+    alignLabels: false,
+    legendValueText: "{valuePercentTotal.formatNumber('0')}%[/]"
   }));
 
   // Set data
@@ -34940,7 +34950,8 @@ if ($('#client_portrait__donut-chart-one').length) am5.ready(function () {
     name: "Series",
     valueField: "value",
     categoryField: "category",
-    alignLabels: false
+    alignLabels: false,
+    legendValueText: "{valuePercentTotal.formatNumber('0')}%[/]"
   }));
 
   // Set data
@@ -34972,7 +34983,7 @@ if ($('#client_portrait__donut-chart-one').length) am5.ready(function () {
   // series.labels.template.set("visible", false);
   series.labels.template.setAll({
     fill: am5.color(0xffffff),
-    text: "{valuePercentTotal.formatNumber('0.00')}%[/]",
+    text: "{valuePercentTotal.formatNumber('0')}%[/]",
     textType: "circular",
     radius: 10,
     inside: true
@@ -34995,7 +35006,10 @@ if ($('#client_portrait__donut-chart-one').length) am5.ready(function () {
     cornerRadiusTL: 10,
     cornerRadiusTR: 10,
     cornerRadiusBL: 10,
-    cornerRadiusBR: 10
+    cornerRadiusBR: 10,
+    centerY: am5.percent(-25),
+    maxWidth: 10,
+    maxHeight: 10
   });
   // set value labels align to right
   legend.valueLabels.template.setAll({
@@ -35045,7 +35059,8 @@ if ($('#client_portrait__donut-chart-two').length) am5.ready(function () {
     name: "Series",
     valueField: "value",
     categoryField: "category",
-    alignLabels: false
+    alignLabels: false,
+    legendValueText: "{valuePercentTotal.formatNumber('0')}%[/]"
   }));
 
   // Set data
@@ -35077,7 +35092,7 @@ if ($('#client_portrait__donut-chart-two').length) am5.ready(function () {
   // series.labels.template.set("visible", false);
   series.labels.template.setAll({
     fill: am5.color(0xffffff),
-    text: "{valuePercentTotal.formatNumber('0.00')}%[/]",
+    text: "{valuePercentTotal.formatNumber('0')}%[/]",
     textType: "circular",
     radius: 10,
     inside: true
@@ -35100,7 +35115,10 @@ if ($('#client_portrait__donut-chart-two').length) am5.ready(function () {
     cornerRadiusTL: 10,
     cornerRadiusTR: 10,
     cornerRadiusBL: 10,
-    cornerRadiusBR: 10
+    cornerRadiusBR: 10,
+    centerY: am5.percent(-25),
+    maxWidth: 10,
+    maxHeight: 10
   });
   // set value labels align to right
   legend.valueLabels.template.setAll({
@@ -36429,6 +36447,24 @@ $('.advice-open, .modal-advice .modal-box__close, .modal-advice .btn-exit').on('
   $('main').toggleClass('modal');
   $('html').toggleClass('modal');
   var $modal_box = $('.modal-advice');
+  var $container = $modal_box.children('.modal-box__container');
+  $modal_box.toggleClass('active');
+  $container.slideToggle();
+});
+
+/***/ }),
+
+/***/ "./src/js/components/modal-contacts.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/modal-contacts.js ***!
+  \*********************************************/
+/***/ (function() {
+
+$('.btn-contacts, .modal-contacts .modal-box__close, .modal-contacts .btn__close').on('click', function (evt) {
+  evt.preventDefault();
+  $('main').toggleClass('modal');
+  $('html').toggleClass('modal');
+  var $modal_box = $('.modal-contacts');
   var $container = $modal_box.children('.modal-box__container');
   $modal_box.toggleClass('active');
   $container.slideToggle();
@@ -38491,6 +38527,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_modal_note__WEBPACK_IMPORTED_MODULE_59___default = /*#__PURE__*/__webpack_require__.n(_components_modal_note__WEBPACK_IMPORTED_MODULE_59__);
 /* harmony import */ var _components_modal_advice__WEBPACK_IMPORTED_MODULE_60__ = __webpack_require__(/*! ./components/modal-advice */ "./src/js/components/modal-advice.js");
 /* harmony import */ var _components_modal_advice__WEBPACK_IMPORTED_MODULE_60___default = /*#__PURE__*/__webpack_require__.n(_components_modal_advice__WEBPACK_IMPORTED_MODULE_60__);
+/* harmony import */ var _components_modal_contacts__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./components/modal-contacts */ "./src/js/components/modal-contacts.js");
+/* harmony import */ var _components_modal_contacts__WEBPACK_IMPORTED_MODULE_61___default = /*#__PURE__*/__webpack_require__.n(_components_modal_contacts__WEBPACK_IMPORTED_MODULE_61__);
+
 
 
 
