@@ -37970,6 +37970,29 @@ var swiper_solutions = new Swiper('.swiper_solutions', {
 
 /***/ }),
 
+/***/ "./src/js/components/swiper_trust.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/swiper_trust.js ***!
+  \*******************************************/
+/***/ (function() {
+
+var swiper_trust = new Swiper('.swiper_trust', {
+  modules: [Navigation, Pagination, Grid],
+  slidesPerView: 1,
+  slidesPerGroup: 1,
+  speed: 1000,
+  pagination: {
+    el: ".swiper-pagination",
+    type: "fraction"
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev"
+  }
+});
+
+/***/ }),
+
 /***/ "./src/js/components/swiper_vendors.js":
 /*!*********************************************!*\
   !*** ./src/js/components/swiper_vendors.js ***!
@@ -38529,6 +38552,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_modal_advice__WEBPACK_IMPORTED_MODULE_60___default = /*#__PURE__*/__webpack_require__.n(_components_modal_advice__WEBPACK_IMPORTED_MODULE_60__);
 /* harmony import */ var _components_modal_contacts__WEBPACK_IMPORTED_MODULE_61__ = __webpack_require__(/*! ./components/modal-contacts */ "./src/js/components/modal-contacts.js");
 /* harmony import */ var _components_modal_contacts__WEBPACK_IMPORTED_MODULE_61___default = /*#__PURE__*/__webpack_require__.n(_components_modal_contacts__WEBPACK_IMPORTED_MODULE_61__);
+/* harmony import */ var _components_swiper_trust__WEBPACK_IMPORTED_MODULE_62__ = __webpack_require__(/*! ./components/swiper_trust */ "./src/js/components/swiper_trust.js");
+/* harmony import */ var _components_swiper_trust__WEBPACK_IMPORTED_MODULE_62___default = /*#__PURE__*/__webpack_require__.n(_components_swiper_trust__WEBPACK_IMPORTED_MODULE_62__);
+
 
 
 
