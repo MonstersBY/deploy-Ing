@@ -6509,6 +6509,12 @@ button {
   -webkit-transition: 300ms;
   -o-transition: 300ms;
   transition: 300ms; }
+  .vendor__like {
+    position: absolute;
+    top: 10rem;
+    right: 10rem;
+    width: 24rem;
+    height: 24rem; }
   .vendor__title {
     margin-bottom: 4rem;
     font-size: 32rem;
@@ -9453,6 +9459,30 @@ button {
 
 .swiper_experts {
   height: 545rem; }
+  .swiper_experts .swiper-wrapper {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+    -ms-grid-rows: (auto)[4];
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column; }
+  .swiper_experts .swiper-wrapper > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1; }
+  .swiper_experts .swiper-wrapper > *:nth-child(2) {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1; }
+  .swiper_experts .swiper-wrapper > *:nth-child(3) {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1; }
+  .swiper_experts .swiper-wrapper > *:nth-child(4) {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1; }
+    .swiper_experts .swiper-wrapper > .swiper-slide {
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content; }
   .swiper_experts .expert {
     font-size: 20rem;
     line-height: 150%;
@@ -9506,6 +9536,24 @@ button {
         height: 20rem; }
   .swiper_experts {
     height: 670rem; }
+    .swiper_experts .swiper-wrapper {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+      -ms-grid-rows: (auto)[2];
+      grid-template-rows: repeat(2, auto);
+      grid-auto-flow: column; }
+    .swiper_experts .swiper-wrapper > *:nth-child(1) {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1; }
+    .swiper_experts .swiper-wrapper > *:nth-child(2) {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1; }
+      .swiper_experts .swiper-wrapper > .swiper-slide {
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
+        height: fit-content; }
     .swiper_experts .expert {
       font-size: 13rem;
       line-height: 150%;
