@@ -6589,6 +6589,10 @@ button {
   position: relative; }
 
 .vendor__link {
+  display: none; }
+
+.section_displaying_list .vendor__link {
+  display: block;
   position: absolute;
   left: 550rem;
   bottom: 42rem; }

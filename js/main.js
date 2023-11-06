@@ -35382,6 +35382,11 @@ $('.product_validation').on('submit', function (evt) {
     }
   });
 });
+$('.nice-select').on('click', function (evt) {
+  $(this).closest('.gradient_border');
+  console.log(123);
+  console.log($(this).closest('.gradient_border'));
+});
 
 /***/ }),
 
@@ -36263,6 +36268,38 @@ __webpack_require__.r(__webpack_exports__);
     return this;
   };
 })(jQuery);
+function addColorSelect(current, data) {
+  switch (data) {
+    case 'status_new':
+      $(current).css('color', '#E0BC44');
+      break;
+    case 'status_warning':
+      $(current).css('color', '#E33046');
+      break;
+    default:
+      $(current).css('color', '#7C9DA8');
+  }
+}
+setTimeout(function () {
+  $('.nice-select').each(function (index) {
+    if ($(this).closest('.gradient_border').length) {
+      $(this).on('click', function (evt) {
+        if (!$(this).hasClass('open')) {
+          $(this).closest('.gradient_border').css("overflow", 'unset');
+          $(this).closest('.swiper-slide').css("z-index", '1');
+        } else {
+          $(this).closest('.gradient_border').css("overflow", 'hidden');
+          $(this).closest('.swiper-slide').css("z-index", '0');
+        }
+      });
+      addColorSelect($(this).find('.current'), $(this).find('.selected').data("value"));
+      $(this).find('li').on('click', function (evt) {
+        var current = $(this).closest('.nice-select').find('.current');
+        addColorSelect(current, $(this).data("value"));
+      });
+    }
+  });
+}, 100);
 
 /***/ }),
 
