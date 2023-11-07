@@ -11394,7 +11394,17 @@ button {
   .product_comparison__bottom-text {
     padding-top: 52rem;
     margin-bottom: 24rem;
-    border-top: 1rem solid rgba(187, 203, 208, 0.6); }
+    border-top: 1rem solid rgba(187, 203, 208, 0.6);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 4rem; }
+    .product_comparison__bottom-text span {
+      color: #999; }
   .product_comparison__bottom-text:first-child {
     border-top: unset; }
 
