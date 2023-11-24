@@ -14244,7 +14244,10 @@ button {
   width: 600rem;
   background: #EFF3F6;
   padding: 25rem;
-  cursor: default; }
+  cursor: default;
+  top: 96rem;
+  -webkit-box-shadow: 10px 5px 5px #42424273;
+          box-shadow: 10px 5px 5px #42424273; }
 
 .more_status_info.active {
   display: block; }
@@ -14282,7 +14285,10 @@ button {
 @media (max-width: 48em) {
   .more_status_info {
     width: 335rem;
-    padding: 10rem; }
+    padding: 10rem;
+    top: 0;
+    -webkit-box-shadow: unset;
+            box-shadow: unset; }
   .more_status_info--list {
     display: -webkit-box;
     display: -ms-flexbox;
