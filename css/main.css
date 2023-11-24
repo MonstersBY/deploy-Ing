@@ -5540,9 +5540,9 @@ button {
     cursor: initial; }
 
 .nice-select .nice-select-search-box {
-  margin-top: 16rem;
-  margin-left: 16rem;
-  width: 303rem;
+  padding-left: 1.8rem;
+  padding-right: 2.9rem;
+  width: 100%;
   display: none;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -5553,18 +5553,15 @@ button {
   background: #EFF3F6;
   opacity: 0;
   pointer-events: none;
-  border-radius: 5rem;
-  -webkit-box-shadow: 0 0 0 1rem rgba(68, 88, 112, 0.11);
-          box-shadow: 0 0 0 1rem rgba(68, 88, 112, 0.11);
-  -webkit-transform-origin: 50% 0;
-  -ms-transform-origin: 50% 0;
-  transform-origin: 50% 0;
   -webkit-transform: scale(0.75) translateY(-21px);
   -ms-transform: scale(0.75) translateY(-21px);
   transform: scale(0.75) translateY(-21px);
   -webkit-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
   -o-transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out;
   transition: all 0.2s cubic-bezier(0.5, 0, 0, 1.25), opacity 0.15s ease-out; }
+
+.nice-select .nice-select-search-box input {
+  width: 100%; }
 
 .nice-select.open .nice-select-search-box {
   opacity: 1;
@@ -14240,6 +14237,69 @@ button {
       width: 100%;
       margin: 0;
       margin-left: auto; } }
+
+.more_status_info {
+  display: none;
+  position: absolute;
+  width: 600rem;
+  background: #EFF3F6;
+  padding: 25rem;
+  cursor: default; }
+
+.more_status_info.active {
+  display: block; }
+
+.more_status_info--list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 20rem; }
+
+.more_status_info--item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 5rem; }
+
+.more_status_info--item_name {
+  font-size: 20rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; }
+
+.more_status_info--item_data {
+  font-size: 16rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; }
+
+@media (max-width: 48em) {
+  .more_status_info {
+    width: 335rem;
+    padding: 10rem; }
+  .more_status_info--list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    gap: 10rem;
+    max-height: 200rem;
+    overflow: auto; }
+  .more_status_info--item_name {
+    font-size: 13rem; }
+  .more_status_info--item_data {
+    font-size: 13rem; } }
 
 .number-of-actions {
   position: relative;

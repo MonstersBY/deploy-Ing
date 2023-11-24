@@ -36283,19 +36283,28 @@ function addColorSelect(current, data) {
 setTimeout(function () {
   $('.nice-select').each(function (index) {
     if ($(this).closest('.gradient_border').length) {
+      var selectN = this;
       $(this).on('click', function (evt) {
         if (!$(this).hasClass('open')) {
           $(this).closest('.gradient_border').css("overflow", 'unset');
           $(this).closest('.swiper-slide').css("z-index", '1');
+          $(this).closest('.swiper-slide').css("z-index", '1');
+          $(this).closest('.swiper-slide').find('.more_status_info').addClass('active');
         } else {
           $(this).closest('.gradient_border').css("overflow", 'hidden');
           $(this).closest('.swiper-slide').css("z-index", '0');
+          $(this).closest('.swiper-slide').find('.more_status_info').removeClass('active');
         }
       });
       addColorSelect($(this).find('.current'), $(this).find('.selected').data("value"));
       $(this).find('li').on('click', function (evt) {
         var current = $(this).closest('.nice-select').find('.current');
         addColorSelect(current, $(this).data("value"));
+      });
+      $(document).on('click', function (e) {
+        if ($(e.target).closest(".nice-select").length === 0) {
+          $(selectN).closest('.swiper-slide').find('.more_status_info').removeClass('active');
+        }
       });
     }
   });
