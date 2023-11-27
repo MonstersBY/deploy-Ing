@@ -35387,6 +35387,13 @@ $('.nice-select').on('click', function (evt) {
   console.log(123);
   console.log($(this).closest('.gradient_border'));
 });
+$('.form__showpassword input').on('change', function (evt) {
+  if ($(this).is(':checked')) {
+    $(this).closest('.form__item').find('input[type=password]')[0].type = 'text';
+  } else {
+    $(this).closest('.form__item').find('input[type=text]')[0].type = 'password';
+  }
+});
 
 /***/ }),
 
@@ -37691,6 +37698,7 @@ var swiper_news = new Swiper('.swiper_news', {
   modules: [Navigation, Pagination],
   slidesPerView: 1,
   speed: 1000,
+  loop: true,
   spaceBetween: SLIDES_GAP / CONTAINER_WIDTH * 200 + '%',
   pagination: {
     el: ".swiper-pagination",
