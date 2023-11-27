@@ -10202,11 +10202,36 @@ button {
   .provider_orders .tbody .read_more::before {
     position: absolute;
     content: '';
-    width: 100%;
+    width: 0%;
     height: 1px;
     background-color: #181818;
     bottom: 0;
     left: 0; }
+  .provider_orders .tbody .read_more.active::after {
+    -webkit-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+            transform: rotate(-135deg); }
+  .provider_orders .tbody .read_more::after {
+    border-bottom: 2rem solid #201702;
+    border-right: 2rem solid #201702;
+    content: '';
+    display: block;
+    height: 10rem;
+    margin-top: -7rem;
+    pointer-events: none;
+    position: absolute;
+    right: 7rem;
+    top: 50%;
+    -webkit-transform-origin: 66% 66%;
+        -ms-transform-origin: 66% 66%;
+            transform-origin: 66% 66%;
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transition: all 0.15s ease-in-out;
+    -o-transition: all 0.15s ease-in-out;
+    transition: all 0.15s ease-in-out;
+    width: 10rem; }
 
 .provider_orders .table .date, .provider_orders .thead .date, .provider_orders .tbody .date {
   width: 130rem; }
@@ -14284,7 +14309,7 @@ button {
 .more_status_info {
   display: none;
   position: absolute;
-  width: 600rem;
+  width: 95%;
   background: #EFF3F6;
   padding: 25rem;
   cursor: default;
